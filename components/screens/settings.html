@@ -1,0 +1,105 @@
+<section style="margin-top: 5%;">
+    <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 15%;"><img src="img/logo.png"
+            alt=""></div>
+    <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 2%;">
+        <h1 lang-value="selectLang">Select your language</h1>
+    </div>
+    
+    <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 1%;">
+        <button id="00010000" name="englishButton" class="subButton" value="en" onkeypress="myZeft(this.value)">
+            <p id="languageButtons" style="font-weight: 300w !important;">English</p>
+        </button>
+    </div>
+    <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 1%;">
+        <button id="00010001" class="subButton" value="ar" onkeypress="myZeft(this.value)">
+            <p id="languageButtons">العربية</p>
+        </button>
+    </div>
+    
+
+
+
+
+    <style>
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: red;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: red;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: red;
+        }
+
+        .subButton {
+            width: 35%;
+            height: 80px;
+            background-color: #ffffff40;
+            border-style: groove;
+            border-radius: 8px;
+        }
+
+        .subButton:focus {
+            /* background-color: #f15c1769 !important; */
+            border: 2px solid #f15c17;
+            background-color: #f15c173a;
+            color: #f15c17 !important;
+            width: 37%;
+            outline-style: none;
+
+        }
+    </style>
+
+    <style>
+        .card:focus {
+            background-color: yellow;
+            border: 10px solid white;
+            outline-style: none;
+        }
+
+        .item:focus {
+            background-color: yellow;
+            border: 10px solid white;
+            outline-style: none;
+        }
+
+        .signOutButton:focus {
+            border: 10px solid #f97c3e;
+            outline-style: none;
+        }
+    </style>
+
+
+    <script>
+
+        var langValue = "en";
+
+        function myZeft(value) {
+            langValue = value;
+            sessionStorage.setItem("locale", langValue);
+                        var myLanguage = sessionStorage.getItem("locale");
+            if(!myLanguage){
+                myLanguage = 'en';
+            }
+            //alert(myLanguage);
+            location.reload();
+            return false;
+
+        }
+
+        require(['client/settings', 'js/shared/language.js'], function (settings, language) {
+
+
+
+
+            // settings.languageChange();
+        });
+
+    </script>

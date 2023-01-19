@@ -1,0 +1,214 @@
+
+<section style="margin-left: 10%;">
+    <!-- Top Row -->
+    <div style="margin-top: 5%;" class="container-fluid">
+        <div class="row">
+          <!-- Left Section -->
+          <div style="background-color: black;" class="col-5">
+              <div  class="container">
+                  <h2 lang-value="intro" id="textIntro">Smashi is a business news<br>network streaming live from the <br> heart of the Arab world</h2>    
+              </div>
+              <div id="coloredSeparatorContainer" class="container">
+                    <div id="coloredSeparator">
+                    </div>
+              </div>
+              <div id="introSubText" class="container">
+                <h1 lang-value="forthe" style="display: inline-block;">For the  </h1><h1 lang-value="driven" id="coloredheading"> Driven,</h1>
+                <br>
+                <h1 lang-value="the" style="display: inline-block;">The  </h1><h1 lang-value="dreamers" id="coloredheading"> Dreamers, </h1><h1 style="display: inline-block;" lang-value="the">The  </h1><h1 id="coloredheading" lang-value="doers"> Doers </h1>
+              </div>
+              
+              <div id="banner" class="container">
+                <p>
+                    <div id="bannerBg" class="row">
+                    <div id="liveicon" class="col-4">
+                        <p style="text-align: center;"><img src="img/24h.png" alt=""></p>
+                        <p lang-value="24hr" style="text-align: center;">24hr Live<br>Streaming</p>
+                    </div>
+                    <div id="downloadVideos" class="col-4">
+                        <p style="text-align: center;"><img src="img/downloadvideo.png" alt=""></p>
+                        <p lang-value="downloadVideos" style="text-align: center;">Download<br>Videos</p>
+                    </div>
+                    <div id="cancelAnytime" class="col-4">
+                        <p style="text-align: center;"><img src="img/cancel.png" alt=""></p>
+                        <p lang-value="cancelAnytime" style="text-align: center;">Cancel<br>Anytime</p>
+                    </div>
+                    <div style="margin: auto;" class="row">
+                        <button lang-value="subscribeNow" id="00010001"> <p id="subscribeButtonText">Subscribe Now - 7 Days Free Trial</p> </button>
+                    </div>
+                    </div>
+
+                    <!-- <img style="margin: auto;"  src="img/sub.png" alt=""> -->
+                </p>
+              </div>
+          </div>
+          <!-- Right Section -->
+          <div class="col-7">
+            <video id="00020001" autoplay preload="auto" class="container-fluid video-js vjs-default-skin" controls style="height: 100%;">
+                <source id="live-video" type="application/x-mpegURL" src="https://d1ock1cbv8rr1i.cloudfront.net/hls/main.m3u8" >
+            </video>
+          </div>
+        </div>
+    </div>
+
+    <!-- Latest Row -->
+    <div id="latestMainSection" class="container-fluid">
+        <div style="margin-top: 5%;" class="container-fluid">
+            <h1 lang-value="latest">Latest</h1>    
+        </div>
+        <div style="margin-top: 2%;" class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                    <div style="display: inherit;" class="containerme">
+                        <div id="datacontainer" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>      
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Trending Row -->
+    <div id="trendingMainSection" class="container-fluid">
+        <div style="margin-top: 5%;" class="container-fluid">
+            <h1 lang-value="trending">Trending</h1>    
+        </div>
+        <div style="margin-top: 2%;" class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                    <div style="display: inherit;" class="containerme">
+                        <div id="trending" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>      
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Modal Header</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Some text in the modal.</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <!-- Shows Row -->
+    <div style="margin-top: 70px;" class="container-fluid">
+        <div style="margin-top: 30px;" class="container-fluid">
+            <h1 lang-value="tvshows">Shows</h1>    
+        </div>
+        <div style="margin-top: 20px;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                        <div style="display: inherit;" class="containerme">
+                            <div id="tvShows" class="carouselme"></div>
+                            <div style="display: none;" id="pagination"></div>      
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Some text in the modal.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                        </div>
+    
+                </div>
+            </div>
+      </div>
+    </div>
+</section>
+
+
+
+<style>
+    .card:focus {
+        background-color: yellow;
+        border: 10px solid white;
+        outline-style: none;
+    }
+    .item:focus{
+        background-color: yellow;
+        border: 10px solid white;
+        outline-style: none;
+    }
+</style>
+<script>
+    require(function(){
+        var player = videojs($('#00020001'));
+        player.play()
+    //     $('#00020001').on('keydown', function(e) {
+    //         console.log("Key code : " + e.keyCode);
+    //         switch (e.keyCode) {
+    //             case tvKey.ENTER: //OK button
+    //                 player.play()
+    //                 break;
+    //             // case tvKey.RETURN: //RETURN button
+    //             //     // player.setDisplayArea(0, 0, 960, 540);
+    //             //     break;
+    //             case tvKey.PLAYPAUSE: // PLAYPAUSE button
+    //                 //alert("PLAYPAUSE");
+    //                 break;
+    //             case tvKey.PLAY: // PLAY button
+    //                 player.play();
+    //                 break;
+    //             case tvKey.PAUSE: // PAUSE button
+    //                 player.pause();
+    //                 break;
+    //             default:
+    //                 console.log("default case: " + e.keyCode);
+    //                 break;
+    //         }
+    //     });
+    });
+</script>
+
+<script>
+    require(['client/live', 'client/home'], function(live, home){
+            // live.setUrlById('live-video')
+            // home.latest(1,3)
+            home.datacontainer(1,100)
+            home.trending(1,3)
+            home.tvShows(1,3)
+            console.log($('#00020001'))
+
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+
+    });
+</script>
+
+
+

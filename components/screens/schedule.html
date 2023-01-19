@@ -1,0 +1,73 @@
+<section id="schedulePage">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 style="text-align: center;">TV Schedule</h1>
+        </div>
+        <div class="row">
+            <div class="col-6" style="text-align: right;width: fit-content;margin-right: auto;border-radius: 4px;">
+                <h2  style="padding: 20px;"><i class="dot"></i>Live Now</h2>
+
+            </div>
+
+
+            <div class="col-6"
+                style="width: fit-content;">
+                <button id="00010006" onkeypress="toLive()"  style="background-color: #f97c3e;border-radius: 4px;height: 90px;width: 250px;border: none;font-size: x-large;font-weight: 900;">Watch Live Now
+                    <i style="display: inline-block;font-size: 30px;font-weight: 900" class="bi bi-play"></i>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="getSchedule" class="container-fluid"></div>
+
+</section>
+
+<style>
+    #getSchedule:focus {
+        background-color: yellow;
+        border: 50px solid white;
+        outline-style: none;
+    }
+
+    .arrow {
+        margin-top: 0.5%;
+        background-color: #f97c3e;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .dot {
+        height: 25px;
+        width: 25px;
+        background-color: #ff0000;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    button:focus{
+        background-color: #ffffffd4 !important;
+        border: 50px solid white;
+        outline-style: none;
+    }
+</style>
+
+<script>
+    require(['client/schedule'], function (schedule) {
+        // live.setUrlById('live-video')
+        schedule.getSchedule(1, 3)
+        // console.log($('#00020001'))
+    });
+</script>
+<script>
+    function toLive(){
+        $("<div>").load("components/screens/live.html", function () {
+						firstElement = document.getElementById("00000002")
+						firstElement.focus()
+						$("#screen").empty();
+						$("#screen").append($(this).html());
+					});
+    }
+</script>

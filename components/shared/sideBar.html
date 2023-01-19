@@ -1,0 +1,99 @@
+<section>
+    <div class="d-flex flex-column" style="position: fixed;width: 6%;height: 100%;">
+        <ul class="nav nav-pills nav-flush text-center" style="height: 100%;display: grid !important;">
+            <div class="row">
+                <!-- Settings Button -->
+                <li class="nav-item">
+                    <a id="00000000" name="settings" style="margin-bottom: 100px;" href="#"
+                        class="nav-link py-3 nav-icons" title="Dashboard" data-bs-toggle="tooltip"
+                        data-bs-placement="right">
+                        <i class="bi-gear-fill"></i>
+                        <i class="bi-gear"></i>
+                    </a>
+                </li>
+            </div>
+            <div class="row">
+                <!-- Home Button -->
+                <li class="nav-item">
+                    <a id="00000001" style="border-bottom: none !important;" name="home" href="#"
+                        class="nav-link py-3 border-bottom nav-icons" title="Home" data-bs-toggle="tooltip"
+                        data-bs-placement="right">
+                        <i class="bi-house-door-fill"></i>
+                        <i class="bi-house-door"></i>
+                    </a>
+                </li>
+            </div>
+            <div class="row">
+
+                <!-- Live -->
+                <li class="nav-item">
+                    <a id="00000002" name="live" href="#" class="nav-link py-3 nav-icons" title="Dashboard"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="bi-camera-video"></i>
+                        <i class="bi-camera-video-fill"></i>
+                    </a>
+                </li>
+            </div>
+
+            <div class="row">
+                <!-- Saved -->
+                <li class="nav-item">
+                    <a id="00000003" name="showdetails" href="#" class="nav-link py-3 nav-icons" title="Dashboard"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="bi-bookmark"></i>
+                        <i class="bi-bookmark-fill"></i>
+                    </a>
+                </li>
+            </div>
+            <div class="row">
+                <!-- Search -->
+                <li class="nav-item">
+                    <a id="00000004" name="search" href="#" class="nav-link py-3 nav-icons" title="Dashboard"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="bi-search"></i>
+                    </a>
+                </li>
+            </div>
+
+            <div class="row">
+                <!-- Account -->
+                <li class="nav-item">
+                    <a id="00000005" name="profile" href="#" class="nav-link py-3 nav-icons" title="Dashboard"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="bi-person-fill"></i>
+                        <i class="bi-person"></i>
+                    </a>
+                </li>
+            </div>
+
+            <div class="row">
+                <!-- Schedule -->
+                <li class="nav-item">
+                    <a id="00000006" style="border-bottom: none !important;" name="schedule" href="#"
+                        class="nav-link py-3 border-bottom nav-icons" title="Dashboard" data-bs-toggle="tooltip"
+                        data-bs-placement="right">
+                        <i class="bi-calendar-fill"></i>
+                        <i class="bi-calendar"></i>
+                    </a>
+                </li>
+            </div>
+            
+            
+
+        </ul>
+    </div>
+</section>
+
+
+<script>
+    require(["router"], function (router) {
+        var sideBar = document.getElementById('sideBar');
+        sideBar.addEventListener('keydown', function (e) {
+            switch (e.keyCode) {
+                case tvKey.ENTER:
+                    router.changeScreen(document.activeElement.getAttribute('name'))
+                    break;
+            }
+        })
+    });
+</script>

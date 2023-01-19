@@ -1,0 +1,13 @@
+{
+  "connectionInfo": {
+    "deviceIp": "192.168.1.101",
+    "hostIp": "192.168.1.55",
+    "socketPort": "8498",
+    "width": "1920",
+    "isDebugMode": false,
+    "baseAppPath": "/Users/alielmahdi/Downloads/Smashitizen"
+  },
+  "profileInfo": {
+    "path": "/Users/alielmahdi/tizen-studio-data/vscode-tizentv/resource/profiles.xml"
+  }
+}

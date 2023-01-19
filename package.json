@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "smart-webcomponents": "^14.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4",
+    "video.js": "^7.20.1"
+  }
+}

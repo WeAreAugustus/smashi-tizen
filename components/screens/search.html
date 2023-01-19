@@ -1,0 +1,121 @@
+<section>
+    <div id="searchBox" style="margin-top: 0%;width: 50%;" class="container">
+        <div class="input-group mb-3"
+            style="border-color: grey;border-style:solid;background-color: grey;border-radius: 10px;margin-top: 5%;">
+            <i style="margin: 20px;" class="bi-search"></i><input type="text" class="form-control" id="00010004"
+                placeholder="VODs, Shows" aria-label="Search" aria-describedby="basic-addon1"
+                style="background-color: grey !important;color: white;font-size: 3rem;border-color: grey;margin: 10px;">
+            <script>
+                require(['client/live', 'client/search'], function (live, search) {
+                    var objecto = document.getElementsByClassName(" form-control ")[0];
+                    objecto.oninput = function () {
+                        search.getSearchResults(1, 12)
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="searchBoxArabic" style="margin-top: 0%;width: 50%;" class="container">
+        <div class="input-group mb-3"
+            style="border-color: grey;border-style:solid;background-color: grey;border-radius: 10px;margin-top: 5%;">
+            <i style="margin: 20px;" class="bi-search"></i><input type="text" class="form-control" id="00010004"
+                placeholder="ابحث عن فيديو، برنامج" aria-label="Search" aria-describedby="basic-addon1"
+                style="background-color: grey !important;color: white;font-size: 3rem;border-color: grey;margin: 10px;">
+            <script>
+                require(['client/live', 'client/search'], function (live, search) {
+                    var objecto = document.getElementsByClassName(" form-control ")[0];
+                    objecto.oninput = function () {
+                        search.getSearchResults(1, 12)
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+
+
+
+    <!-- Latest Row -->
+    <div id="latestMainSection" class="container-fluid">
+        <div style="margin-top: 2%;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- <div style="margin-top: 5%;" class="container-fluid">
+                        <h1 lang-value="searchresultsfor"></h1>
+                    </div> -->
+                    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div id="getSearchResults" class="carouselme"></div>
+                                <div style="display: none;" id="pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Player -->
+    <h4 name="searchVideoTitle" id="searchVideoTitle" style="text-align: center;display: none;"></h4>
+    <div id="searchVideoWatch" class="container-fluid" style="display: none;">
+    </div>
+</section>
+
+<script>
+    var myLanguage = sessionStorage.getItem("locale");
+    if(myLanguage == 'ar'){
+        document.getElementById("searchBox").style.display = "none";
+        document.getElementById("searchBoxArabic").style.display = "initial";
+    } else{
+        document.getElementById("searchBox").style.display = "initial";
+        document.getElementById("searchBoxArabic").style.display = "none";
+    }
+</script>
+
+<style>
+    #searchBoxArabic{
+        
+    }
+    .card:focus {
+        background-color: yellow;
+        border: 10px solid white;
+        outline-style: none;
+    }
+
+    .item:focus {
+        background-color: yellow;
+        border: 10px solid white;
+        outline-style: none;
+    }
+
+    #searchBox:focus {
+        background-color: yellow;
+        border: 10px solid white;
+        outline-style: none;
+    }
+</style>
+
+<script>
+    require(['client/live', 'client/search'], function (live, search) {
+        // live.setUrlById('live-video')
+        // search.latest(1,3)
+        search.searchVideoWatch();
+
+        // document.getElementById('searchKeyword').oninput = function(){search.getSearchResults(1,12)};
+        // document.getElementById('buttonSearch').onclick = function() { search.getSearchResults(1,12)};
+
+        // search.getSearchResults()
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+
+    });
+</script>

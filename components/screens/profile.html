@@ -1,0 +1,156 @@
+<style>
+    .form-control {
+        color: white !important;
+    }
+</style>
+<section>
+    <div class="container-fluid"><img style="width: inherit;" src="img/Smashibenefits.png" alt=""></div>
+    <div style="margin-top: 5%;"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <h2 id="emailHelpMain" style="text-align: center;" lang-value="enteremail"></h2>
+                <form>
+                    <div class="form-group">
+                        <!-- <h3 style="color: gray !important;" lang-value="email"></h3> -->
+                        <br>
+                        <small id="emailHelp" class="form-text text-muted">Enter your email to login</small>
+                        <input id="00010005" style="background: rgba(250, 250, 250, 0.05);
+                      border: 1px solid rgba(250, 250, 250, 0.1);" type="email" class="form-control" name="userEmail"
+                            aria-describedby="emailHelp" placeholder="">
+                        <br>
+                    </div>
+
+                    <div id="nameInputField" style="display: none;" class="form-group">
+                        <!-- <h3 style="color: gray !important;" lang-value="email"></h3> -->
+                        <small id="emailHelp" class="form-text text-muted">Enter your Name</small>
+                        <input id="nameID" style="background: rgba(250, 250, 250, 0.05);
+                        border: 1px solid rgba(250, 250, 250, 0.1);" type="text" class="form-control" name="userName"
+                            aria-describedby="emailHelp" placeholder="">
+                        <br>
+                    </div>
+
+                    <div style="display: none;" id="passwordInputField" class="form-group">
+                        <!-- <h3 style="color: gray !important;" lang-value="password"></h3> -->
+                        <small id="emailHelp" class="form-text text-muted">Password</small>
+                        <input id="inputID" style="background: rgba(250, 250, 250, 0.05);
+                        border: 1px solid rgba(250, 250, 250, 0.1);" type="password" class="form-control"
+                            name="userPassword" aria-describedby="passwordHelp" placeholder="">
+                        <br>
+                    </div>
+
+                    <p id="checkEmailButton" style="text-align: center;"><button id="00010006" onclick="checkEmail()"
+                            type="button"
+                            style="background-color: #F97C3E; width: 100%;height: 85px; border-radius: 0px;color: white;"
+                            class="btn">Continue</button></p>
+                    <p id="loginButton" style="text-align: center;display: none;"><button id="loginID"
+                            onclick="myLogin()" type="button"
+                            style="background-color: #F97C3E; width: 100%;height: 85px; border-radius: 0px;color: white;"
+                            class="btn" lang-value="login">Login</button></p>
+                    <p id="registerButton" style="text-align: center;display: none;"><button id="registerID"
+                            onclick="myRegister()" type="button"
+                            style="background-color: #F97C3E; width: 100%;height: 85px; border-radius: 0px;color: white;"
+                            class="btn">Register</button></p>
+
+                </form>
+
+            </div>
+            <div class="col-6">
+
+                <h2 style="text-align: center;" lang-value="scancode"></h2>
+                <div style="margin-top: 4%;"></div>
+                <div style="display: flex !important;justify-content: center !important;" class="container">
+                    <div style="background-color: white; padding: 20px;" id="qrcode"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Don't have the app</h4>
+                    </div>
+                    <div style="text-align: right;" class="col-6">
+                        <a id="00020006" style="border-bottom: none !important;" name="home" href="#" href="#">Click this</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 2%;"></div>
+        <div class="row">
+            <!-- <div  class="col-6">
+                <h4 style="text-align: center;">Enter your email to log in</h4>
+            </div> -->
+            <!-- <div  class="col-6">
+                <h4 style="text-align: center;">Or scan this QR code from your app</h4>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<script>
+    require(['client/live', 'client/auth'], function (live, auth) {
+        // live.setUrlById('live-video')
+        // home.latest(1,3)
+        auth.isAuth();
+        document.getElementsByName('buttonLogin').onclick = function () { }
+        auth.qrcode();
+        // auth.apiCallTest();
+
+        console.log($('#00020001'))
+
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+        // $('#00020001').on('keydown', function(e) {
+        //     console.log("Key code : " + e.keyCode);
+        // });
+
+    });
+</script>
+
+<script>
+
+    function myFunction() {
+
+    }
+
+    function myLogin() {
+        require(['client/live', 'client/auth'], function (live, auth) {
+            auth.login();
+        });
+    }
+
+    function checkEmail() {
+        require(['client/live', 'client/auth'], function (live, auth) {
+            // live.setUrlById('live-video')
+            // home.latest(1,3)
+            auth.checkIfEmailExists()
+
+            // document.getElementsByName('buttonLogin').onclick = function() { //alert("hey");auth.login()};
+            // auth.qrcode();
+            // auth.apiCallTest();
+
+            // console.log($('#00020001'))
+
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+            // $('#00020001').on('keydown', function(e) {
+            //     console.log("Key code : " + e.keyCode);
+            // });
+
+        });
+    }
+
+    function myRegister() {
+        require(['client/live', 'client/auth'], function (live, auth) {
+            auth.register();
+        });
+    }
+
+</script>

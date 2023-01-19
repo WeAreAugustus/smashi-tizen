@@ -1,0 +1,173 @@
+{
+	"app_info": [
+		{
+			"program_type": "News",
+			"title": [
+				{
+					"lang": "ara",
+					"value": "سماشي"
+				},
+				{
+					"lang": "deu",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "eng",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "spa",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "fre",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "hin",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "ita",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "por",
+					"value": "Smashi TV"
+				},
+				{
+					"lang": "rus",
+					"value": "Smashi TV"
+				}
+			],
+			"app_name_alias": {
+				"eng": [
+					"Smashi TV",
+					"Smashi"
+				],
+				"ara": [
+					"سماشي",
+					"سماشي"
+				]
+			},
+			"description": [
+				{
+					"lang": "ara",
+					"value": "سماشي هي شبكة إخبارية للأعمال تبث مباشرة من قلب العالم العربي ، وتغطي المنتجات والخدمات والتقنيات الأكثر ابتكارًا التي تغير حياتنا"
+				},
+				{
+					"lang": "deu",
+					"value": "Smashi ist ein Wirtschaftsnachrichtennetzwerk, das live aus dem Herzen der arabischen Welt streamt und über die innovativsten Produkte, Dienstleistungen und Technologien berichtet, die unser Leben verändern."
+				},
+				{
+					"lang": "eng",
+					"value": "Smashi is a business news network streaming live from the heart of the Arab world, covering the most innovative products, services and technologies changing our lives."
+				},
+				{
+					"lang": "spa",
+					"value": "Smashi es una red de noticias de negocios que transmite en vivo desde el corazón del mundo árabe y cubre los productos, servicios y tecnologías más innovadores que están cambiando nuestras vidas."
+				},
+				{
+					"lang": "fre",
+					"value": "Smashi est un réseau d'actualités économiques diffusé en direct depuis le cœur du monde arabe, couvrant les produits, services et technologies les plus innovants qui changent nos vies."
+				},
+				{
+					"lang": "hin",
+					"value": "स्मशी एक व्यापार समाचार नेटवर्क है जो अरब दुनिया के दिल से लाइव स्ट्रीमिंग करता है, जो हमारे जीवन को बदलने वाले सबसे नवीन उत्पादों, सेवाओं और प्रौद्योगिकियों को कवर करता है।"
+				},
+				{
+					"lang": "ita",
+					"value": "Smashi è una rete di notizie economiche in streaming dal cuore del mondo arabo, che copre i prodotti, i servizi e le tecnologie più innovativi che cambiano le nostre vite."
+				},
+				{
+					"lang": "por",
+					"value": "Smashi é uma rede de notícias de negócios que transmite ao vivo do coração do mundo árabe, cobrindo os produtos, serviços e tecnologias mais inovadores que mudam nossas vidas."
+				},
+				{
+					"lang": "rus",
+					"value": "Smashi — это сеть деловых новостей, которая транслируется в прямом эфире из самого сердца арабского мира и рассказывает о самых инновационных продуктах, услугах и технологиях, меняющих нашу жизнь."
+				}
+			],
+			"app_icon": [
+				{
+					"icon_url": "https://smashi.tv/assets/img/tizen/app_icon_1.png",
+					"icon_ratio": "1:1",
+					"icon_size": {
+						"width": "480",
+						"height": "480"
+					},
+					"icon_lang": [
+						"eng",
+						"ger"
+					],
+					"icon_country": [
+						"DEU",
+						"AUT"
+					]
+				},
+				{
+					"icon_url": "https://smashi.tv/assets/img/tizen/app_icon_2.png",
+					"icon_ratio": "16:9",
+					"icon_size": {
+						"width": "480",
+						"height": "270"
+					},
+					"icon_lang": [
+						"eng",
+						"ger"
+					],
+					"icon_country": [
+						"DEU",
+						"AUT"
+					]
+				}
+			],
+			"app_banner": "https://smashi.tv/assets/img/tizen/appname1%201848%20x%20296.png",
+			"screenshots": [
+				{
+					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot1.png",
+					"screenshot_ratio": "16:9",
+					"screenshot_size": {
+						"width": "1920",
+						"height": "1080"
+					}
+				},
+				{
+					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot2.png",
+					"screenshot_ratio": "16:9",
+					"screenshot_size": {
+						"width": "1920",
+						"height": "1080"
+					}
+				},
+				{
+					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot3.png",
+					"screenshot_ratio": "16:9",
+					"screenshot_size": {
+						"width": "1920",
+						"height": "1080"
+					}
+				}
+			],
+			"developer": "Augustus Media Holdings Ltd",
+			"regions": {
+				"copyright": [
+					"ALL"
+				]
+			},
+			"available_languages": {
+				"ALL": [
+					"eng",
+					"ara"
+				]
+			},
+			"pricing_info": [
+				{
+					"type": "In app purchase"
+				}
+			],
+			"rating": 18,
+			"app_url": "https://smashi.tv/smashi-tizen/"
+		}
+	]
+}

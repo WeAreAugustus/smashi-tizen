@@ -1,0 +1,75 @@
+<section style="margin-top: 5%;">
+  <div id="getUserDetails"></div>
+  <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 5%;"><button class="signOutButton"
+      onkeypress="mySignout()" id="00010005">Sign Out</button></div>
+</section>
+
+
+<style>
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: red;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: red;
+  }
+</style>
+<script>
+  function mySignout() {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("profile");
+    sessionStorage.removeItem("hasSubscription");
+    sessionStorage.removeItem("subscriptionType");
+    sessionStorage.removeItem("subscriptionPrice");
+    sessionStorage.removeItem("subscriptionExpiryDate");
+    // //alert("You are now Signed Out");
+
+    
+
+    $("<div>").load("components/screens/home.html", function () {
+      firstElement = document.getElementById("00000001")
+      firstElement.focus()
+      $("#screen").empty();
+      $("#screen").append($(this).html());
+      closeNav();
+    });
+    document.getElementById("topSectionSub").remove();
+  }
+</script>
+
+
+<style>
+  .card:focus {
+    background-color: yellow;
+    border: 10px solid white;
+    outline-style: none;
+  }
+
+  .item:focus {
+    background-color: yellow;
+    border: 10px solid white;
+    outline-style: none;
+  }
+
+  .signOutButton:focus {
+    border: 10px solid #f97c3e;
+  }
+</style>
+
+<script>
+  require(['client/auth'], function (auth) {
+    auth.getUserDetails()
+  });
+</script>

@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+.containerme{
+  scroll-snap-type: x mandatory !important;
+}
+
+body {
+    background-color: black !important;
+    font-family: 'Raleway', sans-serif !important;
+    color: white;
+}
+
+p{
+  color: white;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+/* .left{
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-flex;
+} */
+
+.main{
+  background-color: black; 
+  height: 100%;
+}
+.title{
+	font-weight: 700;
+	font-size: 40px;
+	padding-top: 1rem;
+}
+.sideBar{
+  max-height: 100%;
+}
+
+.newbutton{
+	background-color: #282828;
+  	color: white;
+  	transition: background-color 1s, color 1s;
+}
+
+.newbutton:hover,
+.newbutton:focus{
+	background-color: white;
+    color: #FB8044;	
+}
+
+.watchlivebutton {
+  width: 65%;
+  height: 6rem;
+  border: none;
+}
+
+.watchlivebutton::before{
+	content:'\25B6';
+	margin-right: 2rem;
+}
+
+.starttrialbutton{
+ 	width: 110%;
+ 	height: 7rem;
+  	border: none;
+}
+
+.fullbutton{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	outline: inherit;
+	transition: all .5s;
+	position: absolute;
+	right: 7rem;
+	top: 30rem;
+}
+
+.fullbuttonbefore{
+	z-index: 2;
+}
+
+.fullbuttonbefore:hover,
+.fullbuttonbefore:focus{
+	opacity: 0;
+}
+
+.fullbuttonafter{
+	z-index: 1;
+}
+
+.splash{
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #447EFB;
+    z-index: 200;
+    color: white;
+    text-align: center !important;
+    line-height: 280vh;
+    transition: 0.1s;
+}
+
+.splash.move-up{
+    position: fixed;
+    top: 0;
+    opacity: 1;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #447EFB;
+    z-index: 200;
+    color: white;
+    text-align: center;
+    line-height: 90vh;
+    transition: 0.3s;
+}
+
+.splash.remove{
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #447EFB;
+  z-index: 200;
+  color: white;
+  text-align: center;
+  line-height: 90vh;
+  transition: 0.3s;
+}
+
+i{
+  font-size: 3.0rem;
+}
+
+a{
+  color: white !important;
+}
+
+.logo {
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transition-property: transform;
+}
+.logo.spin {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+
+@keyframes fadeIn{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+ul li a:focus {
+  background-color: #4C4C4C !important;
+  padding: 20%;
+  outline-style : none;
+}
+
+/* Home Icon */
+.nav-icons:focus .bi-house-door,
+.nav-icons .bi-house-door-fill{
+  display: none;
+}
+.nav-icons:focus .bi-house-door-fill{
+  display: inline;
+}
+/* ********************* */
+
+
+/* Calendar Icon */
+.nav-icons:focus .bi-calendar,
+.nav-icons .bi-calendar-fill{
+  display: none;
+}
+.nav-icons:focus .bi-calendar-fill{
+  display: inline;
+}
+/* ********************* */
+
+
+/* Person Icon */
+.nav-icons:focus .bi-person,
+.nav-icons .bi-person-fill{
+  display: none;
+}
+.nav-icons:focus .bi-person-fill{
+  display: inline;
+}
+/* ********************* */
+
+/* Bookmark Icon */
+.nav-icons:focus .bi-bookmark,
+.nav-icons .bi-bookmark-fill{
+  display: none;
+}
+.nav-icons:focus .bi-bookmark-fill{
+  display: inline;
+}
+/* ********************* */
+
+/* Video Icon */
+.nav-icons:focus .bi-camera-video,
+.nav-icons .bi-camera-video-fill{
+  display: none;
+}
+.nav-icons:focus .bi-camera-video-fill{
+  display: inline;
+}
+/* ********************* */
+
+/* Settings Icon */
+.nav-icons:focus .bi-gear,
+.nav-icons .bi-gear-fill{
+  display: none;
+}
+.nav-icons:focus .bi-gear-fill{
+  display: inline;
+}
+/* ********************* */
+
+
+.nav-icons{
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+.nav-item{
+    background-color: #383838;
+    margin: -1px;
+}
+.nav-link{
+    border-bottom: 0px solid black !important;
+}
+#home, #schedule, #profile, #settings{
+    border-bottom: 0px solid black !important;
+}
+
+h1, h2, h3,h4{
+    color: white !important;
+    white-space: initial !important;
+    /* text-align: left !important; */
+}
+
+
+#coloredheading{
+  text-align: left;
+  font-weight: bold !important;
+  width: 100%;  
+  background: -webkit-linear-gradient(180deg, #F97C3E 10%, #447EFB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.card-body{
+  background-color: black !important;
+  padding: 1rem 0rem !important;
+}
+
+.card{
+  background-color: black !important;
+}
+
+.item {
+  display: inline-block;
+  width: 480px;
+  margin: 10px 10px 10px 10px;
+  height: 380px;
+  
+  background-size: cover;
+  /* position:relative; */
+  /* border-radius: 20px; */
+  /* box-shadow: 0 0 10px #dfdfdf; */
+}
+
+.item div{
+  width: 100%;
+  /* top:10%; */
+  /* position:absolute; */
+  /* text-align:center; */
+  font-size: 9em;
+  color: white;
+}
+
+.carouselme{
+  display:block;
+  width: 100%;
+  /* height: 400px; */
+  /* background: white; */
+  /* overflow-x: scroll; */
+  padding: 10px;
+  margin: 0;
+  white-space: nowrap; 
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.containerme{
+  width: 100%;
+  display:block;
+  overflow:hidden;
+}
+
+
+/* Settings */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 8.3%;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  /* padding: 8px 8px 8px 32px; */
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Settings End */
+
+#coloredSeparator{
+  background: linear-gradient(135deg, rgba(68, 126, 251, 1)
+                    0%, rgba(249, 124, 62, 1)
+                    100%);
+  height: 5px;
+                    
+}
+
+#textIntro{
+  text-align: left;
+  color: white;
+}
+
+#coloredSeparatorContainer, #introSubText, #banner{
+  margin-top: 5%;
+  text-align: center;
+}
+
+#bannerBg{
+  background: linear-gradient(135deg, #447EFB 0%, #5C44FB 100%);
+  height: 216px;
+  left: 0px;
+  top: 0px;
+  border-radius: 0px;
+  width: 100%;
+}
+#liveicon, #downloadVideos{
+  margin: auto;
+  padding: auto;
+  border-right: rgba(255, 255, 255, 0.555);
+  border-style: none solid none none;
+}
+
+#cancelAnytime{
+  margin: auto;
+  padding: auto;
+}
+
+#subscribeButton{
+  background: linear-gradient(90deg, #F15C17 0%, #F97C3E 100%) !important;
+}
+
+#subscribeButtonText{
+  color: white !important;
+  font-size: 1.2vw !important; 
+  line-height: 18px !important;
+  font-weight: 400 !important;
+  padding: auto !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  margin-left: 54px !important;
+  margin-right: 54px !important;
+  border: none;
+  
+}
+
+#languageButtons {
+  color: white !important;
+  font-size: 1.2vw !important; 
+  line-height: 18px !important;
+  font-weight: 400 !important;
+  padding: auto !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  margin-left: 54px !important;
+  margin-right: 54px !important;
+  border: none;
+}
+
+
+#main-video{
+  background-color: black;height: 100%;
+}
+
+#latestMainSection{
+  margin-top: 0%;
+}
+
+#trending{
+	margin-bottom: 6rem;
+}
+#datacontainer{
+	margin-bottom: 6rem;
+}
+#trendingMainSection{
+	margin-top: 0%;
+	padding-left: 0;
+	padding-bottom: 3rem;
+}
+#tvShowsMainSection{
+	margin-top: 0px;
+	padding-left: 0;
+}
+#channelsMainSection{
+	padding-left: 0;
+}
+.image-border{
+  height: 2px;
+  background: linear-gradient(270deg, #F97C3E 0%, #447EFB 100%);
+}

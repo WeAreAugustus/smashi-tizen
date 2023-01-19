@@ -1,0 +1,36 @@
+<section>
+	<video id="videoplayer"></video>
+</section>
+
+<style>
+    #videoplayer {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+</style>
+
+<script>
+fetch('https://smashi.tv/api/live_url')
+    .then(
+        res => {
+            return res.json();
+        })
+    .then(
+        data => {
+            var url = data.data.video_url;
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(videoplayer);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                	video.play();
+                });
+            }
+        }
+    );
+</script>
+

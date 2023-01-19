@@ -1,0 +1,609 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+    :root {
+        --accent: #00C6F2;
+        /* 	--accent: #d7577e; */
+
+        --main: #ffffff;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    html {
+        display: flex;
+        justify-content: center;
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: normal;
+        line-height: normal;
+        font-size: 16px;
+        color: var(--main);
+    }
+
+    .player-container {
+        padding: 40px;
+        max-width: -webkit-fill-available;
+        margin: auto;
+    }
+
+    .player {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 56.25%;
+        box-shadow: 0px 10px 0px -3px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+        background: #000000;
+    }
+
+    .player:fullscreen {
+        padding-bottom: 100vh;
+    }
+
+    .player:-webkit-full-screen {
+        padding-bottom: 100vh;
+    }
+
+    .player:-moz-full-screen {
+        padding-bottom: 100vh;
+    }
+
+    .player:-ms-fullscreen {
+        padding-bottom: 100vh;
+    }
+
+    .player video {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .controls {
+        padding: 0;
+        
+        bottom: -80px;
+        width: 100%;
+        height: 48px;
+        box-sizing: border-box;
+        background: linear-gradient(180deg,
+                rgba(37, 37, 37, 0) 10%,
+                rgba(37, 37, 37, 0.6) 80%);
+        transition: all 0.2s ease-in 5s;
+    }
+
+    .player:hover .controls {
+        bottom: 0;
+        transition: all 0.2s ease-out;
+    }
+
+    .time {
+        position: absolute;
+        right: 30px;
+        bottom: 100%;
+        padding-bottom: 14px;
+    }
+
+    .controls-main {
+        width: calc(100% - 40px);
+        margin: auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .controls-left,
+    .controls-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .controls-left {
+        margin-left: 10px;
+    }
+
+    .controls-right {
+        margin-right: 10px;
+        justify-content: flex-end;
+    }
+
+    .volume {
+        display: flex;
+        align-items: center;
+    }
+
+    .volume-btn {
+        margin-right: 10px;
+        background-color: transparent;
+        border: none;
+    }
+
+    .volume-btn #volume-off,
+    .volume-btn #volume-high {
+        opacity: 0;
+    }
+
+    .volume-btn.loud #volume-high {
+        opacity: 1;
+    }
+
+    .volume-btn.muted #volume-off {
+        opacity: 1;
+    }
+
+    .volume-btn.muted #volume-high,
+    .volume-btn.muted #volume-low {
+        opacity: 0;
+    }
+
+    .volume-slider {
+        height: 8px;
+        width: 80px;
+        background: rgba(60, 60, 60, 0.6);
+        ;
+        border-radius: 6px;
+        position: relative;
+    }
+
+    .volume-filled {
+        background: var(--main);
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        transition: width 0.2s ease-in-out;
+    }
+
+    .volume-filled:hover,
+    .play-btn:hover.play-btn:before,
+    .play-btn:hover.play-btn:after {
+        background: var(--accent) !important;
+    }
+
+    button {}
+
+    .play-btn {
+        background-color: transparent;
+        border: none;
+        width: 30px !important;
+        height: 30px !important;
+        position: relative !important;
+        margin: auto !important;
+        transform: rotate(-90deg) scale(0.8) !important;
+        transition: -webkit-clip-path 0.3s ease-in 0.1s, shape-inside 0.3s ease-in 0.1s,
+            transform 0.8s cubic-bezier(0.85, -0.25, 0.25, 1.425) !important;
+    }
+
+
+    .play-btn.paused {
+        transform: rotate(0deg) !important;
+    }
+
+    .play-btn:before,
+    .play-btn:after {
+        content: "" !important;
+        position: absolute !important;
+        background: white !important;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        transition: inherit !important;
+    }
+
+    .play-btn:before {
+        -webkit-clip-path: polygon(0 10%, 100% 10%, 100% 40%, 0 40%) !important;
+        shape-inside: polygon(0 10%, 100% 10%, 100% 40%, 0 40%) !important;
+    }
+
+    .play-btn:after {
+        -webkit-clip-path: polygon(0 60%, 100% 60%, 100% 90%, 0 90%) !important;
+        shape-inside: polygon(0 60%, 100% 60%, 100% 90%, 0 90%) !important;
+    }
+
+    .play-btn.paused:before {
+        -webkit-clip-path: polygon(10% 0, 90% 51%, 90% 51%, 10% 51%) !important;
+        shape-inside: polygon(0 0, 100% 51%, 100% 51%, 0 51%) !important;
+    }
+
+    .play-btn.paused:after {
+        -webkit-clip-path: polygon(10% 49.5%, 80% 49.5%, 90% 49.5%, 10% 100%) !important;
+        shape-inside: polygon(10% 49.5%, 80% 49.5%, 90% 49.5%, 10% 100%) !important;
+    }
+
+    button:focus {
+        outline: none !important;
+        outline-style: none;
+    }
+
+    .speed-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .speed-list li {
+        color: var(--main);
+        padding: 5px;
+        cursor: default;
+    }
+
+    .speed-list li:hover,
+    .speed-list li.active {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    .fullscreen {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
+<section id="masr" style="margin-top: 0%;">
+
+
+    <!-- Top Row -->
+    <div class="row"
+        style="top: 0;width: 100%;background-color: rgba(255, 255, 255, 0);padding-bottom: 10px;width: 100%;padding-right: 0%;z-index: 1;">
+
+        <div class="container-fluid" id="topSection">
+        </div>
+    </div>
+
+    <div class="row" style="top: 0;width: 100%;padding-bottom: 10px;width: 100%;z-index: 1;">
+
+        <div id="watchSection"
+            style="display: none;height: fit-content;background-size: 100%;background-repeat: no-repeat;">
+        </div>
+        <div style="position: absolute;margin-top: 2%;" class="col-6">
+            <h1 name="showHeading"></h1>
+            <h4 style="width: 90%;" name="showDescription"></h4>
+        </div>
+    </div>
+
+
+    <div id="myList2">
+
+    </div>
+
+
+    <!-- Latest Row -->
+    <div style="padding-top: 0%;display: inherit; padding-left:0;" id="latestMainSection" class="container-fluid">
+        <div style="margin-top: 2%;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container-fluid">
+                        <h1 lang-value="latest" class="title">Latest</h1>
+                    </div>
+                    <div style="display: inherit;" class="containerme">
+                        <div id="datacontainer" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trending Row -->
+    <div id="trendingMainSection" class="container-fluid">
+        <div style="margin-top: 0%;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="container-fluid">
+                        <h1 lang-value="trending" class="title">Trending</h1>
+                    </div>
+                    <div style="display: inherit;" class="containerme">
+                        <div id="trending" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="channelsMainSection" class="container-fluid">
+        <div style="margin-top: 0px;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div style="margin-top: 0px;" class="container-fluid">
+                        <h1 lang-value="channels" class="title">Shows</h1>
+                    </div>
+                    <div style="display: inherit;" class="containerme">
+                        <div id="channels" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Shows Row -->
+     <div id="tvShowsMainSection" class="container-fluid">
+        <div style="margin-top: 0px;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div style="margin-top: 0px;" class="container-fluid">
+                        <h1 lang-value="tvshows" class="title">Shows</h1>
+                    </div>
+                    <div style="display: inherit;" class="containerme">
+                        <div id="tvShows" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script src="js/api.js"></script>
+
+<style>
+    .card:focus {
+        border: 5px solid white;
+        border-radius: 25px;
+        outline-style: none;
+        -webkit-transition: all .2s;
+	    transition: all .4s;
+	    padding: 5px;
+    }
+
+    .item:focus {
+        background-color: yellow;
+        border: 3px solid white;
+        outline-style: none;
+        top: 0;
+    }
+
+    .itemnew {
+        padding: 6px;
+    }
+
+    .itemnew:focus {
+        background-color: #f15c1754;
+        border: 0.5px solid white;
+        outline-style: none;
+    }
+
+</style>
+
+<script>
+    require(['client/live', 'client/home'], function (live, home) {
+        // live.setUrlById('live-video')
+        // home.latest(1,3)
+        home.topSection()
+
+        home.datacontainer(1, 100)
+        home.watchSection()
+
+        home.trending(1, 3)
+        console.log($('#00020001'))
+
+    });
+</script>
+
+<script>
+    function toAccount() {
+        $("<div>").load("components/screens/profile.html", function () {
+            firstElement = document.getElementById("00000001")
+            firstElement.focus()
+            $("#screen").empty();
+            $("#screen").append($(this).html());
+            closeNav();
+        });
+    }
+</script>
+
+<script>
+
+    function myTVShows(row_vendor) {
+
+        var myLanguage = sessionStorage.getItem("locale");
+        if (!myLanguage) {
+            myLanguage = 'en';
+        }
+
+
+        if (document.getElementById("topSection") == null && document.getElementById("datacontainer") == null && document.getElementById("trending") == null) {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0;
+            document.getElementById("watchSection").style.display = "";
+
+            dataHtml = "";
+            fetch('https://smashi.tv/api/video/shows/' + row_vendor + '/details', {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-localization': myLanguage
+                }
+            })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((myJson) => {
+
+                    var myRelatedShowVideo = myJson.data.relatedShowVideos;
+                    var myShowVideo = myJson.data.showVideo;
+
+                    document.getElementsByName("showHeading")[0].innerHTML = myJson.data.showVideo.title;
+                    document.getElementsByName("showDescription")[0].innerHTML = myJson.data.showVideo.body_english;
+
+
+                    var html = "";
+                    var video = document.querySelector('#home_video_player');
+
+
+                    if (Hls.isSupported()) {
+                        var hls = new Hls();
+                        hls.loadSource(myRelatedShowVideo[0].video_link);
+                        hls.attachMedia(video);
+                        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                            video.play();
+                        });
+                    }
+                    document.getElementsByName("episodeHeading")[0].innerHTML = myRelatedShowVideo[0].title;
+
+                    if (document.getElementById("00010001") == null) {
+
+                    } else {
+                        document.getElementById("00010001").setAttribute("id", "00010003");
+                        document.getElementById("00020001").setAttribute("id", "00020003");
+                        document.getElementById("00030001").setAttribute("id", "00030003");
+                        
+                    }
+
+
+                    // console.log(myShowVideo.show_link);
+                    for (var i = 0; i < myRelatedShowVideo.length; i++) {
+                        //print date
+                        console.log(myRelatedShowVideo[i].title);
+                        // dataHtml += `<h1 lang-value="tvshows">${myRelatedShowVideo[i].title}</h1>`;
+                        // document.getElementById("tvShowsWatch").innerHTML = myRelatedShowVideo[i].title;
+
+                        html += `
+                        <div id="`+ myRelatedShowVideo[i].video_link + `"  onkeypress="myshowvideochanger(this.id)"  class="item">
+                            <div  class="card" >
+                                <img style="width: 100%;height: 214px;object-fit: contain;" class="img-fluid" alt="100%x280" src="${myRelatedShowVideo[i].poster_url}" >
+                            </div>
+                                <h4 style="height: fit-content !important;" id="000${i}0005" tabindex="1" name="` + myRelatedShowVideo[i].title + `"  onkeypress="myepisodetitlechanger(this.innerHTML)" style="cursor: pointer !important;" class="itemnew">${myRelatedShowVideo[i].title}</h4> 
+
+                        </div>
+                        
+                        `;
+
+
+                    }
+                    // //alert("omak");
+                    // $("#tvShows").html(html);
+                    $("#tvShowsWatch").html(html);
+
+                });
+        } else {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0;
+            document.getElementById("topSection").remove();
+            document.getElementById("latestMainSection").remove();
+            document.getElementById("trending").remove();
+            document.getElementById("watchSection").style.display = "";
+            // document.getElementsByName("video")[0].src = row_vendor;
+            // //alert(row_vendor);
+
+            //alert("else executed");
+            dataHtml = "";
+            fetch('https://smashi.tv/api/video/shows/' + row_vendor + '/details')
+                .then((response) => {
+                    return response.json();
+                })
+                .then((myJson) => {
+                    // console.log(myJson.data.relatedShowVideos);
+                    var myRelatedShowVideo = myJson.data.relatedShowVideos;
+                    var myShowVideo = myJson.data.showVideo;
+                    // dataHtml += `<h1 lang-value="tvshows">New HTML</h1>
+                    // `;
+                    var html = "";
+                    document.getElementsByName("video")[0].src = myRelatedShowVideo[0].video_link;
+                    // document.getElementById("00010001").setAttribute("id", "00010003");
+
+                    if (document.getElementById("00010001") == null) {
+
+                    } else {
+                        document.getElementById("00010001").setAttribute("id", "00010003");
+                    }
+
+                    // console.log(myShowVideo.show_link);
+                    for (var i = 0; i < myRelatedShowVideo.length; i++) {
+                        //print date
+                        console.log(myRelatedShowVideo[i].title);
+                        // dataHtml += `<h1 lang-value="tvshows">${myRelatedShowVideo[i].title}</h1>`;
+                        // document.getElementById("tvShowsWatch").innerHTML = myRelatedShowVideo[i].title;
+                        // html += `
+                        //         <div  class="row">
+                        //             <hr style="height: 10px; color: white; margin-top: 5%; margin-bottom: 5%;">
+                        //         </div>
+                        //         <h4 style="color: grey !important; margin-bottom: 40px;">${myRelatedShowVideo[i].title}</h4>
+
+                        //         `;
+
+                    }
+                    // //alert("omak");
+                    // $("#tvShows").html(html);
+                    $("#tvShowsWatch").html(html);
+
+                });
+        }
+
+
+    }
+
+
+
+</script>
+<script>
+
+
+
+
+    function myshowvideochanger(myshowvideo) {
+        // var episodeTitle = '';
+        // episodeTitle = document.getElementById("episodeTitle").innerHTML;
+        // //alert(episodeTitle);
+        // const para = document.createElement("p");
+        // const node = document.createTextNode(document.getElementById("episodeTitle").innerHTML);
+        // para.appendChild(node);
+
+        // const element = document.getElementById("div1");
+        // element.appendChild(para);
+
+
+
+
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0;
+
+        video = document.querySelector('#home_video_player');
+
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource(myshowvideo);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                video.play();
+            });
+        }
+
+
+
+
+
+
+
+
+    }
+
+    function myepisodetitlechanger(myfuckingtitle) {
+        //alert(myfuckingtitle)
+        // Select first child element:
+        const element = document.getElementById("myList").children[0];
+
+        // Create a new text node:
+        const newNode = document.createTextNode(myfuckingtitle);
+
+        // Replace the text node:
+        element.replaceChild(newNode, element.childNodes[0]);
+    }
+
+</script>

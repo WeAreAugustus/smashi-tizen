@@ -1,0 +1,150 @@
+<section>
+    <div id="topSection">
+        <div id="showDetailsBanner">
+        </div>
+    </div>
+    <div id="episodesrow" class="row">
+        <div class="col-12">
+            <div style="margin-top: 0px;" class="container-fluid">
+                <h1 lang-value="episodes" class="title"></h1>
+            </div>
+            <div style="display: inherit;" class="containerme">
+                <div id="episodes" class="carouselme"></div>
+                <div style="display: none;" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div id="clipsrow" class="row">
+        <div class="col-12">
+            <div style="margin-top: 0px;" class="container-fluid">
+                <h1 lang-value="clips" class="title"></h1>
+            </div>
+            <div style="display: inherit;" class="containerme">
+                <div id="clips" class="carouselme" style="margin-bottom: 4rem;"></div>
+                <div style="display: none;" id="pagination"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tvShowsMainSection" class="container-fluid">
+        <div style="margin-top: 0px;" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div style="margin-top: 0px;" class="container-fluid">
+                        <h1 lang-value="tvshows" class="title">Shows</h1>
+                    </div>
+                    <div style="display: inherit;" class="containerme">
+                        <div id="tvShows" class="carouselme"></div>
+                        <div style="display: none;" id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    	var showId = sessionStorage.getItem('ShowAndChannelId');
+    	var episodesURL = 'https://smashi.tv/api/video/shows/' + showId + '/details';
+    	var clipsURL = 'https://smashi.tv/api/video/shows/' + showId + '/clips/videos';
+    	var myLanguage = sessionStorage.getItem("locale");
+    	var id = 10002;
+            if (!myLanguage) {
+                myLanguage = 'en';
+            }
+        fetch(episodesURL, {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-localization': myLanguage
+                }
+            })
+            .then(
+                res => {
+                    return res.json();
+                })
+            .then(
+                data => {
+                    var details = data.data.showVideo;
+                    var videodetails = data.data.relatedShowVideos;
+                    var markup = `
+                    <div style="background-image: url(${details.master_image}); background-repeat: no-repeat; background-size: cover; height: 37rem;"> 
+                        <div style="padding: 6rem 4rem;">
+                            <h1 style="color:white; font-size: 48px; font-weight: 700;"> ${details.title} </h1>
+                            <p id="bannerBody" style="color:white; font-size: 32px; width:50%;"> ${details.body} </p>
+    						<button id="00010001" class="newbutton watchlivebutton" style="font-weight: 700; font-size: 32px; width: 25%" autofocus>Watch Now</button>
+                        </div>
+                    </div>
+                    
+                    `
+                    ;
+                    document.getElementById('showDetailsBanner').insertAdjacentHTML('beforeend', markup);
+                    if (!details.body){
+    		        	console.log("in if");	
+    		            document.getElementById('bannerBody').remove();
+    				}
+    				var i = 0;
+            		var pre = '000';
+                    videodetails.forEach(video => {
+                    let newid = pre + id;
+              		i++;
+              		id += 10000;
+                    markup = `<div id="`+ video.id + `" class="item">
+                            	<div style="position: static; padding: 8px;" class="card">
+                            		<a id="${newid}" tabindex="1">
+                               			<img  class="img-fluid" alt="100%x280" src="${video.poster_url}">
+                               		</a>
+                                	<h4 class="card-title" style="padding-top: 1rem;">${video.title}</h4> 
+                               		<p style="font-size: 20px; margin-top:1rem;">${video.created_at}</p>  
+    	                       	</div>
+    	                   	</div>`;
+                    document.getElementById('episodes').insertAdjacentHTML('beforeend', markup);
+					if (i === 9) {pre = '00';}
+                });
+                id = 10003;
+                if (videodetails.length == 0) {
+                    document.getElementById('episodesrow').remove();
+                    id = 10002;
+					}
+                }
+            );
+            fetch(clipsURL, {
+                headers: {
+                    'Accept': 'application/json',
+                    'X-localization': myLanguage
+                }
+            })
+            .then(
+                res => {
+                    return res.json();
+                })
+            .then(
+                data => {
+                    var clipsdetails = data.data.relatedShowVideos;
+                    var markup = ``;
+                    var i = 0;
+            		var pre = '000';
+                    clipsdetails.forEach(video => {
+                    let newid = pre + id;
+              		i++;
+              		id += 10000;
+                    markup = `<div id="`+ video.id + `" class="item">
+                            	<div id="${newid}" style="position: static; padding: 8px;" class="card" tabindex="1">
+                               		 <img  class="img-fluid" alt="100%x280" src="${video.poster_url}">
+                                	<h4 class="card-title" style="padding-top: 1rem;">${video.title}</h4> 
+                                <p style="font-size: 20px; margin-top:1rem;">${video.created_at}</p>  
+    	                       	</div>
+    	                   	</div>`;
+                    document.getElementById('clips').insertAdjacentHTML('beforeend', markup);
+                    if (i === 9) {pre = '00';}
+                });
+                id = 10004;
+                if (clipsdetails.length == 0) {
+                    	document.getElementById('clipsrow').remove();
+                    	id = 10003;
+                    }
+                }
+            );
+</script>
+<script src="js/api.js"></script>
+
+
