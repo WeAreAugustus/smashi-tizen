@@ -3,7 +3,7 @@
 
 # Localization
 
-if you need to put any translated value, add your key value inside lang/lang.js file like :
+If any translation needs to be added to the current project, add them to the lang.js file like so:
 ```
     const __LANG = {
         // English translations
@@ -16,7 +16,7 @@ if you need to put any translated value, add your key value inside lang/lang.js 
         },
     };
 ```
-then put your html tag with an additional attribute `lang-value` like
+Then add the attribute `lang-value` to your html tag like so:
     ```<h1 lang-value="hello" ></h1>```
 it will be translated automatically!
 
