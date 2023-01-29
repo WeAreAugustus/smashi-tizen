@@ -22,13 +22,13 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
                     	<h2 lang-value="up" style="font-weight: 700; font-size:24px; margin-bottom: 1rem;"> </h2>
                     	<h2 style="font-weight: 600; font-size:32px;"> Tech Bel Araby </h2>
                     </div>
-                    <button class="newbutton watchlivebutton" onkeypress="toAccount()" onclick="toAccount()" id="00010001" lang-value="watch" style="font-weight: 700; font-size: 32px;">
+                    <button class="focusable newbutton watchlivebutton" onkeypress="toAccount()" onclick="toAccount()" id="DummyButton" lang-value="watch" style="font-weight: 700; font-size: 32px;">
                     </button>
                   <div id="full" style="display: block;">
-	                	<button id="fsb" class="fullbutton fullbuttonbefore" onclick="setToFullScreen()">
+	                	<button id="fsb" class="focusable fullbutton fullbuttonbefore" onclick="setToFullScreen()">
 	                		<img src="img/fullbefore.svg">
 	                	</button>
-	                	<button class="fullbutton fullbuttonafter" onclick="setToFullScreen()">
+	                	<button class="focusable fullbutton fullbuttonafter" onclick="setToFullScreen()">
 	            			<img src="img/fullafter.svg">
 	            		</button> 
             		</div> 
@@ -42,9 +42,11 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
                     <div id="subscriptionText" style="display: none; text-align: center;position: absolute;z-index: 999;top: 14%;right: 12%;font-style: normal;font-weight: 600;font-size: 56px;line-height: 66px;">
 	                        <p>Get Premium</p>
 	                        <p>To Continue Watching</p>
-	                        <button id="00020001"  lang-value="starttrial" style="margin-top: 1rem; font-size: 48px; font-weight: 600;" class="newbutton starttrialbutton"
-	                        onkeypress="toAccount()">
-	                        </button>  
+	                        <a href="components/screens/profile.html>"
+		                        <button lang-value="starttrial" style="margin-top: 1rem; font-size: 48px; font-weight: 600;" class="focusable newbutton starttrialbutton"
+		                        onclick="testNav()">
+	                        	</button>  
+	                        </a>
                     </div>
                         <div id="liveVideoPlayer" style="filter: blur(0px);" class='player'>
                             <video id="video" playsinline pause></video>
@@ -222,14 +224,7 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
         
         </script>
         <script>
-        	var butt = document.getElementById('00010001');
-        	if (typeof(butt) != 'undefined' && butt != null)
-        	{
-        	  console.log('exists');
-        	}
-        	if (butt){
-        		
-        	}
+
 
         	var video = document.getElementById("video");
             hasSubscription = sessionStorage.getItem("hasSubscription");
@@ -263,6 +258,10 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
                     closeNav();
                 });
             }
+            
+//            function testNav() {
+//            	window.location.href = "components/screens/profile.html";
+//            }
         </script>             
                 `
             $("#topSection").html(dataHtml);
@@ -555,7 +554,7 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
                     </script>
                     <div id="`+ item.id + `" onkeypress="myLatestVideo(this.id);" class="item">
                         <div style="position: static; padding: 8px;" class="card">
-	                        <img class="img-fluid card" alt="100%x280" src="${item.poster_url}" id="${id}0002" tabindex="1">
+	                        <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" id="${id}0002" tabindex="1">
 	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
 	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                         </div>
@@ -673,7 +672,7 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
                     </script>
                     <div id="`+ item.id + `" onkeypress="myTrendingVideo(this.id);" style="cursor: pointer !important;" class="item">
                         <div style="position: static; padding: 8px;" class="card" >
-                            <img  class="img-fluid card" alt="100%x280" src="${item.poster_url}" id="${id}0003" tabindex="1">
+                            <img  class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" id="${id}0003" tabindex="1">
                             <h4 class="card-title" style="padding-top: 1rem;">${item.title}</h4> 
                             <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>
                             

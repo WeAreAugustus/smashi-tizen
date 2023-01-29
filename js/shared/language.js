@@ -9,7 +9,6 @@ define(function () {
 
     function getUserLanguage() {
 
-
         var lang = myLanguage;
 
 
@@ -23,13 +22,7 @@ define(function () {
         console.log(lang);
         return 'ar';
 
-
     }
-
-
-
-
-
 
 
     function getElementLanguage(element) {
@@ -42,11 +35,6 @@ define(function () {
         element.innerText = __LANG[getUserLanguage()][getElementLanguage(element)];
 
     }
-
-
-
-
-
 
 
     return {
