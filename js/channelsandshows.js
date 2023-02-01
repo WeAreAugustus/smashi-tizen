@@ -1,11 +1,22 @@
+
 function navigateToChannel(channelId) {
 	sessionStorage.setItem("ShowAndChannelId", channelId);
 	$("<div>").load("components/screens/showdetails.html", function () {
         $("#screen").empty();
         $("#screen").append($(this).html());
+        
     });
 }
-fetch('https://smashi.tv/api/video/shows/channel')
+var myLanguage = sessionStorage.getItem("locale");
+if (!myLanguage) {
+    myLanguage = 'en';
+}
+fetch('https://smashi.tv/api/video/shows/channel', {
+	    headers: {
+	        'Accept': 'application/json',
+	        'X-localization': myLanguage
+	    }
+	})
     .then(
         res => {
             return res.json();
@@ -22,7 +33,12 @@ fetch('https://smashi.tv/api/video/shows/channel')
             });
         }
     );
-fetch('https://smashi.tv/api/video/shows')
+fetch('https://smashi.tv/api/video/shows', {
+		headers: {
+        'Accept': 'application/json',
+        'X-localization': myLanguage
+		}
+	})
     .then(
         res => {
             return res.json();
