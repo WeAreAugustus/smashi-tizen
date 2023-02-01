@@ -1,9 +1,43 @@
 <section>
-	<video id="videoplayer"></video>
+	<video id="video_player" autoplay></video>
 </section>
 
+<script>
+	var vid = document.querySelector('#video_player');
+	var url = '';
+	url = sessionStorage.getItem('video_url');
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(url);
+                hls.attachMedia(video_player);
+                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                	vid.play();
+                });
+            }
+    document.addEventListener('keydown', function (e) {
+                switch (e.keyCode) {
+                    case tvKey.MediaPlayPause:
+                    	if (vid.paused){
+                    		console.log('Video playing');
+                    		vid.play();
+                    	}
+                    	else if(!vid.paused){
+                    		console.log('Video paused');
+                    		vid.pause();
+                    	}
+                        break;
+                    case tvKey.MediaPlay:
+                        vid.play();
+                        break;
+                    case tvKey.MediaPause:
+                        vid.pause();
+                        break;
+                }
+            })
+</script>
+
 <style>
-    #videoplayer {
+    #video_player {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -12,25 +46,3 @@
       left: 0;
     }
 </style>
-
-<script>
-fetch('https://smashi.tv/api/live_url')
-    .then(
-        res => {
-            return res.json();
-        })
-    .then(
-        data => {
-            var url = data.data.video_url;
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(videoplayer);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                	video.play();
-                });
-            }
-        }
-    );
-</script>
-

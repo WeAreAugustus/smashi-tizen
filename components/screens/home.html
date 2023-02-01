@@ -273,12 +273,7 @@
         </div>
     </div>
 
-
-    <div id="myList2">
-
-    </div>
-
-
+	 
     <!-- Latest Row -->
     <div style="padding-top: 0%;display: inherit; padding-left:0;" id="latestMainSection" class="container-fluid">
         <div style="margin-top: 2%;" class="container-fluid">
@@ -288,7 +283,7 @@
                         <h1 lang-value="latest" class="title">Latest</h1>
                     </div>
                     <div style="display: inherit;" class="containerme">
-                        <div id="datacontainer" class="carouselme"></div>
+                        <div id="latest" class="carouselme"></div>
                         <div style="display: none;" id="pagination"></div>
                     </div>
                 </div>
@@ -351,25 +346,11 @@
 
 </section>
 
-<script src="js/api.js"></script>
+<script src="js/trendingandlatest.js"></script>
+<script src="js/channelsandshows.js"></script>
 
 <style>
-    .card:focus {
-        border: 5px solid white;
-        border-radius: 25px;
-        outline-style: none;
-        -webkit-transition: all .2s;
-	    transition: all .4s;
-	    padding: 5px;
-    }
-
-    .item:focus {
-        background-color: yellow;
-        border: 3px solid white;
-        outline-style: none;
-        top: 0;
-    }
-
+    
     .itemnew {
         padding: 6px;
     }
@@ -387,13 +368,9 @@
         // live.setUrlById('live-video')
         // home.latest(1,3)
         home.topSection()
-
-        home.datacontainer(1, 100)
-        home.watchSection()
-
-        home.trending(1, 3)
-        console.log($('#00020001'))
-
+        //home.datacontainer(1, 100)
+        //home.watchSection()
+        //home.trending(1, 3)
     });
 </script>
 
@@ -409,201 +386,3 @@
     }
 </script>
 
-<script>
-
-    function myTVShows(row_vendor) {
-
-        var myLanguage = sessionStorage.getItem("locale");
-        if (!myLanguage) {
-            myLanguage = 'en';
-        }
-
-
-        if (document.getElementById("topSection") == null && document.getElementById("datacontainer") == null && document.getElementById("trending") == null) {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0;
-            document.getElementById("watchSection").style.display = "";
-
-            dataHtml = "";
-            fetch('https://smashi.tv/api/video/shows/' + row_vendor + '/details', {
-                headers: {
-                    'Accept': 'application/json',
-                    'X-localization': myLanguage
-                }
-            })
-                .then((response) => {
-                    return response.json();
-                })
-                .then((myJson) => {
-
-                    var myRelatedShowVideo = myJson.data.relatedShowVideos;
-                    var myShowVideo = myJson.data.showVideo;
-
-                    document.getElementsByName("showHeading")[0].innerHTML = myJson.data.showVideo.title;
-                    document.getElementsByName("showDescription")[0].innerHTML = myJson.data.showVideo.body_english;
-
-
-                    var html = "";
-                    var video = document.querySelector('#home_video_player');
-
-
-                    if (Hls.isSupported()) {
-                        var hls = new Hls();
-                        hls.loadSource(myRelatedShowVideo[0].video_link);
-                        hls.attachMedia(video);
-                        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                            video.play();
-                        });
-                    }
-                    document.getElementsByName("episodeHeading")[0].innerHTML = myRelatedShowVideo[0].title;
-
-                    if (document.getElementById("00010001") == null) {
-
-                    } else {
-                        document.getElementById("00010001").setAttribute("id", "00010003");
-                        document.getElementById("00020001").setAttribute("id", "00020003");
-                        document.getElementById("00030001").setAttribute("id", "00030003");
-                        
-                    }
-
-
-                    // console.log(myShowVideo.show_link);
-                    for (var i = 0; i < myRelatedShowVideo.length; i++) {
-                        //print date
-                        console.log(myRelatedShowVideo[i].title);
-                        // dataHtml += `<h1 lang-value="tvshows">${myRelatedShowVideo[i].title}</h1>`;
-                        // document.getElementById("tvShowsWatch").innerHTML = myRelatedShowVideo[i].title;
-
-                        html += `
-                        <div id="`+ myRelatedShowVideo[i].video_link + `"  onkeypress="myshowvideochanger(this.id)"  class="item">
-                            <div  class="card" >
-                                <img style="width: 100%;height: 214px;object-fit: contain;" class="img-fluid" alt="100%x280" src="${myRelatedShowVideo[i].poster_url}" >
-                            </div>
-                                <h4 style="height: fit-content !important;" id="000${i}0005" tabindex="1" name="` + myRelatedShowVideo[i].title + `"  onkeypress="myepisodetitlechanger(this.innerHTML)" style="cursor: pointer !important;" class="itemnew">${myRelatedShowVideo[i].title}</h4> 
-
-                        </div>
-                        
-                        `;
-
-
-                    }
-                    // //alert("omak");
-                    // $("#tvShows").html(html);
-                    $("#tvShowsWatch").html(html);
-
-                });
-        } else {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0;
-            document.getElementById("topSection").remove();
-            document.getElementById("latestMainSection").remove();
-            document.getElementById("trending").remove();
-            document.getElementById("watchSection").style.display = "";
-            // document.getElementsByName("video")[0].src = row_vendor;
-            // //alert(row_vendor);
-
-            //alert("else executed");
-            dataHtml = "";
-            fetch('https://smashi.tv/api/video/shows/' + row_vendor + '/details')
-                .then((response) => {
-                    return response.json();
-                })
-                .then((myJson) => {
-                    // console.log(myJson.data.relatedShowVideos);
-                    var myRelatedShowVideo = myJson.data.relatedShowVideos;
-                    var myShowVideo = myJson.data.showVideo;
-                    // dataHtml += `<h1 lang-value="tvshows">New HTML</h1>
-                    // `;
-                    var html = "";
-                    document.getElementsByName("video")[0].src = myRelatedShowVideo[0].video_link;
-                    // document.getElementById("00010001").setAttribute("id", "00010003");
-
-                    if (document.getElementById("00010001") == null) {
-
-                    } else {
-                        document.getElementById("00010001").setAttribute("id", "00010003");
-                    }
-
-                    // console.log(myShowVideo.show_link);
-                    for (var i = 0; i < myRelatedShowVideo.length; i++) {
-                        //print date
-                        console.log(myRelatedShowVideo[i].title);
-                        // dataHtml += `<h1 lang-value="tvshows">${myRelatedShowVideo[i].title}</h1>`;
-                        // document.getElementById("tvShowsWatch").innerHTML = myRelatedShowVideo[i].title;
-                        // html += `
-                        //         <div  class="row">
-                        //             <hr style="height: 10px; color: white; margin-top: 5%; margin-bottom: 5%;">
-                        //         </div>
-                        //         <h4 style="color: grey !important; margin-bottom: 40px;">${myRelatedShowVideo[i].title}</h4>
-
-                        //         `;
-
-                    }
-                    // //alert("omak");
-                    // $("#tvShows").html(html);
-                    $("#tvShowsWatch").html(html);
-
-                });
-        }
-
-
-    }
-
-
-
-</script>
-<script>
-
-
-
-
-    function myshowvideochanger(myshowvideo) {
-        // var episodeTitle = '';
-        // episodeTitle = document.getElementById("episodeTitle").innerHTML;
-        // //alert(episodeTitle);
-        // const para = document.createElement("p");
-        // const node = document.createTextNode(document.getElementById("episodeTitle").innerHTML);
-        // para.appendChild(node);
-
-        // const element = document.getElementById("div1");
-        // element.appendChild(para);
-
-
-
-
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0;
-
-        video = document.querySelector('#home_video_player');
-
-        if (Hls.isSupported()) {
-            var hls = new Hls();
-            hls.loadSource(myshowvideo);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                video.play();
-            });
-        }
-
-
-
-
-
-
-
-
-    }
-
-    function myepisodetitlechanger(myfuckingtitle) {
-        //alert(myfuckingtitle)
-        // Select first child element:
-        const element = document.getElementById("myList").children[0];
-
-        // Create a new text node:
-        const newNode = document.createTextNode(myfuckingtitle);
-
-        // Replace the text node:
-        element.replaceChild(newNode, element.childNodes[0]);
-    }
-
-</script>

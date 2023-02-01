@@ -128,6 +128,9 @@ define(['js/shared/language.js'], function (language) {
             firstElement.focus()
             $("#screen").empty();
             $("#screen").append($(this).html());
+            setTimeout(function () {
+                language.init()
+            }, 500);
         });
     }
 
@@ -162,121 +165,124 @@ define(['js/shared/language.js'], function (language) {
             	    });
             	    dummy.dispatchEvent(clickEvent);
             	  }
+            	if (event.keyCode === 10009){
+            		backToHomeScreen();
+            	}
 
-//                if (myLanguage == 'en') {
-//                    switch (e.keyCode) {
-//                        case tvKey.LEFT:
-//                            console.log("LEFT")
-//                            backButtonCOunter = 0;
-//                            left()
-//                            console.log("We are here: " + document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                document.getElementById("00020001").focus();
-//                            }
-//                            break;
-//                        case tvKey.UP:
-//                            document.body.scrollTop = 0; // For Safari
-//                            document.documentElement.scrollTop = 0;
-//                            console.log("UPUPUPUP")
-//                            backButtonCOunter = 0;
-//                            up()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.RIGHT:
-//                            console.log("RIGHT")
-//                            backButtonCOunter = 0;
-//                            console.log(backButtonCOunter);
-//                            right()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.DOWN:
-//                            console.log("DOWN")
-//                            backButtonCOunter = 0;
-//                            down()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.RETURN:
-//                            console.log("BACK")
-//                            backToHome()
-//                            backToHomeScreen()
-//                            console.log(document.activeElement.id)
-//                            break;
-//                        case tvKey.ENTER:
-//                        	console.log("Enter key works!");
-//                        	var clickEvent = new MouseEvent("click", {
-//                        	    "view": window,
-//                        	    "bubbles": true,
-//                        	    "cancelable": false
-//                        	});
-//                        	break;
+// if (myLanguage == 'en') {
+// switch (e.keyCode) {
+// case tvKey.LEFT:
+// console.log("LEFT")
+// backButtonCOunter = 0;
+// left()
+// console.log("We are here: " + document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// document.getElementById("00020001").focus();
+// }
+// break;
+// case tvKey.UP:
+// document.body.scrollTop = 0; // For Safari
+// document.documentElement.scrollTop = 0;
+// console.log("UPUPUPUP")
+// backButtonCOunter = 0;
+// up()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.RIGHT:
+// console.log("RIGHT")
+// backButtonCOunter = 0;
+// console.log(backButtonCOunter);
+// right()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.DOWN:
+// console.log("DOWN")
+// backButtonCOunter = 0;
+// down()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.RETURN:
+// console.log("BACK")
+// backToHome()
+// backToHomeScreen()
+// console.log(document.activeElement.id)
+// break;
+// case tvKey.ENTER:
+// console.log("Enter key works!");
+// var clickEvent = new MouseEvent("click", {
+// "view": window,
+// "bubbles": true,
+// "cancelable": false
+// });
+// break;
 //                        	
-//                        // case tvKey.MediaPlayPause:
-//                        //     console.log("PLAYPAUSE")
-//                        //     break;
-//                        // case tvKey.MediaPlay:
-//                        //     console.log("Play")
-//                        //     break;
-//                        // case tvKey.MediaPause:
-//                        //     console.log("Pause")
-//                        //     break;
+// // case tvKey.MediaPlayPause:
+// // console.log("PLAYPAUSE")
+// // break;
+// // case tvKey.MediaPlay:
+// // console.log("Play")
+// // break;
+// // case tvKey.MediaPause:
+// // console.log("Pause")
+// // break;
 //
 //
-//                    }
-//                } else {
-//                    switch (e.keyCode) {
-//                        case tvKey.LEFT:
-//                            console.log("RIGHT ARABIC")
-//                            backButtonCOunter = 0;
-//                            right()
-//                            console.log("We are here: " + document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                document.getElementById("00020001").focus();
-//                            }
-//                            break;
-//                        case tvKey.UP:
-//                            console.log("UPUPUPUP")
-//                            backButtonCOunter = 0;
-//                            up()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.RIGHT:
-//                            console.log("LEFT ARABIC")
-//                            backButtonCOunter = 0;
-//                            left()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.DOWN:
-//                            console.log("DOWN")
-//                            backButtonCOunter = 0;
-//                            down()
-//                            console.log(document.activeElement.id)
-//                            if (document.activeElement.id == 'mainBody') {
-//                                firstElement.focus();
-//                            }
-//                            break;
-//                        case tvKey.RETURN:
-//                            console.log("BACK")
-//                            backToHome()
-//                            backToHomeScreen()
-//                            console.log(document.activeElement.id)
-//                            break;
-//                    }
-//                }
+// }
+// } else {
+// switch (e.keyCode) {
+// case tvKey.LEFT:
+// console.log("RIGHT ARABIC")
+// backButtonCOunter = 0;
+// right()
+// console.log("We are here: " + document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// document.getElementById("00020001").focus();
+// }
+// break;
+// case tvKey.UP:
+// console.log("UPUPUPUP")
+// backButtonCOunter = 0;
+// up()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.RIGHT:
+// console.log("LEFT ARABIC")
+// backButtonCOunter = 0;
+// left()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.DOWN:
+// console.log("DOWN")
+// backButtonCOunter = 0;
+// down()
+// console.log(document.activeElement.id)
+// if (document.activeElement.id == 'mainBody') {
+// firstElement.focus();
+// }
+// break;
+// case tvKey.RETURN:
+// console.log("BACK")
+// backToHome()
+// backToHomeScreen()
+// console.log(document.activeElement.id)
+// break;
+// }
+// }
             })
         }
     }

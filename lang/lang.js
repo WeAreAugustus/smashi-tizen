@@ -46,7 +46,8 @@ const __LANG = {
         'channels': 'Smashi Channels',
         'more': 'More Shows',
         'episodes': 'Episodes',
-        'clips': 'Clips'
+        'clips': 'Clips',
+        'more': 'More'
     },
 
     // Arabic translations
