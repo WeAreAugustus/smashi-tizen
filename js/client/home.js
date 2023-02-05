@@ -58,22 +58,22 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
         </div>
         
         <script>
-            var video = document.querySelector('#video');
-            hasSubscription = sessionStorage.getItem("hasSubscription");
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource('https://d1ock1cbv8rr1i.cloudfront.net/hls/main.m3u8');
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                	if (hasSubscription == null){
-                    	video.remove();
-                    }
-                    else{
-                    	video.play();
-                    }
-                });
-            }
-        
+//            var video = document.querySelector('#video');
+//            hasSubscription = sessionStorage.getItem("hasSubscription");
+//            if (Hls.isSupported()) {
+//                var hls = new Hls();
+//                hls.loadSource('https://d1ock1cbv8rr1i.cloudfront.net/hls/main.m3u8');
+//                hls.attachMedia(video);
+//                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+//                	if (hasSubscription == null){
+//                    	video.remove();
+//                    }
+//                    else{
+//                    	video.play();
+//                    }
+//                });
+//            }
+//        
 //            var tvKey = window.tvKey;
 //            tizen.tvinputdevice.registerKey('MediaPlay');
 //            tizen.tvinputdevice.registerKey('MediaPause');
@@ -89,73 +89,73 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
 //                    case tvKey.MediaPause:
 //                        console.log("Pause")
 //                        video.pause();
-//                        break;
+//                         break;
 //                }
 //            })
 //        
         </script>
         <script>
-        
-            //ELEMENT SELECTORS
-            var player = document.querySelector('.player');
-            var video = document.querySelector('#video');
-            var playBtn = document.querySelector('.play-btn');
-            var volumeBtn = document.querySelector('.volume-btn');
-            var volumeSlider = document.querySelector('.volume-slider');
-            var volumeFill = document.querySelector('.volume-filled');
-            var progressSlider = document.querySelector('.progress');
-            var progressFill = document.querySelector('.progress-filled');
-            var textCurrent = document.querySelector('.time-current');
-            var textTotal = document.querySelector('.time-total');
-            var speedBtns = document.querySelectorAll('.speed-item');
-            var fullscreenBtn = document.querySelector('.fullscreen');
-        
-            //GLOBAL VARS
-            var lastVolume = 1;
-            var isMouseDown = false;
-        
-            //PLAYER FUNCTIONS
-            function togglePlay() {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-                playBtn.classList.toggle('paused');
-            }
-            function togglePlayBtn() {
-                playBtn.classList.toggle('playing');
-            }
-        
-            function toggleMute() {
-                if (video.volume) {
-                    lastVolume = video.volume;
-                    video.volume = 0;
-                    volumeBtn.classList.add('muted');
-                    volumeFill.style.width = 0;
-                } else {
-                    video.volume = lastVolume;
-                    volumeBtn.classList.remove('muted');
-                    volumeFill.style.width = lastVolume * 100;
-                }
-            }
-        
-            //EVENT LISTENERS
-            playBtn.addEventListener('click', togglePlay);
-            video.addEventListener('click', togglePlay);
-            video.addEventListener('play', togglePlayBtn);
-            video.addEventListener('pause', togglePlayBtn);
-            video.addEventListener('ended', togglePlayBtn);
-            volumeBtn.addEventListener('click', toggleMute);
-            window.addEventListener('mousedown', () => isMouseDown = true)
-            window.addEventListener('mouseup', () => isMouseDown = false)
-            fullscreenBtn.addEventListener('click', toggleFullscreen);
-            speedBtns.forEach(speedBtn => {
-                speedBtn.addEventListener('click', setSpeed);
-            })
-        
-        
-        
+//        
+//            //ELEMENT SELECTORS
+//            var player = document.querySelector('.player');
+//            var video = document.querySelector('#video');
+//            var playBtn = document.querySelector('.play-btn');
+//            var volumeBtn = document.querySelector('.volume-btn');
+//            var volumeSlider = document.querySelector('.volume-slider');
+//            var volumeFill = document.querySelector('.volume-filled');
+//            var progressSlider = document.querySelector('.progress');
+//            var progressFill = document.querySelector('.progress-filled');
+//            var textCurrent = document.querySelector('.time-current');
+//            var textTotal = document.querySelector('.time-total');
+//            var speedBtns = document.querySelectorAll('.speed-item');
+//            var fullscreenBtn = document.querySelector('.fullscreen');
+//        
+//            //GLOBAL VARS
+//            var lastVolume = 1;
+//            var isMouseDown = false;
+//        
+//            //PLAYER FUNCTIONS
+//            function togglePlay() {
+//                if (video.paused) {
+//                    video.play();
+//                } else {
+//                    video.pause();
+//                }
+//                playBtn.classList.toggle('paused');
+//            }
+//            function togglePlayBtn() {
+//                playBtn.classList.toggle('playing');
+//            }
+//        
+//            function toggleMute() {
+//                if (video.volume) {
+//                    lastVolume = video.volume;
+//                    video.volume = 0;
+//                    volumeBtn.classList.add('muted');
+//                    volumeFill.style.width = 0;
+//                } else {
+//                    video.volume = lastVolume;
+//                    volumeBtn.classList.remove('muted');
+//                    volumeFill.style.width = lastVolume * 100;
+//                }
+//            }
+//        
+//            //EVENT LISTENERS
+//            playBtn.addEventListener('click', togglePlay);
+//            video.addEventListener('click', togglePlay);
+//            video.addEventListener('play', togglePlayBtn);
+//            video.addEventListener('pause', togglePlayBtn);
+//            video.addEventListener('ended', togglePlayBtn);
+//            volumeBtn.addEventListener('click', toggleMute);
+//            window.addEventListener('mousedown', () => isMouseDown = true)
+//            window.addEventListener('mouseup', () => isMouseDown = false)
+//            fullscreenBtn.addEventListener('click', toggleFullscreen);
+//            speedBtns.forEach(speedBtn => {
+//                speedBtn.addEventListener('click', setSpeed);
+//            })
+//        
+//        
+//        
         </script>
         <script>
 

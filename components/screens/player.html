@@ -3,35 +3,42 @@
 </section>
 
 <script>
+	console.log("In Player script");
 	var vid = document.querySelector('#video_player');
 	var url = '';
 	url = sessionStorage.getItem('video_url');
             if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(url);
-                hls.attachMedia(video_player);
+                hls.attachMedia(vid);
                 hls.on(Hls.Events.MANIFEST_PARSED, function () {
                 	vid.play();
                 });
             }
-    document.addEventListener('keydown', function (e) {
+    window.addEventListener('keydown', function (e) {
                 switch (e.keyCode) {
                     case tvKey.MediaPlayPause:
-                    	if (vid.paused){
+                    	if (!vid.paused){
                     		console.log('Video playing');
-                    		vid.play();
-                    	}
-                    	else if(!vid.paused){
-                    		console.log('Video paused');
                     		vid.pause();
+                    		break;
                     	}
-                        break;
+                    	else{
+                    		console.log('Video paused');
+                    		vid.play();
+                    		break;
+                    	}
                     case tvKey.MediaPlay:
                         vid.play();
+                        console.log('Video playing');
                         break;
                     case tvKey.MediaPause:
                         vid.pause();
+                        console.log('Video paused');
                         break;
+                    case tvKey.RETURN:
+                    	vid.remove();
+                    	break;
                 }
             })
 </script>

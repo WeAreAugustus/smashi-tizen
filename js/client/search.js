@@ -66,8 +66,8 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
                         }
                     </script>
                     <div  id="`+ item.video_link + `" onkeypress="omak(this.id, this.textContent);" style="cursor: pointer !important;" class="item">
-                        <div class="card" id="${id}0005" tabindex="1">
-                            <img style="width: 100%;height: 214px;object-fit: contain;" class="img-fluid" alt="100%x280" src="${item.poster_url}">
+                        <div class="card" tabindex="1">
+                            <img style="width: 100%;height: 214px;object-fit: contain;" class="img-fluid focusable" alt="100%x280" src="${item.poster_url}">
                             <div>
                                 <h4>${item.title}</h4> 
                             </div> 
@@ -97,7 +97,6 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
             body {
               width: 100%;
               height: 100%;
-              background: #ff578e;
             }
             html {
               display: flex;
@@ -395,24 +394,6 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
             tizen.tvinputdevice.registerKey('MediaPause');
             var video = document.querySelector('#video');
             
-            document.addEventListener('keydown', function(e) {
-                                
-                  switch (e.keyCode) {
-                      case tvKey.MediaPlayPause:
-                          console.log("PLAYPAUSE")
-                          break;
-                      case tvKey.MediaPlay:
-                          console.log("Play")
-                          video.play();
-                          break;
-                      case tvKey.MediaPause:
-                          console.log("Pause")
-                          video.pause();
-                          break;
-                          
-            
-                  }
-            })
             </script>
             
             
