@@ -128,7 +128,11 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 				cors: true,
 				success: function (response) {
 
-					
+					function returnToHomePage() {
+						require(["router"], function (router) {
+							router.changeScreen('home');
+						});
+					}
 					
 					response = shared.responseSuccessHandler(response);
 					console.log(response);
@@ -147,20 +151,10 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 					sessionStorage.setItem("subscriptionPrice", response.data.subscription_type.price);
 					sessionStorage.setItem("subscriptionExpiryDate", response.data.subscription_ex_date);
 				
-
-					// //alert(mytoken);
-
-
-
-					$("<div>").load("components/screens/home.html", function () {
-						firstElement = document.getElementById("00000001")
-						firstElement.focus()
-						$("#screen").empty();
-						$("#screen").append($(this).html());
-						if($('#alert').html() != null){
-							$('#alert').empty();
-						}
-					});
+					if($('#alert').html() != null){
+						$('#alert').empty();
+					}
+					returnToHomePage();
 
 				},
 				error: function (error) {

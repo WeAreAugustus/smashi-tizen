@@ -1,12 +1,12 @@
 
-function navigateToChannel(channelId) {
-	sessionStorage.setItem("ShowAndChannelId", channelId);
-	$("<div>").load("components/screens/showdetails.html", function () {
-        $("#screen").empty();
-        $("#screen").append($(this).html());
-        
-    });
-}
+
+	function navigateToChannel(channelId) {
+		sessionStorage.setItem("ShowAndChannelId", channelId);
+		require(["router"], function (router) {
+			router.changeScreen('showdetails');
+		});
+	}
+
 var myLanguage = sessionStorage.getItem("locale");
 if (!myLanguage) {
     myLanguage = 'en';

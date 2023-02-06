@@ -3,111 +3,41 @@ upScrollCounter = 0;
 define(['js/shared/language.js'], function (language) {
     var tvKey = window.tvKey;
 
-    function zeroPad(num, totalLength) {
-        return String(num).padStart(totalLength, '0');
-    }
-    function getElementPosition(focusedItemId) {
-        return {
-            col: parseInt(focusedItemId.substring(0, 4)),
-            row: parseInt(focusedItemId.substring(4, 8))
-        }
-    }
-
     var changeScreen = function (screenName) {
-
-        // console.log("we are here after open nav")
-
-
         $("<div>").load("components/screens/" + screenName + ".html", function () {
             $("#screen").empty();
             $("#screen").append($(this).html());
             document.getElementById("screen").style.backgroundImage = "";
             console.log("we are here change screen after closenav")
-
         });
-
         setTimeout(function () {
             language.init()
         }, 500);
     }
 
-    function left() {
-        var focusedItemId = document.activeElement.id
-        var { col, row } = getElementPosition(focusedItemId);
-
-        if (!document.getElementById(`${zeroPad(col - 1, 4)}${zeroPad(row, 4)}`)) return;
-        document.getElementById(focusedItemId).blur();
-        setTimeout(function () {
-            document.getElementById(`${zeroPad(col - 1, 4)}${zeroPad(row, 4)}`).scrollIntoViewIfNeeded();
-        }, 50);
-        document.getElementById(`${zeroPad(col - 1, 4)}${zeroPad(row, 4)}`).focus();
-    }
-
-
-    function right() {
-        var focusedItemId = document.activeElement.id
-        var { col, row } = getElementPosition(focusedItemId);
-
-        if (!document.getElementById(`${zeroPad(col + 1, 4)}${zeroPad(row, 4)}`)) return;
-        document.getElementById(focusedItemId).blur();
-        setTimeout(function () {
-            document.getElementById(`${zeroPad(col + 1, 4)}${zeroPad(row, 4)}`).scrollIntoViewIfNeeded();
-        }, 50);
-        document.getElementById(`${zeroPad(col + 1, 4)}${zeroPad(row, 4)}`).focus();
-    }
-
-
-    function up() {
-        var focusedItemId = document.activeElement.id
-        var { col, row } = getElementPosition(focusedItemId);
-
-        if (!document.getElementById(`${zeroPad(col, 4)}${zeroPad(row - 1, 4)}`)) return;
-        document.getElementById(focusedItemId).blur();
-        setTimeout(function () {
-            document.getElementById(`${zeroPad(col, 4)}${zeroPad(row - 1, 4)}`).scrollIntoViewIfNeeded();
-        }, 50);
-        document.getElementById(`${zeroPad(col, 4)}${zeroPad(row - 1, 4)}`).focus();
-    }
-
-
-    function down() {
-        var focusedItemId = document.activeElement.id
-        var { col, row } = getElementPosition(focusedItemId);
-
-        if (!document.getElementById(`${zeroPad(col, 4)}${zeroPad(row + 1, 4)}`)) return;
-        document.getElementById(focusedItemId).blur();
-        setTimeout(function () {
-            document.getElementById(`${zeroPad(col, 4)}${zeroPad(row + 1, 4)}`).scrollIntoViewIfNeeded();
-        }, 50);
-        document.getElementById(`${zeroPad(col, 4)}${zeroPad(row + 1, 4)}`).focus();
-    }
-
-
 
     function openNav() {
-        if (document.getElementById("mySidenav")) {
-            document.getElementById("mySidenav").style.width = "100%";
+        if (document.getElementById("sideBar")) {
+            document.getElementById("sideBar").style.width = "100%";
             // document.getElementById("screen").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
         }
     }
 
     function closeNav() {
-        if (document.getElementById("mySidenav")) {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("screen").style.marginLeft = "0";
+        if (document.getElementById("sideBar")) {
+            document.getElementById("sideBar").style.width = "0";
+            document.getElementById("sideBar").style.marginLeft = "0";
             document.body.style.backgroundColor = "white";
         }
     }
-
-
 
     function backToHome() {
         removeMessage();
         backButtonCOunter++;
         console.log(backButtonCOunter);
         if (backButtonCOunter == 2) {
-            $('#alert').html('<div id="alertMessage" style="    text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
+            $('#alert').html('<div id="alertMessage" style="text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
         }
         if (backButtonCOunter == 3) {
             tizen.application.getCurrentApplication().exit();
@@ -138,13 +68,8 @@ define(['js/shared/language.js'], function (language) {
     return {
         changeScreen: changeScreen,
         navigator: function () {
-            // backButtonCounter == 0
+        	
             firstElement = document.getElementById("00000001");
-
-            // tizen.tvinputdevice.registerKey('MediaPlayPause');
-
-
-
             changeScreen(firstElement.getAttribute('name'));
             firstElement.focus();
 
@@ -152,12 +77,9 @@ define(['js/shared/language.js'], function (language) {
             if (!myLanguage) {
                 myLanguage = 'en';
             }
-            if (!myLanguage) {
-                myLanguage = 'en';
-            }
             document.addEventListener('keydown', function (e) {
-            	
-            	if (event.keyCode === 13) {
+            	var vid = document.getElementById("my-video");
+            	if (e.keyCode === 13) {
             	    var dummy = document.activeElement;
             	    var clickEvent = new MouseEvent("click", {
             	      bubbles: true,
@@ -165,9 +87,30 @@ define(['js/shared/language.js'], function (language) {
             	    });
             	    dummy.dispatchEvent(clickEvent);
             	  }
-            	if (event.keyCode === 10009){
+            	if (e.keyCode === 10009){
             		backToHomeScreen();
             	}
+            	
+            	switch (e.keyCode) {
+                case tvKey.MediaPlayPause:
+                	if (!vid.paused){
+                		console.log('Video playing');
+                		vid.pause();
+                	}
+                	else{
+                		console.log('Video paused');
+                		vid.play();
+                	}
+                	break;
+                case tvKey.MediaPlay:
+                    vid.play();
+                    console.log('Video playing');
+                    break;
+                case tvKey.MediaPause:
+                    vid.pause();
+                    console.log('Video paused');
+                    break;
+            }
 
 // if (myLanguage == 'en') {
 // switch (e.keyCode) {

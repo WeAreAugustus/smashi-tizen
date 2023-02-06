@@ -1,12 +1,17 @@
 <section>
-	<video id="video_player" autoplay></video>
+	<video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    data-setup="{}"
+  >
+  </video>
 </section>
 
 <script>
-	console.log("In Player script");
-	var vid = document.querySelector('#video_player');
-	var url = '';
-	url = sessionStorage.getItem('video_url');
+	var vid = document.getElementById("my-video");
+	var url = sessionStorage.getItem('video_url');
             if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(url);
@@ -15,40 +20,15 @@
                 	vid.play();
                 });
             }
-    window.addEventListener('keydown', function (e) {
-                switch (e.keyCode) {
-                    case tvKey.MediaPlayPause:
-                    	if (!vid.paused){
-                    		console.log('Video playing');
-                    		vid.pause();
-                    		break;
-                    	}
-                    	else{
-                    		console.log('Video paused');
-                    		vid.play();
-                    		break;
-                    	}
-                    case tvKey.MediaPlay:
-                        vid.play();
-                        console.log('Video playing');
-                        break;
-                    case tvKey.MediaPause:
-                        vid.pause();
-                        console.log('Video paused');
-                        break;
-                    case tvKey.RETURN:
-                    	vid.remove();
-                    	break;
-                }
-            })
+  
 </script>
 
 <style>
-    #video_player {
+    #my-video {
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
       position: absolute;
+      object-fit: contain;
       top: 0;
       left: 0;
     }

@@ -44,7 +44,7 @@ var showId = sessionStorage.getItem('ShowAndChannelId');
                     videodetails.forEach(item => {
                     markup = `<div class="item">
 			                    <div style="position: static; padding: 8px;" class="card">
-			                    <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+			                    <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')" style="width: 471px; height: 264px; object-fit: contain;">
 			                    <h4 style="padding-top: 1rem;">${item.title}</h4>
 			                    <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
 			                    </div>
@@ -73,7 +73,7 @@ var showId = sessionStorage.getItem('ShowAndChannelId');
                     clipsdetails.forEach(item => {
                     	markup = `<div class="item">
 	                    <div style="position: static; padding: 8px;" class="card">
-	                    <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+	                    <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')" style="width: 471px; height: 264px; object-fit: contain;">
 	                    <h4 style="padding-top: 1rem;">${item.title}</h4>
 	                    <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
 	                    </div>

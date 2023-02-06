@@ -16,8 +16,8 @@ require(["router"], function(router){
     
     router.navigator()
 
-    // setTimeout(function(){
-    //     language.init()
-    // }, 50);
+     setTimeout(function(){
+         language.init()
+     }, 50);
     // global.authMiddleware()
 });

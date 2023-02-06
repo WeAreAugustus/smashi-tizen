@@ -1,7 +1,7 @@
 <section style="margin-top: 5%;">
   <div id="getUserDetails"></div>
-  <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 5%;"><button class="signOutButton"
-      onkeypress="mySignout()" id="00010005">Sign Out</button></div>
+  <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 5%;"><button class="signOutButton focusable"
+      onclick="mySignout()">Sign Out</button></div>
 </section>
 
 
@@ -35,16 +35,14 @@
     sessionStorage.removeItem("subscriptionPrice");
     sessionStorage.removeItem("subscriptionExpiryDate");
     // //alert("You are now Signed Out");
-
+	function returnToHomePage() {
+						require(["router"], function (router) {
+							router.changeScreen('home');
+						});
+					}
     
 
-    $("<div>").load("components/screens/home.html", function () {
-      firstElement = document.getElementById("00000001")
-      firstElement.focus()
-      $("#screen").empty();
-      $("#screen").append($(this).html());
-      closeNav();
-    });
+    returnToHomePage();
     document.getElementById("topSectionSub").remove();
   }
 </script>

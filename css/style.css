@@ -10,6 +10,12 @@ body {
 p {
     color: white;
 }
+.videocard{
+	width: 500px;
+	height: 281px;
+	object-fit: contain;
+}
+
 .card:focus {
     border: 5px solid white;
     border-radius: 25px;
@@ -298,7 +304,7 @@ h4 {
     display: inline-block;
     width: 480px;
     margin: 10px 10px 10px 10px;
-    height: 380px;
+    height: 400px;
     background-size: cover;
     /* position:relative; */
     /* border-radius: 20px; */

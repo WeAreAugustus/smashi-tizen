@@ -1,10 +1,9 @@
 
 function startVideo(video_url) {
 	sessionStorage.setItem("video_url", video_url);
-	$("<div>").load("components/screens/player.html", function () {
-        $("#screen").empty();
-        $("#screen").append($(this).html());
-    });
+	require(["router"], function (router) {
+		router.changeScreen('player');
+	});
 }
 
 var myLanguage = sessionStorage.getItem("locale");
@@ -26,7 +25,7 @@ var myLanguage = sessionStorage.getItem("locale");
                 data.data.forEach(item => {
                 	const markup = `<div class="item">
                             <div style="position: static; padding: 8px;" class="card">
-    	                        <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+    	                        <img class="focusable videocard img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
     	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                             </div>
@@ -50,7 +49,7 @@ var myLanguage = sessionStorage.getItem("locale");
                 data.data.forEach(item => {
                 	const markup = `<div class="item">
                             <div style="position: static; padding: 8px;" class="card">
-    	                        <img class="focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+    	                        <img class="focusable videocard img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
     	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                             </div>
