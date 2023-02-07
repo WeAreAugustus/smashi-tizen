@@ -1,25 +1,25 @@
-backButtonCOunter = 0;
+backButtonCounter = 0;
 upScrollCounter = 0;
 define(['js/shared/language.js'], function (language) {
     var tvKey = window.tvKey;
-
+    var pages = [];
+    
     var changeScreen = function (screenName) {
         $("<div>").load("components/screens/" + screenName + ".html", function () {
             $("#screen").empty();
             $("#screen").append($(this).html());
-            document.getElementById("screen").style.backgroundImage = "";
-            console.log("we are here change screen after closenav")
         });
         setTimeout(function () {
             language.init()
         }, 500);
+    	pages.push(screenName);
+    	console.log("Pages in changeScreen: " + pages);
     }
 
 
     function openNav() {
         if (document.getElementById("sideBar")) {
             document.getElementById("sideBar").style.width = "100%";
-            // document.getElementById("screen").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
         }
     }
@@ -32,14 +32,13 @@ define(['js/shared/language.js'], function (language) {
         }
     }
 
-    function backToHome() {
+    function ExitApplication() {
         removeMessage();
-        backButtonCOunter++;
-        console.log(backButtonCOunter);
-        if (backButtonCOunter == 2) {
+        backButtonCounter++;
+        if (backButtonCounter == 2) {
             $('#alert').html('<div id="alertMessage" style="text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
         }
-        if (backButtonCOunter == 3) {
+        if (backButtonCounter == 3) {
             tizen.application.getCurrentApplication().exit();
         }
     }
@@ -50,18 +49,30 @@ define(['js/shared/language.js'], function (language) {
         }, 5000);
     }
 
-
-
-    function backToHomeScreen() {
-        $("<div>").load("components/screens/home.html", function () {
-            firstElement = document.getElementById("00000001")
-            firstElement.focus()
-            $("#screen").empty();
-            $("#screen").append($(this).html());
+    function back(){
+    	if (pages.length == 1 && pages[0] == 'home'){
+    		console.log("Only the home page is here");
+    		return;
+    	}
+    	if (pages.length > 0){
+    		pages.pop();
+    		let currentPage = pages[pages.length - 1].toString();
+    		$("<div>").load("components/screens/" + currentPage + ".html", function () {
+                $("#screen").empty();
+                $("#screen").append($(this).html());
+            });
             setTimeout(function () {
                 language.init()
             }, 500);
-        });
+            console.log("Pages in back: " + pages);
+    	}
+    	else {
+    		console.log("No pages to go back to");
+    	}
+    }
+
+    function backToHomeScreen() {
+    	changeScreen('home');
     }
 
 
@@ -87,9 +98,6 @@ define(['js/shared/language.js'], function (language) {
             	    });
             	    dummy.dispatchEvent(clickEvent);
             	  }
-            	if (e.keyCode === 10009){
-            		backToHomeScreen();
-            	}
             	
             	switch (e.keyCode) {
                 case tvKey.MediaPlayPause:
@@ -110,122 +118,11 @@ define(['js/shared/language.js'], function (language) {
                     vid.pause();
                     console.log('Video paused');
                     break;
-            }
-
-// if (myLanguage == 'en') {
-// switch (e.keyCode) {
-// case tvKey.LEFT:
-// console.log("LEFT")
-// backButtonCOunter = 0;
-// left()
-// console.log("We are here: " + document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// document.getElementById("00020001").focus();
-// }
-// break;
-// case tvKey.UP:
-// document.body.scrollTop = 0; // For Safari
-// document.documentElement.scrollTop = 0;
-// console.log("UPUPUPUP")
-// backButtonCOunter = 0;
-// up()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.RIGHT:
-// console.log("RIGHT")
-// backButtonCOunter = 0;
-// console.log(backButtonCOunter);
-// right()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.DOWN:
-// console.log("DOWN")
-// backButtonCOunter = 0;
-// down()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.RETURN:
-// console.log("BACK")
-// backToHome()
-// backToHomeScreen()
-// console.log(document.activeElement.id)
-// break;
-// case tvKey.ENTER:
-// console.log("Enter key works!");
-// var clickEvent = new MouseEvent("click", {
-// "view": window,
-// "bubbles": true,
-// "cancelable": false
-// });
-// break;
-//                        	
-// // case tvKey.MediaPlayPause:
-// // console.log("PLAYPAUSE")
-// // break;
-// // case tvKey.MediaPlay:
-// // console.log("Play")
-// // break;
-// // case tvKey.MediaPause:
-// // console.log("Pause")
-// // break;
-//
-//
-// }
-// } else {
-// switch (e.keyCode) {
-// case tvKey.LEFT:
-// console.log("RIGHT ARABIC")
-// backButtonCOunter = 0;
-// right()
-// console.log("We are here: " + document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// document.getElementById("00020001").focus();
-// }
-// break;
-// case tvKey.UP:
-// console.log("UPUPUPUP")
-// backButtonCOunter = 0;
-// up()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.RIGHT:
-// console.log("LEFT ARABIC")
-// backButtonCOunter = 0;
-// left()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.DOWN:
-// console.log("DOWN")
-// backButtonCOunter = 0;
-// down()
-// console.log(document.activeElement.id)
-// if (document.activeElement.id == 'mainBody') {
-// firstElement.focus();
-// }
-// break;
-// case tvKey.RETURN:
-// console.log("BACK")
-// backToHome()
-// backToHomeScreen()
-// console.log(document.activeElement.id)
-// break;
-// }
-// }
+                case tvKey.RETURN:
+                	back();
+                	ExitApplication();
+            	}
+            	
             })
         }
     }
