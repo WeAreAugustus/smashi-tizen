@@ -5,6 +5,7 @@ define(['js/shared/language.js'], function (language) {
     var pages = [];
     
     var changeScreen = function (screenName) {
+    	backButtonCounter = 0;
         $("<div>").load("components/screens/" + screenName + ".html", function () {
             $("#screen").empty();
             $("#screen").append($(this).html());
@@ -32,7 +33,7 @@ define(['js/shared/language.js'], function (language) {
         }
     }
 
-    function ExitApplication() {
+    function exitApplication() {
         removeMessage();
         backButtonCounter++;
         if (backButtonCounter == 2) {
@@ -120,7 +121,9 @@ define(['js/shared/language.js'], function (language) {
                     break;
                 case tvKey.RETURN:
                 	back();
-                	ExitApplication();
+                	if (pages.length == 1){
+                		exitApplication();
+                	}
             	}
             	
             })
