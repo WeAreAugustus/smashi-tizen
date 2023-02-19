@@ -10,7 +10,7 @@ var myLanguage = sessionStorage.getItem("locale");
 	if(!myLanguage){
 		myLanguage = 'en';
 	}
-    fetch('https://smashi.tv/api/video', {
+    fetch('http://smashi.tv/api/video', {
 		headers: {
 			'Accept': 'application/json',
 			'X-localization': myLanguage
@@ -20,8 +20,7 @@ var myLanguage = sessionStorage.getItem("locale");
             res => {
                 return res.json();
             })
-        .then(
-            data => {
+        .then(data => {
                 data.data.forEach(item => {
                 	const markup = `<div class="item">
                             <div style="position: static; padding: 8px;" class="card">
@@ -33,8 +32,11 @@ var myLanguage = sessionStorage.getItem("locale");
                     document.getElementById('latest').insertAdjacentHTML('beforeend', markup);
                 });
             }
-        );
-        fetch('https://smashi.tv/api/video/trending', {
+        )
+        .catch((error) => {
+        console.error('There has been a problem with your fetch operation:', error)
+        });
+        fetch('http://smashi.tv/api/video/trending', {
 		headers: {
 			'Accept': 'application/json',
 			'X-localization': myLanguage

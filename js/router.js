@@ -1,5 +1,4 @@
-backButtonCounter = 0;
-upScrollCounter = 0;
+var backButtonCounter = 0;
 define(['js/shared/language.js'], function (language) {
     var tvKey = window.tvKey;
     var pages = [];
@@ -36,10 +35,10 @@ define(['js/shared/language.js'], function (language) {
     function exitApplication() {
         removeMessage();
         backButtonCounter++;
-        if (backButtonCounter == 2) {
+        if (backButtonCounter == 3) {
             $('#alert').html('<div id="alertMessage" style="text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
         }
-        if (backButtonCounter == 3) {
+        if (backButtonCounter == 4) {
             tizen.application.getCurrentApplication().exit();
         }
     }

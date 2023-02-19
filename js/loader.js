@@ -12,12 +12,10 @@ $("<div>").load("components/shared/notification.html", function(){
 });
 //loading the router, translator , middleware
 require(["router"], function(router){
-
-    
     router.navigator()
-
-     setTimeout(function(){
-         language.init()
-     }, 50);
-    // global.authMiddleware()
+});
+require(["js/shared/language.js"], function (lang) {
+	setTimeout(function(){
+        lang.init();
+    }, 50);
 });

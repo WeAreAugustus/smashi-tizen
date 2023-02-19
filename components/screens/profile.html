@@ -86,7 +86,7 @@
 </section>
 
 <script>
-    require(['client/live', 'client/auth'], function (live, auth) {
+    require(['client/auth'], function (auth) {
         // live.setUrlById('live-video')
         // home.latest(1,3)
         auth.isAuth();
@@ -111,43 +111,20 @@
 
 <script>
 
-    function myFunction() {
-
-    }
-
     function myLogin() {
-        require(['client/live', 'client/auth'], function (live, auth) {
+        require(['client/auth'], function (auth) {
             auth.login();
         });
     }
 
     function checkEmail() {
-        require(['client/live', 'client/auth'], function (live, auth) {
-            // live.setUrlById('live-video')
-            // home.latest(1,3)
+        require(['client/auth'], function (auth) {
             auth.checkIfEmailExists()
-
-            // document.getElementsByName('buttonLogin').onclick = function() { //alert("hey");auth.login()};
-            // auth.qrcode();
-            // auth.apiCallTest();
-
-            // console.log($('#00020001'))
-
-            // $('#00020001').on('keydown', function(e) {
-            //     console.log("Key code : " + e.keyCode);
-            // });
-            // $('#00020001').on('keydown', function(e) {
-            //     console.log("Key code : " + e.keyCode);
-            // });
-            // $('#00020001').on('keydown', function(e) {
-            //     console.log("Key code : " + e.keyCode);
-            // });
-
         });
     }
 
     function myRegister() {
-        require(['client/live', 'client/auth'], function (live, auth) {
+        require(['client/auth'], function (auth) {
             auth.register();
         });
     }

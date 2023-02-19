@@ -47,7 +47,8 @@ const __LANG = {
         'more': 'More Shows',
         'episodes': 'Episodes',
         'clips': 'Clips',
-        'more': 'More'
+        'more': 'More',
+        'shorts': 'Shorts'
     },
 
     // Arabic translations

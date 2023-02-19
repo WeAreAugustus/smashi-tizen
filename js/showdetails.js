@@ -1,14 +1,14 @@
 function startVideo(video_url) {
 	sessionStorage.setItem("video_url", video_url);
-	$("<div>").load("components/screens/player.html", function () {
-        $("#screen").empty();
-        $("#screen").append($(this).html());
-    });
+	require(["router"], function (router) {
+		router.changeScreen('player');
+	});
 }
 
 var showId = sessionStorage.getItem('ShowAndChannelId');
     	var episodesURL = 'https://smashi.tv/api/video/shows/' + showId + '/details';
     	var clipsURL = 'https://smashi.tv/api/video/shows/' + showId + '/clips/videos';
+    	var shortsUrl = 'https://smashi.tv/api/video/shorts?show_id=' + showId;
     	var myLanguage = sessionStorage.getItem("locale");
             if (!myLanguage) {
                 myLanguage = 'en';
@@ -83,6 +83,28 @@ var showId = sessionStorage.getItem('ShowAndChannelId');
                 if (clipsdetails.length == 0) {
                     	document.getElementById('clipsrow').remove();
                     }
+                }
+            );
+            fetch(shortsUrl, {
+        		headers: {
+                'Accept': 'application/json',
+                'X-localization': myLanguage
+        		}
+        	})
+            .then(
+                res => {
+                    return res.json();
+                })
+            .then(
+                data => {
+                    data.data.forEach(short => {
+                        const markup = `<div style="width:332px;" class="item">
+        	                  <div tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}')">
+        	                      <img class="img-fluid vertical-card" src="${short.poster_url}">
+        	                  </div>
+        	              </div>`;
+                        document.getElementById('shorts').insertAdjacentHTML('beforeend', markup);
+                    });
                 }
             );
             

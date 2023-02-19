@@ -1,15 +1,10 @@
 define(function(){
-    //urls https://smashi.tv/api/video/shows/18/details
     var url = {
-        // 'base' : 'http://644a-156-214-18-142.ngrok.io/api/',
         'base' : 'https://smashi.tv/api/',
-
-
         'login': 'api/v2/login',
         'register' : 'api_register',
         'emailChecker': 'check/email',
         'getProfile' : 'details',
-
         'live': 'live-video',
         'latest': 'video',
         'trending': 'video/trending',
@@ -18,7 +13,6 @@ define(function(){
         'search': 'video/search',
         'savedVideos': 'saved/video/list',
         'channels': 'video/shows/channel'
-        
     }
 
     return {
