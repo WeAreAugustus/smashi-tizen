@@ -1,105 +1,74 @@
 <section id="masr" style="margin-top: 0%;">
     <!-- Top Row -->
-    <div class="row"
-        style="top: 0;width: 100%;background-color: rgba(255, 255, 255, 0);padding-bottom: 10px;width: 100%;padding-right: 0%;z-index: 1;">
-
+    <div class="row" style="top: 0;width: 100%;background-color: rgba(255, 255, 255, 0);padding-bottom: 10px;width: 100%;padding-right: 0%;z-index: 1;">
         <div class="container-fluid" id="topSection">
         </div>
     </div>
 
     <div class="row" style="top: 0; width: 100%; padding-bottom: 10px;width: 100%;z-index: 1;">
-        <div id="watchSection"
-            style="display: none;height: fit-content;background-size: 100%;background-repeat: no-repeat;">
+        <div id="watchSection" style="display: none;height: fit-content;background-size: 100%;background-repeat: no-repeat;">
         </div>
         <div style="position: absolute;margin-top: 2%;" class="col-6">
-            <h1 name="showHeading"></h1>
             <h4 style="width: 90%;" name="showDescription"></h4>
         </div>
     </div>
-	
-	<!-- Shorts Row -->
-	<div id="ShortsMainSection" class="container-fluid">
+
+    <!-- Shorts Row -->
+    <div id="ShortsMainSection" class="container-fluid">
         <div style="margin-top: 0px;" class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div style="margin-top: 0px;" class="container-fluid">
-                        <h1 lang-value="shorts" class="title"></h1>
-                    </div>
-                    <div style="display: inherit;" class="containerme">
-                        <div id="shorts" class="carouselme"></div>
-                        <div style="display: none;" id="pagination"></div>
-                    </div>
-                </div>
+            <div style="margin-top: 0px;" class="container-fluid">
+                <h1 lang-value="shorts" class="title"></h1>
+            </div>
+            <div style="display: inherit;" class="containerme">
+                <div id="shorts" class="carouselme"></div>
+                <div style="display: none;" id="pagination"></div>
             </div>
         </div>
     </div>
-	 
+
     <!-- Latest Row -->
-    <div style="padding-top: 0%;display: inherit; padding-left:0;" id="latestMainSection" class="container-fluid">
-        <div style="margin-top: 2%;" class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="container-fluid">
-                        <h1 lang-value="latest" class="title"></h1>
-                    </div>
-                    <div style="display: inherit;" class="containerme">
-                        <div id="latest" class="carouselme"></div>
-                        <div style="display: none;" id="pagination"></div>
-                    </div>
-                </div>
-            </div>
+    <div style="padding-left:0;" id="latestMainSection" class="container-fluid">
+        <div class="container-fluid">
+            <h1 lang-value="latest" class="title"></h1>
+        </div>
+        <div style="display: inherit;" class="containerme">
+            <div id="latest" class="carouselme"></div>
         </div>
     </div>
 
     <!-- Trending Row -->
-    <div id="trendingMainSection" class="container-fluid">
-        <div style="margin-top: 0%;" class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="container-fluid">
-                        <h1 lang-value="trending" class="title"></h1>
-                    </div>
-                    <div style="display: inherit;" class="containerme">
-                        <div id="trending" class="carouselme"></div>
-                        <div style="display: none;" id="pagination"></div>
-                    </div>
-
-                </div>
-            </div>
+    <div style="padding-left:0;" id="trendingMainSection" class="container-fluid">
+        <div class="container-fluid">
+            <h1 lang-value="trending" class="title"></h1>
+        </div>
+        <div style="display: inherit;" class="containerme">
+            <div id="trending" class="carouselme"></div>
         </div>
     </div>
 
     <!-- Channels Row -->
     <div id="channelsMainSection" class="container-fluid">
         <div style="margin-top: 0px;" class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div style="margin-top: 0px;" class="container-fluid">
-                        <h1 lang-value="channels" class="title"></h1>
-                    </div>
-                    <div style="display: inherit;" class="containerme">
-                        <div id="channels" class="carouselme"></div>
-                        <div style="display: none;" id="pagination"></div>
-                    </div>
-                </div>
+            <div style="margin-top: 0px;" class="container-fluid">
+                <h1 lang-value="channels" class="title"></h1>
+            </div>
+            <div style="display: inherit;" class="containerme">
+                <div id="channels" class="carouselme"></div>
+                <div style="display: none;" id="pagination"></div>
             </div>
         </div>
     </div>
 
 
     <!-- Shows Row -->
-     <div id="tvShowsMainSection" class="container-fluid">
+    <div id="tvShowsMainSection" class="container-fluid">
         <div style="margin-top: 0px;" class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div style="margin-top: 0px;" class="container-fluid">
-                        <h1 lang-value="tvshows" class="title"></h1>
-                    </div>
-                    <div style="display: inherit;" class="containerme">
-                        <div id="shows" class="carouselme"></div>
-                        <div style="display: none;" id="pagination"></div>
-                    </div>
-                </div>
+            <div style="margin-top: 0px;" class="container-fluid">
+                <h1 lang-value="tvshows" class="title"></h1>
+            </div>
+            <div style="display: inherit;" class="containerme">
+                <div id="shows" class="carouselme"></div>
+                <div style="display: none;" id="pagination"></div>
             </div>
         </div>
     </div>
@@ -112,7 +81,10 @@
 
 <script>
     require(['client/home'], function (home) {
-        home.topSection()
+        //home.topSection()
     });
+    require(["router"], function (router) {
+		router.showSideBar();
+	});
 </script>
 

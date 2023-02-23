@@ -1,0 +1,73 @@
+<section>
+	<div class="newsidebar">
+		<div>
+			<img name="" tab-index= "1" class= "focusable" src="img/icons/premium_inactive.svg">
+		</div>
+		<div>
+			<img name="profile" tab-index= "1" class= "focusable" src="img/icons/profile_inactive.svg">
+		</div>
+		<div>
+			<img name="home" tab-index= "1" class= "focusable" src="img/icons/home_inactive.svg">
+		</div>
+		<div>
+			<img name="watch" tab-index= "1" class= "focusable" src="img/icons/watch_inactive.svg">
+		</div>
+		<div>
+			<img name="search" tab-index= "1" class= "focusable" src="img/icons/search_inactive.svg">
+		</div>
+		<div>
+	 		 <img name="settings" tab-index= "1" class= "focusable" src="img/icons/lang_inactive.svg" style="margin-top: 14rem;">
+		</div>
+	</div>
+</section>
+
+<style>
+
+.newsidebar {
+  width: 100px;
+  background-color: #383838;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.newsidebar img {
+  display: block;
+  margin: auto;
+  margin-bottom: 3rem;
+  padding: 30px 27px 30px 30px;
+  text-decoration: none;
+  outline: none;
+  transition: background-color 0.5s;
+}
+ 
+.newsidebar img:focus{
+  background-color: #4C4C4C;
+  border-right: solid;
+  border-color: #FB8044;
+  border-color-width: 10px;
+  filter: brightness(150%);
+}
+
+.newsidebar img:hover{
+}
+
+.newsidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+</style>
+
+<script>
+    require(["router"], function (router) {
+        var sideBar = document.getElementById('newSideBar');
+        sideBar.addEventListener('keydown', function (e) {
+            switch (e.keyCode) {
+                case tvKey.ENTER:
+                    router.changeScreen(document.activeElement.getAttribute('name'))
+                    break;
+            } 
+        })
+    });
+</script>

@@ -19,12 +19,16 @@ fetch('https://smashi.tv/api/video/shorts', {
     .then(
         data => {
             data.data.forEach(short => {
-                const markup = `<div style="width:332px;" class="item">
+                const markup = `
+                <div style="width:332px;" class="item">
 	                  <div tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}')">
-	                      <img class="img-fluid vertical-card" src="${short.poster_url}">
+		                    <img class="img-fluid vertical-card" src="${short.poster_url}" style="background: linear-gradient(#ececec00, #000000); z-index=-1;">
+			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
+			                   	<h1 class="shortstitle"> ${short.title} </h1>
+		                    </img>
 	                  </div>
 	              </div>`;
-                document.getElementById('shorts').insertAdjacentHTML('beforeend', markup);
+	              document.getElementById("shorts").innerHTML += markup;
             });
         }
     );

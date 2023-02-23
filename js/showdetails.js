@@ -5,6 +5,10 @@ function startVideo(video_url) {
 	});
 }
 
+require(["router"], function (router) {
+	router.hideSideBar();
+});
+
 var showId = sessionStorage.getItem('ShowAndChannelId');
     	var episodesURL = 'https://smashi.tv/api/video/shows/' + showId + '/details';
     	var clipsURL = 'https://smashi.tv/api/video/shows/' + showId + '/clips/videos';
@@ -32,7 +36,7 @@ var showId = sessionStorage.getItem('ShowAndChannelId');
                         <div style="padding: 11rem 4rem;">
                             <h1 style="color:white; font-size: 48px; font-weight: 700;"> ${details.title} </h1>
                             <p id="bannerBody" style="color:white; font-size: 32px; width:50%;"> ${details.body} </p>
-    						<button class="focusable newbutton watchlivebutton" lang-value="watch" style="font-weight: 700; font-size: 32px; width: 25%" autofocus>Watch Live</button>
+    						<button class="focusable newbutton watchlivebutton" lang-value="watch" style="font-weight: 700; font-size: 32px; width: 25%" autofocus></button>
                         </div>
                     </div>
                     ` 
@@ -97,14 +101,22 @@ var showId = sessionStorage.getItem('ShowAndChannelId');
                 })
             .then(
                 data => {
-                    data.data.forEach(short => {
-                        const markup = `<div style="width:332px;" class="item">
+                	var shorts = data.data;
+                    shorts.forEach(short => {
+                    	const markup = `
+                        <div style="width:332px;" class="item">
         	                  <div tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}')">
-        	                      <img class="img-fluid vertical-card" src="${short.poster_url}">
+        		                    <img class="img-fluid vertical-card" src="${short.poster_url}" style="background: linear-gradient(#ececec00, #000000); z-index=-1;">
+        			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
+        			                   	<h1 class="shortstitle"> ${short.title} </h1>
+        		                    </img>
         	                  </div>
         	              </div>`;
-                        document.getElementById('shorts').insertAdjacentHTML('beforeend', markup);
+        	              document.getElementById("shorts").innerHTML += markup;
                     });
+                    if (shorts.length == 0) {
+                    	document.getElementById('ShortsMainSection').remove();
+                    }
                 }
             );
             

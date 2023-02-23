@@ -1,36 +1,28 @@
-var backButtonCounter = 0;
 define(['js/shared/language.js'], function (language) {
+	var backButtonCounter = 0;
     var tvKey = window.tvKey;
-    var pages = [];
+    var pages = ['home'];
+    
     
     var changeScreen = function (screenName) {
     	backButtonCounter = 0;
+    	let sideBarEl = document.getElementsByName(screenName);
+//    	border-right: solid;
+//    	border-color: #FB8044;
+//    	border-color-width: 10px;
         $("<div>").load("components/screens/" + screenName + ".html", function () {
             $("#screen").empty();
             $("#screen").append($(this).html());
         });
         setTimeout(function () {
             language.init()
-        }, 500);
-    	pages.push(screenName);
+        }, 20);
+        if (pages[pages.length - 1] != screenName){
+        	pages.push(screenName);
+        }
     	console.log("Pages in changeScreen: " + pages);
     }
 
-
-    function openNav() {
-        if (document.getElementById("sideBar")) {
-            document.getElementById("sideBar").style.width = "100%";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        }
-    }
-
-    function closeNav() {
-        if (document.getElementById("sideBar")) {
-            document.getElementById("sideBar").style.width = "0";
-            document.getElementById("sideBar").style.marginLeft = "0";
-            document.body.style.backgroundColor = "white";
-        }
-    }
 
     function exitApplication() {
         removeMessage();
@@ -42,11 +34,21 @@ define(['js/shared/language.js'], function (language) {
             tizen.application.getCurrentApplication().exit();
         }
     }
-
+    
+    function showSideBar(){
+    	document.getElementById("newSideBar").style.display = "block";
+        document.getElementById("screen").style.width = "95%";
+    }
+    
+    function hideSideBar(){
+    	document.getElementById("newSideBar").style.display = "none";
+        document.getElementById("screen").style.width = "100%";
+    }
+    
     function removeMessage() {
         setTimeout(function () {
             document.getElementById("alertMessage").style.display = "none";
-        }, 5000);
+        }, 3000);
     }
 
     function back(){
@@ -54,16 +56,18 @@ define(['js/shared/language.js'], function (language) {
     		console.log("Only the home page is here");
     		return;
     	}
+    	
     	if (pages.length > 0){
     		pages.pop();
-    		let currentPage = pages[pages.length - 1].toString();
+    		let currentPage = pages[pages.length - 1];
     		$("<div>").load("components/screens/" + currentPage + ".html", function () {
                 $("#screen").empty();
                 $("#screen").append($(this).html());
+                
             });
             setTimeout(function () {
                 language.init()
-            }, 500);
+            }, 20);
             console.log("Pages in back: " + pages);
     	}
     	else {
@@ -71,33 +75,18 @@ define(['js/shared/language.js'], function (language) {
     	}
     }
 
-    function backToHomeScreen() {
-    	changeScreen('home');
-    }
-
 
     return {
         changeScreen: changeScreen,
+        showSideBar: showSideBar,
+        hideSideBar: hideSideBar,
         navigator: function () {
-        	
-            firstElement = document.getElementById("00000001");
-            changeScreen(firstElement.getAttribute('name'));
-            firstElement.focus();
 
             var myLanguage = sessionStorage.getItem("locale");
             if (!myLanguage) {
                 myLanguage = 'en';
             }
             document.addEventListener('keydown', function (e) {
-            	var vid = document.getElementById("my-video");
-            	if (e.keyCode === 13) {
-            	    var dummy = document.activeElement;
-            	    var clickEvent = new MouseEvent("click", {
-            	      bubbles: true,
-            	      cancelable: true
-            	    });
-            	    dummy.dispatchEvent(clickEvent);
-            	  }
             	
             	switch (e.keyCode) {
                 case tvKey.MediaPlayPause:
@@ -110,6 +99,15 @@ define(['js/shared/language.js'], function (language) {
                 		vid.play();
                 	}
                 	break;
+                case tvKey.ENTER:
+                	var vid = document.getElementById("my-video");
+            	    var focusedElement = document.activeElement;
+            	    var clickEvent = new MouseEvent("click", {
+            	      bubbles: true,
+            	      cancelable: true
+            	    });
+            	    focusedElement.dispatchEvent(clickEvent);
+            	    break;
                 case tvKey.MediaPlay:
                     vid.play();
                     console.log('Video playing');
@@ -125,7 +123,7 @@ define(['js/shared/language.js'], function (language) {
                 	}
             	}
             	
-            })
+            });
         }
     }
 })

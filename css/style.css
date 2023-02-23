@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
- .containerme {
+ .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.containerme {
     scroll-snap-type: x mandatory !important;
 }
 html {
@@ -20,31 +27,40 @@ body {
     height: 100%;
 }
 p {
-   color: white;
+    color: white;
 }
-.vertical-card{
-	width:332px;
-	height: 488px; 
-	object-fit: cover;
+.vertical-card {
+    width: 332px;
+    height: 488px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .videocard {
     width: 500px;
     height: 281px;
     object-fit: contain;
+    border-radius: 12px;
+}
+.shortstitle{
+	font-size: 24px;
+	font-weight: 500;
+	position: absolute;
+	bottom: -8px;
+	padding-left: 5px;
+    padding-right: 5px;
+}
+.shortsplayicon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
 }
 .card:focus {
     border: 5px solid white;
-    border-radius: 25px;
+    border-radius: 10px;
     outline-style: none;
     -webkit-transition: all .2s;
     transition: all .4s;
-    padding: 5px;
-}
-.item:focus {
-    background-color: yellow;
-    border: 3px solid white;
-    outline-style: none;
-    top: 0;
 }
 .card-horizontal {
     display: flex;
@@ -311,17 +327,13 @@ h4 {
     display: inline;
 }
 .card {
-    background-color: black !important;
+    background-color: black;
 }
 .item {
     display: inline-block;
     width: 480px;
     margin: 10px 10px 10px 10px;
-    height: 400px;
     background-size: cover;
-    /* position:relative; */
-    /* border-radius: 20px; */
-    /* box-shadow: 0 0 10px #dfdfdf; */
 }
 .item div {
     width: 100%;
@@ -411,12 +423,6 @@ h4 {
 }
 #latestMainSection {
     margin-top: 0%;
-}
-#trending {
-    margin-bottom: 6rem;
-}
-#datacontainer {
-    margin-bottom: 6rem;
 }
 #trendingMainSection {
     margin-top: 0%;

@@ -61,7 +61,6 @@ define(['client/shared', 'js/shared/language.js', 'js/cdn/paginationmin.js', 'cl
             	document.getElementById("full").style.display = "none";
             } 
             else {
-                document.getElementById("controlsView").style.display = "";
             	document.getElementById("full").style.display = "block";
                 document.getElementById("subscriptionText").remove();
             }

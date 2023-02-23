@@ -79,33 +79,3 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
         },
     }
 });
-
-
-// function fullScreen(){
-
-//     $box4 = $('box_2');
-
-//   $('.box').click(function() {
-//   $(this).addClass('box_full');
-//       //$(this).addClass('fade_me');
-
-//   $(this).siblings().addClass("fade_me");
-//   setTimeout(function() {
-//   $(".is_hidden").addClass("is_visible").removeClass("is_hidden");
-//   }, 500);
-//   });
-  
-//   $('button[name="exitFullScreen"]').click(function() {
-//   event.stopPropagation();
-//   $(".is_visible").addClass("is_hidden").removeClass("is_visible");
-//   $(this).closest('.box').removeClass('box_full');
-//   $(".box").not(this).removeClass("fade_me");
-//   element = document.getElementsByName("full_screen")[0];
-//   element.focus();
-//   });
-
-//   $(document).ready(function() {
-//       $('#fullpage').fullpage();
-//   });
-  
-// }

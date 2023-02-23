@@ -5,23 +5,13 @@ define(function () {
         myLanguage = 'en';
     }
 
-
-
     function getUserLanguage() {
-
         var lang = myLanguage;
-
-
         if (lang.includes('en')) {
-            // document.getElementById("masr").style.marginLeft = "10%";
             return 'en';
         }
         document.getElementById("mainBody").style.direction = "rtl";
-        document.getElementById("benefitsBanner").src = "img/subsubar.png";
-
-        console.log(lang);
         return 'ar';
-
     }
 
 
@@ -36,18 +26,14 @@ define(function () {
 
     }
 
-
     return {
         init: function () {
-            // window.addEventListener("DOMContentLoaded", () => {
             document
-                // Find all elements that have the key attribute
                 .querySelectorAll("[lang-value]")
                 .forEach((el) => trans(el));
             // });
         }
     }
-
 })
 
 

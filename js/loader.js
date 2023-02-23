@@ -1,6 +1,6 @@
 //loading the sidebar
-$("<div>").load("components/shared/sideBar.html", function(){
-    $("#sideBar").append($(this).html());
+$("<div>").load("components/shared/newSideBar.html", function(){
+    $("#newSideBar").append($(this).html());
 });
 
 $("<div>").load("components/screens/home.html", function(){

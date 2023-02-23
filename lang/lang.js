@@ -48,7 +48,7 @@ const __LANG = {
         'episodes': 'Episodes',
         'clips': 'Clips',
         'more': 'More',
-        'shorts': 'Shorts'
+        'shorts': 'Smashi Shorts'
     },
 
     // Arabic translations
@@ -63,8 +63,8 @@ const __LANG = {
         'contactus': 'اتصل بنا',
         'aboutsmashi': 'عن سماشي',
         'advertisewithus': 'أعلن معنا',
-        'latest': 'احدث الحلقات',
-        'trending': 'Trending Videos',
+        'latest': 'أحدث المقاطع',
+        'trending': 'الشائع',
         'tvshows': 'برامج سماشي',
         'intro': 'اول قناة بث مباشر متخصصة في الاقتصاد، و الاعمال، ، التكنولوجيا ',
         'forthe': 'من اجل',
@@ -90,13 +90,13 @@ const __LANG = {
         'selectLang': 'اختر اللغة',
         'morning': 'Mornings with Smashi',
         'up': 'UP NEXT',
-        'watch': 'Watch Live',
+        'watch': 'شاهد الأن',
         'starttrial': 'Start your 30 days free trial',
-        'channels': 'Smashi Channels',
-        'more': 'More Shows',
-        'episodes': 'Episodes',
-        'clips': 'Clips',
-        'more': 'More'
+        'channels': 'قنوات سماشي',
+        'episodes': 'الحلقات',
+        'clips': 'افضل المقاطع',
+        'more': 'المزيد',
+        'shorts': 'سماشي شورتس'
     },
     //other languages
 };
