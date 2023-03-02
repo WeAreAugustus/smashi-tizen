@@ -1,17 +1,17 @@
 define(['client/shared','js/cdn/paginationmin.js'], function(shared){
     return {
         getSearchResults: function () {
-                        var myLanguage = sessionStorage.getItem("locale");
+            var myLanguage = sessionStorage.getItem("locale");
             if(!myLanguage){
                 myLanguage = 'en';
             }
             // var searchKeyword = document.getElementById("searchKeyword").value;
             var searchKeyword = document.getElementsByClassName("form-control")[0].value;
             var dataHtml = ``;
-            dataHtml += `<h1 lang-value="searchresultsfor">"${searchKeyword}"</h1>`;
+            dataHtml += `<h1 lang-value="searchresultsfor">Your search was: "${searchKeyword}"</h1>`;
             let container = $('#pagination');
             container.pagination({
-                dataSource: 'https://smashi.tv/api/video/search?q='+searchKeyword,
+                dataSource: 'https://smashi.tv/api/video/search?q=' + searchKeyword,
                 locator: 'data',
                 totalNumber: 12,
                 ajax: {
@@ -40,7 +40,6 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
 
                         function omak(vendor, cute){
 
-
                             var video = document.querySelector('#videoID');
                             if (Hls.isSupported()) {
                                 var hls = new Hls();
@@ -51,22 +50,16 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
                                 });
                             }
 
-
                             document.getElementById("searchVideoWatch").style.display = "";
                             document.getElementById("searchVideoTitle").style.display = "";
-                            
-
-
-
-
                             document.getElementsByName("searchVideoTitle")[0].innerHTML = cute;
-                            
 
                         }
                     </script>
                     <div class="item">
                     <div style="position: static; padding: 8px;" class="card">
-                        <img class="videocard focusable img-fluid card" alt="100%x280" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+                        <img class="videocard focusable img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip})">
+                        <h4 style="padding-top: 1rem;">${item.is_clip}</h4>
                         <h4 style="padding-top: 1rem;">${item.title}</h4>
                         <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                     </div>

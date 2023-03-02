@@ -1,11 +1,3 @@
-
-function startVideo(video_url) {
-	sessionStorage.setItem("video_url", video_url);
-	require(["router"], function (router) {
-		router.changeScreen('player');
-	});
-}
-
 var myLanguage = sessionStorage.getItem("locale");
 	if(!myLanguage){
 		myLanguage = 'en';
@@ -25,12 +17,12 @@ var myLanguage = sessionStorage.getItem("locale");
                 	const markup = `
                 		<div class="item card">
                             <div class="card">
-    	                        <img class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+    	                        <img class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1)">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
     	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                             </div>
                         </div>`;
-                    document.getElementById('latest').insertAdjacentHTML('beforeend', markup);
+                        document.getElementById("latest").innerHTML += markup;
                 });
             }
         )
@@ -53,12 +45,12 @@ var myLanguage = sessionStorage.getItem("locale");
                 	const markup = `
                 		<div class="item">
                             <div class="card">
-    	                        <img class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}')">
+    	                        <img class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1)">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
     	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                             </div>
                         </div>`;
-                    document.getElementById('trending').insertAdjacentHTML('beforeend', markup);
+                        document.getElementById("trending").innerHTML += markup;
                 });
             }
         );

@@ -29,6 +29,23 @@ body {
 p {
     color: white;
 }
+.searchbox{
+	border-color: #464646;
+    border-style: solid;
+    background-color: #464646;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 2rem;
+    width: 50%;
+}
+.searchboxinput{
+	background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;
+}
+.lockicon{
+	position: absolute;
+    top: 5%;
+    left: 3%;
+}
 .vertical-card {
     width: 332px;
     height: 488px;
@@ -91,13 +108,11 @@ p {
     color: #FB8044;
 }
 .watchlivebutton {
-    width: 65%;
     height: 6rem;
     border: none;
-}
-.watchlivebutton::before {
-    content: '\25B6';
-    margin-right: 2rem;
+    font-weight: 700;
+    font-size: 32px;
+    width: 25%
 }
 .starttrialbutton {
     width: 110%;

@@ -1,22 +1,8 @@
 <section id="masr" style="margin-top: 0%;">
-    <!-- Top Row -->
-    <div class="row" style="top: 0;width: 100%;background-color: rgba(255, 255, 255, 0);padding-bottom: 10px;width: 100%;padding-right: 0%;z-index: 1;">
-        <div class="container-fluid" id="topSection">
-        </div>
-    </div>
-
-    <div class="row" style="top: 0; width: 100%; padding-bottom: 10px;width: 100%;z-index: 1;">
-        <div id="watchSection" style="display: none;height: fit-content;background-size: 100%;background-repeat: no-repeat;">
-        </div>
-        <div style="position: absolute;margin-top: 2%;" class="col-6">
-            <h4 style="width: 90%;" name="showDescription"></h4>
-        </div>
-    </div>
-
     <!-- Shorts Row -->
-    <div id="ShortsMainSection" class="container-fluid">
-        <div style="margin-top: 0px;" class="container-fluid">
-            <div style="margin-top: 0px;" class="container-fluid">
+    <div id="ShortsMainSection">
+        <div class="container-fluid">
+            <div class="container-fluid">
                 <h1 lang-value="shorts" class="title"></h1>
             </div>
             <div style="display: inherit;" class="containerme">
@@ -28,22 +14,26 @@
 
     <!-- Latest Row -->
     <div style="padding-left:0;" id="latestMainSection" class="container-fluid">
-        <div class="container-fluid">
-            <h1 lang-value="latest" class="title"></h1>
-        </div>
-        <div style="display: inherit;" class="containerme">
-            <div id="latest" class="carouselme"></div>
+    	<div class="container-fluid">
+	        <div class="container-fluid">
+	            <h1 lang-value="latest" class="title"></h1>
+	        </div>
+	        <div style="display: inherit;" class="containerme">
+	            <div id="latest" class="carouselme"></div>
+	        </div>
         </div>
     </div>
 
     <!-- Trending Row -->
     <div style="padding-left:0;" id="trendingMainSection" class="container-fluid">
-        <div class="container-fluid">
-            <h1 lang-value="trending" class="title"></h1>
-        </div>
-        <div style="display: inherit;" class="containerme">
-            <div id="trending" class="carouselme"></div>
-        </div>
+    	<div class="container-fluid">
+	        <div class="container-fluid">
+	            <h1 lang-value="trending" class="title"></h1>
+	        </div>
+	        <div style="display: inherit;" class="containerme">
+	            <div id="trending" class="carouselme"></div>
+	        </div>
+		</div>
     </div>
 
     <!-- Channels Row -->
@@ -80,11 +70,15 @@
 <script src="js/channelsandshows.js"></script>
 
 <script>
-    require(['client/home'], function (home) {
-        //home.topSection()
-    });
     require(["router"], function (router) {
 		router.showSideBar();
 	});
+	function startVideo(video_url, checker){
+		require(["router"], function (router) {
+			console.log("In home");
+			router.startVideoGlobal(video_url, checker)
+	});
+	
+}
 </script>
 

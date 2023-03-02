@@ -48,7 +48,8 @@ const __LANG = {
         'episodes': 'Episodes',
         'clips': 'Clips',
         'more': 'More',
-        'shorts': 'Smashi Shorts'
+        'shorts': 'Smashi Shorts',
+        'short': 'Shorts'
     },
 
     // Arabic translations
@@ -96,7 +97,8 @@ const __LANG = {
         'episodes': 'الحلقات',
         'clips': 'افضل المقاطع',
         'more': 'المزيد',
-        'shorts': 'سماشي شورتس'
+        'shorts': 'سماشي شورتس',
+        'short': 'شورتس'
     },
     //other languages
 };

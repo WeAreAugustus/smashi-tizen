@@ -22,7 +22,26 @@ define(['js/shared/language.js'], function (language) {
         }
     	console.log("Pages in changeScreen: " + pages);
     }
-
+    
+    function startVideoGlobal(video_url, checker) {
+    	sessionStorage.setItem("video_url", video_url);
+    		if (checker == 1){
+    			changeScreen('player');
+    		}
+    		else if (checker == 0){
+    			let hasSubscription = sessionStorage.getItem("hasSubscription");
+    			if (hasSubscription){
+    				changeScreen('player');	
+    			}
+    			else{
+    				changeScreen('profile');	
+    			}
+    		}
+    		else{
+    			console.log("Undef");
+    		}
+    }
+   
 
     function exitApplication() {
         removeMessage();
@@ -80,6 +99,7 @@ define(['js/shared/language.js'], function (language) {
         changeScreen: changeScreen,
         showSideBar: showSideBar,
         hideSideBar: hideSideBar,
+        startVideoGlobal: startVideoGlobal,
         navigator: function () {
 
             var myLanguage = sessionStorage.getItem("locale");
@@ -87,7 +107,7 @@ define(['js/shared/language.js'], function (language) {
                 myLanguage = 'en';
             }
             document.addEventListener('keydown', function (e) {
-            	
+            	var vid = document.getElementById("my-video");
             	switch (e.keyCode) {
                 case tvKey.MediaPlayPause:
                 	if (!vid.paused){
@@ -100,7 +120,6 @@ define(['js/shared/language.js'], function (language) {
                 	}
                 	break;
                 case tvKey.ENTER:
-                	var vid = document.getElementById("my-video");
             	    var focusedElement = document.activeElement;
             	    var clickEvent = new MouseEvent("click", {
             	      bubbles: true,

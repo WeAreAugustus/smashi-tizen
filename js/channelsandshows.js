@@ -29,7 +29,9 @@ fetch('https://smashi.tv/api/video/shows/channel', {
 	                    <img class="img-fluid vertical-card" src="${channel.background_image}">
 	                </div>
                 </div>`;
-                document.getElementById('channels').insertAdjacentHTML('beforeend', markup);
+                if(document.getElementById('channels')){
+                	document.getElementById("channels").innerHTML += markup;
+                }
             });
         }
     );
@@ -51,7 +53,9 @@ fetch('https://smashi.tv/api/video/shows', {
 	                      <img class="img-fluid vertical-card" src="${channel.background_image}">
 	                  </div>
 	              </div>`;
-                document.getElementById('shows').insertAdjacentHTML('beforeend', markup);
+	              if( document.getElementById("shows")){
+	            	  document.getElementById("shows").innerHTML += markup;
+	               }
             });
         }
     );
