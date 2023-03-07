@@ -2,15 +2,7 @@ require(["router"], function (router) {
 	router.showSideBar();
 });
 
-function checkLockWatch(checker){
-	hasSubscription = sessionStorage.getItem("hasSubscription");
-	if(hasSubscription || checker == 1){
-		console.log(hasSubscription, checker);
-		console.log("Icon removed");
-		document.getElementById('lockiconwatch').remove();
-	}
-}
-
+var hasSubscription = sessionStorage.getItem("hasSubscription");
 fetch('https://smashi.tv/api/watch', {
 	    headers: {
 	        'Accept': 'application/json',
@@ -23,6 +15,7 @@ fetch('https://smashi.tv/api/watch', {
         })
     .then(
         data => {
+        	var i = 0;
         	var allShows = data.data; 
             allShows.forEach(show => {
             	var markup = `
@@ -35,16 +28,26 @@ fetch('https://smashi.tv/api/watch', {
             		markup += `
 	            		<div class="item">
 	                        <div class="card">
-		                        <img class="focusable videocard img-fluid card" src="${video.poster_url}" tabindex="1" onclick="startVideo('${video.video_link}', ${video.is_clip})">
-		                        	<img id="lockiconwatch" class="lockicon" src="img/icons/lock_inactive.svg">
-		                        </img>
-		                        <h4 style="padding-top: 1rem;">Is_clip: ${video.is_clip}</h4>
+		                        <img id="watchthumb${video.is_clip}" class="focusable videocard img-fluid card watchvideo" src="${video.poster_url}" tabindex="1" onclick="startVideo('${video.video_link}', ${video.is_clip})">
+		                        <img id="lockiconwatch${i}" class="lockicon" src="img/icons/lock_inactive.svg">
 		                        <h4 style="padding-top: 1rem;">${video.title}</h4>
 		                        <p style="font-size: 20px; margin-top:1rem;">${video.created_at}</p>                        
 	                        </div>
 	                    </div>
                     `; 
+                    i++;
+//                    <img id="lockiconwatch" class="lockicon" src="img/icons/lock_inactive.svg">
             	});
             	document.getElementById("watch").innerHTML += markup;
-            });        
+            });    
+            var allWatchVideos = document.getElementsByClassName("watchvideo");
+            console.log();
+            for (let i = 0; i < allWatchVideos.length; i++) {
+            	  if(allWatchVideos[i].id == 'watchthumb1' || hasSubscription){
+            		  document.getElementById("lockiconwatch" + i).remove();
+            	  }
+            	  else{
+            		  console.log("if else");
+            	  }
+            }
         });
