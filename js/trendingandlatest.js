@@ -4,7 +4,7 @@ var myLanguage = sessionStorage.getItem("locale");
 	}
 	var latest_index = 1, latest_id = 1;
     function fetchLatest(){
-    	fetch('http://smashi.tv/api/video?page=' + latest_index, {
+    	fetch('https://smashi.tv/api/video?page=' + latest_index, {
     		headers: {
     			'Accept': 'application/json',
     			'X-localization': myLanguage
@@ -50,7 +50,7 @@ var myLanguage = sessionStorage.getItem("locale");
     fetchLatest();
     var trending_index = 1, trending_id = 1;
     function fetchTrending(){
-    	fetch('http://smashi.tv/api/video/trending?page=' + trending_index, {
+    	fetch('https://smashi.tv/api/video/trending?page=' + trending_index, {
     		headers: {
     			'Accept': 'application/json',
     			'X-localization': myLanguage
