@@ -19,7 +19,7 @@ var myLanguage = sessionStorage.getItem("locale");
                     	const markup = `
                     		<div class="item card">
                                 <div class="card">
-        	                        <img id="latest${latest_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1)">
+        	                        <img id="latest${latest_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
         	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
         	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                                 </div>
@@ -66,7 +66,7 @@ var myLanguage = sessionStorage.getItem("locale");
                     	const markup = `
                     		<div class="item">
                                 <div class="card">
-        	                        <img id="trending${trending_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1)">
+        	                        <img id="trending${trending_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
         	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
         	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                                 </div>

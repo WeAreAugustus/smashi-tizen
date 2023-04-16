@@ -1,4 +1,17 @@
 <section id="masr" style="margin-top: 0%;">
+
+	<!-- Live Events Row -->
+	<div style="padding-left:0;" id="LiveEventsMainSection" class="container-fluid">
+    	<div class="container-fluid">
+	        <div class="container-fluid">
+	            <h1 id="eventstitle" lang-value="events" class="title"></h1>
+	        </div>
+	        <div style="display: inherit;" class="containerme">
+	            <div id="events" class="carouselme"></div>
+	        </div>
+        </div>
+    </div>
+
     <!-- Shorts Row -->
     <div id="ShortsMainSection">
         <div class="container-fluid">
@@ -65,9 +78,7 @@
 
 </section>
 
-
-
-
+<script src="js/client/liveevents.js"></script>
 <script src="js/client/shorts.js"></script>
 <script src="js/trendingandlatest.js"></script>
 <script src="js/channelsandshows.js"></script>
@@ -76,12 +87,10 @@
     require(["router"], function (router) {
 		router.showSideBar();
 	});
-	function startVideo(video_url, checker){
+	function startVideo(video_url, checker, isLive){
 		require(["router"], function (router) {
-			console.log("In home");
-			router.startVideoGlobal(video_url, checker)
+			router.startVideoGlobal(video_url, checker, isLive);
 	});
-	
 }
 </script>
 

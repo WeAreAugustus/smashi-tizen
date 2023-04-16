@@ -52,7 +52,7 @@ function checkLock(){
                         <div style="padding: 11rem 4rem;">
                             <h1 style="color:white; font-size: 48px; font-weight: 700;"> ${details.title} </h1>
                             <p id="bannerBody" style="color:white; font-size: 32px; width:50%;"> ${details.body} </p>
-    						<button class="focusable newbutton watchlivebutton" id="watchnowbutt" lang-value="watch" onclick="startVideo(firstVideo, firstVideoIsClip)"></button>
+    						<button class="focusable newbutton watchlivebutton" id="watchnowbutt" lang-value="watch" onclick="startVideo(firstVideo, firstVideoIsClip, 1)"></button>
                         </div>
                     </div>` 
                     ;
@@ -75,7 +75,7 @@ function checkLock(){
                     	markup = `
                 		<div class="item card">
                             <div class="card">
-    	                        <img id="episode${episodes_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip})">
+    	                        <img id="episode${episodes_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip}, 1)">
     	                        	<img id="lockicon" class="lockicon" src="img/icons/lock_inactive.svg" onload="checkLock()"> 
     	                        </img>
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
@@ -130,7 +130,7 @@ function checkLock(){
                     	markup = `
                 		<div class="item card">
                             <div class="card">
-    	                        <img id="clips${clips_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1)">
+    	                        <img id="clips${clips_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
     	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
                             </div>
@@ -173,7 +173,7 @@ function checkLock(){
                     shorts.forEach(short => {
                     	const markup = `
                         <div style="width:332px;" class="item">
-        	                  <div id="showshort${showshorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1)">
+        	                  <div id="showshort${showshorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1, 1)">
         		                    <img class="img-fluid vertical-card" src="${short.poster_url}" style="background: linear-gradient(#ececec00, #000000); z-index=-1;">
         			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
         			                   	<h1 class="shortstitle"> ${short.title} </h1>

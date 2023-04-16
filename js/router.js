@@ -5,11 +5,9 @@ define(['js/shared/language.js'], function (language) {
     
     
     var changeScreen = function (screenName) {
+    	checkSubbed();
     	backButtonCounter = 0;
     	let sideBarEl = document.getElementsByName(screenName);
-//    	border-right: solid;
-//    	border-color: #FB8044;
-//    	border-color-width: 10px;
         $("<div>").load("components/screens/" + screenName + ".html", function () {
             $("#screen").empty();
             $("#screen").append($(this).html());
@@ -23,10 +21,24 @@ define(['js/shared/language.js'], function (language) {
     	console.log("Pages in changeScreen: " + pages);
     }
     
-    function startVideoGlobal(video_url, checker) {
+    function checkSubbed(){
+    	let premTab = document.getElementsByName("premium");
+        let hasSubscription = sessionStorage.getItem("hasSubscription");
+        if (hasSubscription){
+        	premTab[0].style.display = "none";
+        }
+        else{
+        	premTab[0].style.display = "block";
+        }
+    }
+    
+    function startVideoGlobal(video_url, checker, isLive) {
     	sessionStorage.setItem("video_url", video_url);
-    		if (checker == 1){
+    		if (checker == 1 && isLive == 1){
     			changeScreen('player');
+    		}
+    		else if(checker == 0 && isLive == 0){
+    			alert("The event is not live yet");
     		}
     		else if (checker == 0){
     			let hasSubscription = sessionStorage.getItem("hasSubscription");
@@ -34,7 +46,13 @@ define(['js/shared/language.js'], function (language) {
     				changeScreen('player');	
     			}
     			else{
-    				changeScreen('profile');	
+    				let isLogged = sessionStorage.getItem("token");
+    				if (isLogged){
+    					changeScreen('premium');
+    				}
+    				else{
+    					changeScreen('profile');
+    				}
     			}
     		}
     		else{
@@ -44,10 +62,10 @@ define(['js/shared/language.js'], function (language) {
    
 
     function exitApplication() {
-        removeMessage();
         backButtonCounter++;
         if (backButtonCounter == 3) {
             $('#alert').html('<div id="alertMessage" style="text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
+            removeMessage();
         }
         if (backButtonCounter == 4) {
             tizen.application.getCurrentApplication().exit();

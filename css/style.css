@@ -6,6 +6,15 @@
 .scrollbar-none::-webkit-scrollbar {
     display: none;
 }
+.overthumbnail{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 6px;
+    width: max-content;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
 .containerme {
     scroll-snap-type: x mandatory !important;
 }
@@ -28,6 +37,7 @@ body {
 }
 p {
     color: white;
+    
 }
 .searchbox{
 	border-color: #464646;
@@ -70,7 +80,7 @@ p {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
 }
 .card:focus {
     border: 5px solid white;

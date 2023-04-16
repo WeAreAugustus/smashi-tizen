@@ -19,7 +19,7 @@ function fetchShorts(){
             data.data.forEach(short => {
                 const markup = `
                 <div style="width:332px;" class="item">
-	                  <div id="shorts${shorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1)">
+	                  <div id="shorts${shorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1, 1)">
 		                    <img class="img-fluid vertical-card" src="${short.poster_url}" style="background: linear-gradient(#ececec00, #000000); z-index=-1;">
 			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
 			                   	<h1 class="shortstitle"> ${short.title} </h1>

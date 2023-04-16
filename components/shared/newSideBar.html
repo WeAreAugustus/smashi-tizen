@@ -1,7 +1,7 @@
 <section>
 	<div class="newsidebar">
 		<div>
-			<img name="" tab-index= "1" class= "focusable" src="img/icons/premium_inactive.svg">
+			<img name="premium" tab-index= "1" class= "focusable" src="img/icons/premium_inactive.svg">
 		</div>
 		<div>
 			<img name="profile" tab-index= "1" class= "focusable" src="img/icons/profile_inactive.svg">
@@ -33,6 +33,7 @@
 
 .newsidebar img {
   display: block;
+  width: 95px;
   margin: auto;
   margin-bottom: 3rem;
   padding: 30px 27px 30px 30px;
@@ -41,16 +42,16 @@
   transition: background-color 0.5s;
 }
  
-.newsidebar img:focus{
+.newsidebar img:focus,
+.newsidebar img:hover{
   background-color: #4C4C4C;
   border-right: solid;
   border-color: #FB8044;
-  border-color-width: 10px;
+  border-color-width: 20px;
   filter: brightness(150%);
+  direction: rtl;
 }
 
-.newsidebar img:hover{
-}
 
 .newsidebar a:hover:not(.active) {
   background-color: #555;
@@ -66,8 +67,10 @@
             switch (e.keyCode) {
                 case tvKey.ENTER:
                     router.changeScreen(document.activeElement.getAttribute('name'))
-                    break;
+                    break; 
             } 
         })
     });
+    
+    
 </script>
