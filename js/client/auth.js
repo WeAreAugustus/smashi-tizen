@@ -6,10 +6,10 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 			mytoken = sessionStorage.getItem("token");
 
 			if(mytoken == null){
-				// //alert("You are not logged in yet");
+				 //alert("You are not logged in yet");
 				
 			} else {
-				// //alert("You are already logged in ya bro");
+				 //alert("You are already logged in ya bro");
 				$("<div>").load("components/screens/account.html", function () {
 					$("#screen").empty();
 					$("#screen").append($(this).html());
@@ -66,7 +66,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 				},
 				error: function (error) {
 					error = shared.responseErrorHandler(error);
-					$('#alert').html('<p>An error has occurred during the request</p>');
+					alert("The email format is invalid");
 				},
 			});
 		},
@@ -139,14 +139,12 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 					// //alert(response.data.token);
 					sessionStorage.setItem("token", response.data.token);
 					sessionStorage.setItem("user_id", response.data.id);
-					// mytoken = sessionStorage.getItem("token");
 
-					//User Details
+					// User Details
 					sessionStorage.setItem("name", response.data.name);
 					sessionStorage.setItem("email", response.data.email);
 					sessionStorage.setItem("profile", response.data.profile);
 					sessionStorage.setItem("hasSubscription", response.data.has_subscription);
-					// sessionStorage.setItem("hasSubscription", dataz.data.has_subscription);
 					sessionStorage.setItem("subscriptionType", response.data.subscription_type.name);
 					sessionStorage.setItem("subscriptionPrice", response.data.subscription_type.price);
 					sessionStorage.setItem("subscriptionExpiryDate", response.data.subscription_ex_date);

@@ -464,3 +464,69 @@ h4 {
     height: 2px;
     background: linear-gradient(270deg, #F97C3E 0%, #447EFB 100%);
 }
+
+/* Login/Signup page styling */
+
+.parent{
+		display: flex; 
+		background-color: #000000; 
+		color: #ffffff; 
+		padding: 3rem;
+		gap: 35rem; 
+	}
+	.subparent{
+		display: flex; 
+		flex-direction: column; 
+		gap: 1.5rem; 
+	}
+	.parent .text{
+		margin-top: 1rem;
+		margin-bottom: 1rem; 
+		font-size: 2.25rem;
+		line-height: 2.5rem; 
+		font-weight: 600; 
+	}
+	.parent .input{
+		color: white;
+		padding: 2rem; 
+		font-size: 2.25rem;
+		line-height: 2.5rem; 
+		border-radius: 0.5rem; 
+		background: #2B2B2B;
+		width: 700px;
+		height: 100px;
+		outline-style: none;
+	}
+	.parent .desc{
+		
+	}
+	.parent .button{
+		color: white;
+		padding: 2rem; 
+		font-size: 2.25rem;
+		line-height: 2.5rem; 
+		font-weight: 600; 
+		border-radius: 0.5rem; 
+		background: #383838;
+		width: 700px;
+		height: 100px;
+		outline-style: none;
+		transition: background-color 0.5s, color 0.5s;
+	}
+	.parent .button:hover,
+	.parent .button:focus{
+		background-color: #ffffff; 
+		color: #FB8044;	
+	}
+	.parent .input:hover,
+	.parent .input:focus{
+		outline-color: white;
+	    outline-width: 2px;
+	    outline-style: solid;
+	}
+	.deviceimg{
+		margin-left: 3rem; 
+		margin-top: 5rem; 
+		width: 720px;
+		height: 430px;
+	}

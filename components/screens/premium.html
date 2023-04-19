@@ -1,5 +1,5 @@
 <section>
-    <div class="split left">
+    <div id="left" class="split left">
         <div class="leftTextBox ">
             <span class="premText" lang-value="premium">  </span>
             <!-- <span class="rightText" lang-value="premiumtitle">  </span>  -->
@@ -17,7 +17,7 @@
         </a>
     </div>
 
-    <div class="split right">
+    <div id="right" class="split right">
         <div class="centered rightText">
             <!-- <div class="rightTextBox">
                 <svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,6 +121,9 @@
     				    left: 9rem;
     				    top: 6rem;
                 }
+                .left[dir="rtl"] {
+    				    right: 9rem;
+                }
                 
                 /* Control the right side */
                 .right {
@@ -128,6 +131,9 @@
                   width: 44%;
                   background-image: url("img/graphics.png");
                   background-repeat: no-repeat; 
+                }
+                .right[dir="rtl"]{
+                	left: 0;
                 }
                 
                 /* If you want the content centered horizontally and vertically */
@@ -139,5 +145,15 @@
                   text-align: center;
                 }
 </style>
+
+<script>
+//let myLanguage = sessionStorage.getItem("locale");
+if (myLanguage == 'ar'){
+	console.log("Test");
+	document.getElementById("right").style.left = "0";
+	document.getElementById("right").style.right = "auto";
+	document.getElementById("left").style.right = "9rem";
+}
+</script>
 
 

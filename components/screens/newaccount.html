@@ -1,0 +1,21 @@
+<div class="parent">
+	<span style="font-size: 64px; font-weight: 700;"> You are logged in </span>
+	<button class="button focusable" onclick="mySignout()"> Sign out </button>
+</div>
+
+<script>
+  function mySignout() {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("profile");
+    sessionStorage.removeItem("hasSubscription");
+    sessionStorage.removeItem("subscriptionType");
+    sessionStorage.removeItem("subscriptionPrice");
+    sessionStorage.removeItem("subscriptionExpiryDate");
+    
+    alert("Signed out");
+    changeScreenGlobal("home");
+  }
+</script>

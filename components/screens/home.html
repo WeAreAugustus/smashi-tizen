@@ -90,7 +90,12 @@
 	function startVideo(video_url, checker, isLive){
 		require(["router"], function (router) {
 			router.startVideoGlobal(video_url, checker, isLive);
-	});
-}
+		});
+	}
+	function changeScreenGlobal(screenName){
+		require(["router"], function (router) {
+			router.changeScreen(screenName);
+		});
+	}
 </script>
 

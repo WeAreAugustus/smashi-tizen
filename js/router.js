@@ -3,9 +3,8 @@ define(['js/shared/language.js'], function (language) {
     var tvKey = window.tvKey;
     var pages = ['home'];
     
-    
     var changeScreen = function (screenName) {
-    	checkSubbed();
+    	removeTabIfSubbed();
     	backButtonCounter = 0;
     	let sideBarEl = document.getElementsByName(screenName);
         $("<div>").load("components/screens/" + screenName + ".html", function () {
@@ -18,10 +17,9 @@ define(['js/shared/language.js'], function (language) {
         if (pages[pages.length - 1] != screenName){
         	pages.push(screenName);
         }
-    	console.log("Pages in changeScreen: " + pages);
     }
     
-    function checkSubbed(){
+    function removeTabIfSubbed(){
     	let premTab = document.getElementsByName("premium");
         let hasSubscription = sessionStorage.getItem("hasSubscription");
         if (hasSubscription){
@@ -51,7 +49,7 @@ define(['js/shared/language.js'], function (language) {
     					changeScreen('premium');
     				}
     				else{
-    					changeScreen('profile');
+    					changeScreen('newlogin');
     				}
     			}
     		}

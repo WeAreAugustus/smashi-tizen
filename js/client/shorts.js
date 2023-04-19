@@ -20,7 +20,7 @@ function fetchShorts(){
                 const markup = `
                 <div style="width:332px;" class="item">
 	                  <div id="shorts${shorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1, 1)">
-		                    <img class="img-fluid vertical-card" src="${short.poster_url}" style="background: linear-gradient(#ececec00, #000000); z-index=-1;">
+		                    <img class="img-fluid vertical-card" src="${short.poster_url}">
 			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
 			                   	<h1 class="shortstitle"> ${short.title} </h1>
 		                    </img>
@@ -28,17 +28,16 @@ function fetchShorts(){
 	              </div>`;
 	              shorts_id++;
 	              document.getElementById("shorts").innerHTML += markup;
-	              
-                  var lastElement = document.getElementById("shorts" + data.pagination.to);
-	              if(lastElement && data.pagination.has_more_pages){
-                  		lastElement.addEventListener("focus", (event) => {
-	                  		shorts_index = data.pagination.current_page + 1;
-	                        fetchShorts();
-	                        lastElement.focus();
-	                        console.log("Fetching shorts...");
-                  		});
-                  }
             });
+            var lastElement = document.getElementById("shorts" + data.pagination.to);
+            if(lastElement && data.pagination.has_more_pages){
+            		lastElement.addEventListener("focus", (event) => {
+                		shorts_index = data.pagination.current_page + 1;
+                      fetchShorts();
+                      
+                      console.log("Fetching shorts...");
+            	});
+            }
         }
     );
 }
