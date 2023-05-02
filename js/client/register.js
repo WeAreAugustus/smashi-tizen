@@ -29,7 +29,9 @@ function newRegister(){
 	        })
 	    .then(
 	        data => {
-	            alert(data.message);//Credentials
+	        	console.log(data);
+	            alert(data.message);
+	            //Credentials
 	        	if (!data.isError){
 		            changeScreenGlobal("newlogin");
 	        	}

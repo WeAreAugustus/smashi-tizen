@@ -58,7 +58,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function(shared){
                     </script>
                     <div class="item">
                     <div style="position: static; padding: 8px;" class="card">
-                        <img class="videocard focusable img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip})">
+                        <img class="videocard focusable img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip}, 1)">
                         <h4 style="padding-top: 1rem;">${item.is_clip}</h4>
                         <h4 style="padding-top: 1rem;">${item.title}</h4>
                         <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        

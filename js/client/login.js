@@ -36,8 +36,9 @@ function newLogin(){
 	        })
 	    .then(
 	        data => {
-	            alert(data.message);//Credentials
+	            alert(data.message);
 	        	if (!data.isError){
+	        		//Credentials
 	        		sessionStorage.setItem("token", data.data.token);
 					sessionStorage.setItem("user_id", data.data.id);
 
