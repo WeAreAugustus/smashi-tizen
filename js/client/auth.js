@@ -181,13 +181,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 						otp: datas.otp
 					},
 					function(dataz, status){
-						console.log(dataz.data.name);
-						$("<div>").load("components/screens/home.html", function () {
-							firstElement = document.getElementById("00000001")
-							firstElement.focus()
-							$("#screen").empty();
-							$("#screen").append($(this).html());
-						});
+						console.log(dataz.data);
 						// //alert("Hello "+dataz.data.name);
 						// console.log(dataz.data.token);
 						// console.log(dataz.data.id);
@@ -204,13 +198,10 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 						sessionStorage.setItem("subscriptionPrice", dataz.data.subscription_type.price);
 						sessionStorage.setItem("subscriptionExpiryDate", dataz.data.subscription_ex_date);
 						// sessionStorage.setItem("subscription", dataz.data.has_subscription);
-
 						// mytoken = sessionStorage.getItem("token");
-
-
 						// //alert("Hello " + dataz.data.name);
-					}
-					
+						changeScreenGlobal("home");
+						}
 					);
 
 				});
@@ -225,8 +216,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 			var pusher = new Pusher("b00c56adc88d99d3afc9", {
 				cluster: "eu",
 			});
-
-
+			
 		},
         getUserDetails: function (itemId) {
             var dataHtml = "";

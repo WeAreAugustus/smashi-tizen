@@ -1,7 +1,7 @@
 <section>
     <div id="left" class="split left">
         <div class="leftTextBox ">
-            <span class="premText" lang-value="premium">  </span>
+            <span class="premText"> Premium </span>
             <!-- <span class="rightText" lang-value="premiumtitle">  </span>  -->
         </div>
         <a class="plan" href="https://smashi.tv/register" tabindex="1">
@@ -154,6 +154,9 @@ if (myLanguage == 'ar'){
 	document.getElementById("right").style.right = "auto";
 	document.getElementById("left").style.right = "9rem";
 }
+require(["router"], function (router) {
+	router.showSideBar();
+});
 </script>
 
 

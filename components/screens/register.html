@@ -1,24 +1,20 @@
-<div id="parenttwo" class="parent" style="gap: 7rem;" ">
-    <div class="subparent">
+<div id="parenttwo" class="parent">
+    <div class="subparent" style="padding: 3rem;">
         <img style="width: 250px;" src="img/smashi_logo.png">
-        <p class="text">Sign up</p>
-        <input type="email" placeholder="Email Address" class="input focusable" id="registeremailinput">
-        <input type="password" placeholder="Password" class="input focusable" id="registerpasswordinput">
-        <input type="text" placeholder="Full Name (Optional)" class="input focusable" id="registernameinput">
-        <button class="button focusable" onclick="newRegister()">Sign up</button>
-        <p style="text-align: center; font-size: 40px;">Already have an account?</p>
-        <button class="button focusable" onclick="toLogin()">Login</button>
+        <p class="text" lang-value="accountregister"></p>
+        <input type="email" placeholder="" class="input focusable" id="registeremailinput">
+        <input type="password" placeholder="" class="input focusable" id="registerpasswordinput">
+        <input type="text" placeholder="" class="input focusable" id="registernameinput">
+        <button class="button focusable" onclick="newRegister()" lang-value="accountregister"></button>
+        <p style="text-align: center; font-size: 40px;" lang-value="alreadyhaveaccount"></p>
+        <button class="button focusable" onclick="toLogin()" lang-value="accountlogin"></button>
     </div>
-    <div >
-	    <div class="subparent">
-	        <div style="text-align: center;">
-	            <p class="" style="font-weight: 700; font-size: 2.25rem;">Shows, News, Sports & More</p>
-	            <p class="" style="font-size: 1.5rem; margin-bottom: 0;">
-	                Catch your games at home or on the go.
-	            </p>
-	            <p class="" style="font-size: 1.5rem;">
-	                Stream live games for Futsal, Volleyball, Handball and more.
-	            </p>
+    <div class="registerbanner">
+	    <div class="subparent" style="align-items: center;">
+		    <div>
+				<p class="" style="font-weight: 700; font-size: 2.25rem;" lang-value="showsandmore"></p>
+	            <p class="" style="font-size: 1.5rem; margin-bottom: 0;" lang-value="catchgames"></p>
+				<p class="" style="font-size: 1.5rem;" lang-value="streamlive"></p>
 	        </div>
 	        <img src="img/devices_graphics.png" class="deviceimg">
 	    </div>

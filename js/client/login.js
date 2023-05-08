@@ -1,12 +1,22 @@
 document.getElementById("loginemailinput").focus();
 function toSignup(){
-	require(["router"], function (router) {
-		router.changeScreen('register');
-	});
+	changeScreenGlobal("register");
 };
 
-mytoken = sessionStorage.getItem("token");
+if(myLanguage == 'ar'){
+	document.getElementById("loginemailinput").placeholder = "البريد الإلكتروني";
+	document.getElementById("loginpasswordinput").placeholder = "كلمة المرور";
+}
+else{
+	document.getElementById("loginemailinput").placeholder = "Email Address";
+	document.getElementById("loginpasswordinput").placeholder = "Password";
+}
 
+require(['client/auth'], function(auth){
+    auth.qrcode();
+});
+
+mytoken = sessionStorage.getItem("token");
 if(mytoken){
 	changeScreenGlobal("newaccount");
 } 
@@ -36,7 +46,6 @@ function newLogin(){
 	        })
 	    .then(
 	        data => {
-	            alert(data.message);
 	        	if (!data.isError){
 	        		//Credentials
 	        		sessionStorage.setItem("token", data.data.token);
@@ -46,11 +55,16 @@ function newLogin(){
 					sessionStorage.setItem("name", data.data.name);
 					sessionStorage.setItem("email", data.data.email);
 					sessionStorage.setItem("profile", data.data.profile);
+					sessionStorage.removeItem("hasSubscription");
 					sessionStorage.setItem("hasSubscription", data.data.has_subscription);
 					sessionStorage.setItem("subscriptionType", data.data.subscription_type.name);
 					sessionStorage.setItem("subscriptionPrice", data.data.subscription_type.price);
 					sessionStorage.setItem("subscriptionExpiryDate", data.data.subscription_ex_date);
+					
 		            changeScreenGlobal("home");
+	        	}
+	        	else{
+	        		alert(data.message);
 	        	}
 	        }
 	    )

@@ -4,7 +4,7 @@ require(["router"], function (router) {
 
 function checkLock(){
 	var hasSubscription = sessionStorage.getItem("hasSubscription");
-	if(hasSubscription){
+	if(hasSubscription == "true"){
 		document.getElementById('lockicon').remove();
 	}
 }
@@ -79,7 +79,7 @@ function checkLock(){
     	                        	<img id="lockicon" class="lockicon" src="img/icons/lock_inactive.svg" onload="checkLock()"> 
     	                        </img>
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
-    	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
+    	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                             </div>
                         </div>
                         `;
@@ -132,7 +132,7 @@ function checkLock(){
                             <div class="card">
     	                        <img id="clips${clips_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
     	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
-    	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
+    	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                             </div>
                         </div>`;
                         clips_id++;

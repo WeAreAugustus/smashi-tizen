@@ -3,6 +3,17 @@ function toLogin(){
 	changeScreenGlobal("newlogin");
 };
 
+if(myLanguage == 'ar'){
+	document.getElementById("registeremailinput").placeholder = "البريد الإلكتروني";
+	document.getElementById("registerpasswordinput").placeholder = "كلمة المرور";
+	document.getElementById("registernameinput").placeholder = "الاسم الكامل";
+}
+else{
+	document.getElementById("registeremailinput").placeholder = "Email Address";
+	document.getElementById("registerpasswordinput").placeholder = "Password";
+	document.getElementById("registernameinput").placeholder = "Full Name";
+}
+
 function newRegister(){
 	var registerEmail = document.getElementById("registeremailinput").value;
 	var regsiterPassword = document.getElementById("registerpasswordinput").value;

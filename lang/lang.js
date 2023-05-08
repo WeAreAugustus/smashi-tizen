@@ -65,6 +65,31 @@ const __LANG = {
         '18aed': '18 AED/month',
         'upcoming': 'Upcoming',
         'live': 'Live',
+        
+        //Login and Register pages
+        'accountlogin': 'Login',
+        'noaccount': "Don't have an account?",
+        'accountregister': 'Sign Up',
+        'scanme': 'Scan me',
+        'alreadyhaveaccount': 'Already have an account?',
+        'showsandmore': 'Shows, News, Sports & More',
+        'catchgames': 'Catch your games at home or on the go.',
+        'streamlive': 'Stream live games for Futsal, Volleyball, Handball and more.',
+        'qrtext1': '1- Open Smashi App, Go to',
+        'qrtext2': 'Account',
+        'qrtext3': '2- Click on',
+        'qrtext4': '"Connect to your TV"',
+        
+        //Account page
+        'savedvideos': 'Saved Videos',
+        'settings': 'Settings',
+        'accountsettings': 'Account Settings',
+        'FAQ': 'FAQ',
+        'signout': 'Sign out',
+        'accountname': 'Account Name',
+        'accountemail': 'Email Address',
+        'accountplan': 'My Subscription Plan',
+        'accountdate': 'Next Billing Date',
     },
 
     // Arabic translations
@@ -129,6 +154,31 @@ const __LANG = {
         '18aed': '18 درهم / شهرياً',
         'upcoming': 'بعد قليل',
         'live': 'مباشر',
+        
+        //Login and Register pages
+        'accountlogin': 'تسجيل الدخول',
+        'noaccount': "ليس لديك حساب؟",
+        'accountregister': 'انشاء حساب',
+        'scanme': 'افحص هنا',
+        'alreadyhaveaccount': 'لديك حساب بالفعل؟',
+        'showsandmore': 'العروض والأخبار والرياضة والمزيد',
+        'catchgames': 'استمتع بألعابك في المنزل أو أثناء التنقل.',
+        'streamlive': 'قم ببث مباريات مباشرة لكرة الصالات والكرة الطائرة وكرة اليد والمزيد.',
+        'qrtext1': '1- افتح تطبيق Smashi ، اذهب إلى',
+        'qrtext2': 'حسابي',
+        'qrtext3': '2- اضغط على',
+        'qrtext4': 'توصيل بالTV',
+        
+        //Account page
+        'savedvideos': 'المقاطع المحفوظة',
+        'settings': 'الاعدادات',
+        'accountsettings': 'اعدادات الحساب',
+        'FAQ': 'الاسئلة المكررة',
+        'signout': 'تسجيل الخروج',
+        'accountname': 'اسم الحساب',
+        'accountemail': 'البريد الالكتروني',
+        'accountplan': 'خطة الاشتراك',
+        'accountdate': 'موعد الدفع القادم',
     },
     //other languages
 };

@@ -6,7 +6,7 @@
 			placeholder="Search for videos, episodes and shows"
             style="background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;">
             <script>
-                require(['client/live', 'client/search'], function (live, search) {
+                require(['client/search'], function (search) {
                     var objecto = document.getElementsByClassName(" form-control ")[0];
                     objecto.oninput = function () {
                         search.getSearchResults(1, 12)
@@ -17,14 +17,14 @@
     </div>
 
     <div id="searchBoxArabic" class="container">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 searchbox">
             <i style="margin: 20px;" class="bi-search"></i>
             <input type="text" class="form-control focusable"
 			placeholder="ابحث عن المقاطع, الحلقات و البرامج"
             style="background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;">
             <script>
-                require(['client/live', 'client/search'], function (live, search) {
-                    var objecto = document.getElementsByClassName(" form-control ")[0];
+                require(['client/search'], function (search) {
+                    var objecto = document.getElementsByClassName("form-control")[1];
                     objecto.oninput = function () {
                         search.getSearchResults(1, 12)
                     }
@@ -59,27 +59,22 @@
         document.getElementById("searchBox").style.display = "initial";
         document.getElementById("searchBoxArabic").style.display = "none";
     }
-</script>
-
-<script>
-    require(['client/search'], function (search) {
-        // live.setUrlById('live-video')
-        // search.latest(1,3)
+    var checkIndex = 0;
+    function checkLockSearch(checker) {
+	    console.log("in checker");
+	    var hasSubscription = sessionStorage.getItem("hasSubscription");
+	    if (checker == 1 || hasSubscription == "true") {
+	        console.log("in checker cond");
+	        document.getElementsByClassName('lockicon')[checkIndex].style.display = "none";
+   		}
+   		if(checkIndex == document.getElementsByClassName('lockicon').length - 1){
+   			checkIndex = 0;
+   		}
+   		else{
+   			checkIndex++;
+   		}
+	}
+	require(['client/search'], function (search) {
         search.searchVideoWatch();
-
-        // document.getElementById('searchKeyword').oninput = function(){search.getSearchResults(1,12)};
-        // document.getElementById('buttonSearch').onclick = function() { search.getSearchResults(1,12)};
-
-        // search.getSearchResults()
-        // $('#00020001').on('keydown', function(e) {
-        //     console.log("Key code : " + e.keyCode);
-        // });
-        // $('#00020001').on('keydown', function(e) {
-        //     console.log("Key code : " + e.keyCode);
-        // });
-        // $('#00020001').on('keydown', function(e) {
-        //     console.log("Key code : " + e.keyCode);
-        // });
-
     });
 </script>

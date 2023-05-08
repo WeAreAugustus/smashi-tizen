@@ -22,12 +22,14 @@ function fetchShorts(){
 	                  <div id="shorts${shorts_id}" tabindex="1" class="focusable card" onclick="startVideo('${short.video_link}', 1, 1)">
 		                    <img class="img-fluid vertical-card" src="${short.poster_url}">
 			                    <img class="shortsplayicon" src="img/icons/playicon.svg">
-			                   	<h1 class="shortstitle"> ${short.title} </h1>
+			                   	<h1 class="shortstitle" style="opacity: 75%;"> ${short.title} </h1>
 		                    </img>
 	                  </div>
 	              </div>`;
 	              shorts_id++;
-	              document.getElementById("shorts").innerHTML += markup;
+	              if (document.getElementById("shorts")){
+	            	  document.getElementById("shorts").innerHTML += markup;
+	              }
             });
             var lastElement = document.getElementById("shorts" + data.pagination.to);
             if(lastElement && data.pagination.has_more_pages){

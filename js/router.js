@@ -1,4 +1,5 @@
 define(['js/shared/language.js'], function (language) {
+	removeTabIfSubbed();
 	var backButtonCounter = 0;
     var tvKey = window.tvKey;
     var pages = ['home'];
@@ -21,8 +22,8 @@ define(['js/shared/language.js'], function (language) {
     
     function removeTabIfSubbed(){
     	let premTab = document.getElementsByName("premium");
-        let hasSubscription = sessionStorage.getItem("hasSubscription");
-        if (hasSubscription){
+        var hasSubscription = sessionStorage.getItem("hasSubscription");
+        if (hasSubscription == "true"){
         	premTab[0].style.display = "none";
         }
         else{
@@ -34,14 +35,19 @@ define(['js/shared/language.js'], function (language) {
     	sessionStorage.setItem("video_url", video_url);
     		if (checker == 1 && isLive == 1){
     			changeScreen('player');
+    			console.log("first cond");
     		}
     		else if(checker == 0 && isLive == 0){
     			alert("The event is not live yet");
+    			console.log("second cond");
     		}
     		else if (checker == 0){
-    			let hasSubscription = sessionStorage.getItem("hasSubscription");
-    			if (hasSubscription){
+    			var hasSubscription = sessionStorage.getItem("hasSubscription");
+    			console.log("third cond");
+    			console.log("subbed: " + hasSubscription);
+    			if (hasSubscription == "true"){
     				changeScreen('player');	
+    				console.log("third cond subbed");
     			}
     			else{
     				let isLogged = sessionStorage.getItem("token");

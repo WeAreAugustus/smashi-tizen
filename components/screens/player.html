@@ -12,6 +12,7 @@
 <script>
 	var vid = document.getElementById("my-video");
 	var url = sessionStorage.getItem('video_url');
+	//var url = 'https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8';
             if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(url);

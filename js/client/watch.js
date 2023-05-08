@@ -31,7 +31,7 @@ fetch('https://smashi.tv/api/watch', {
 		                        <img id="watchthumb${video.is_clip}" class="focusable videocard img-fluid card watchvideo" src="${video.poster_url}" tabindex="1" onclick="startVideo('${video.video_link}', ${video.is_clip}, 1)">
 		                        <img id="lockiconwatch${i}" class="lockicon" src="img/icons/lock_inactive.svg">
 		                        <h4 style="padding-top: 1rem;">${video.title}</h4>
-		                        <p style="font-size: 20px; margin-top:1rem;">${video.created_at}</p>                        
+		                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${video.created_at}</p>                        
 	                        </div>
 	                    </div>
                     `; 
@@ -41,13 +41,9 @@ fetch('https://smashi.tv/api/watch', {
             	document.getElementById("watch").innerHTML += markup;
             });    
             var allWatchVideos = document.getElementsByClassName("watchvideo");
-            console.log();
             for (let i = 0; i < allWatchVideos.length; i++) {
-            	  if(allWatchVideos[i].id == 'watchthumb1' || hasSubscription){
+            	  if(allWatchVideos[i].id == 'watchthumb1' || hasSubscription == "true"){
             		  document.getElementById("lockiconwatch" + i).remove();
-            	  }
-            	  else{
-            		  console.log("if else");
             	  }
             }
         });

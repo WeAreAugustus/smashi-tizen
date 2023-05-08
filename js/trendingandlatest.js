@@ -21,7 +21,7 @@ var myLanguage = sessionStorage.getItem("locale");
                                 <div class="card">
         	                        <img id="latest${latest_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
         	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
-        	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
+        	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                                 </div>
                             </div>`;
                             latest_id++;
@@ -68,11 +68,13 @@ var myLanguage = sessionStorage.getItem("locale");
                                 <div class="card">
         	                        <img id="trending${trending_id}" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
         	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
-        	                        <p style="font-size: 20px; margin-top:1rem;">${item.created_at}</p>                        
+        	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                                 </div>
                             </div>`;
                             trending_id++;
-                            document.getElementById("trending").innerHTML += markup;
+                            if (document.getElementById("trending")){
+                            	document.getElementById("trending").innerHTML += markup;                            	
+                            }
                             
                             var lastElement = document.getElementById("trending" + data.pagination.to);
                             if(lastElement && data.pagination.has_more_pages){

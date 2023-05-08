@@ -30,21 +30,21 @@ function fetchLive(){
         	                        <h4 id="upcomingtag" style="color: black; background-color: white;" class="overthumbnail upcomingtag" lang-value="upcoming"> Upcoming </h4>
         	                        <h4 id="livetag" style="color: white; background-color: #E50201;" class="overthumbnail livetag" lang-value="live"> Live </h4>
         	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
-        	                        <h4 class="eventdate" style="">${item.start_date_string}</h4>
+        	                        <h4 class="eventdate" style="opacity: 50%;">${item.start_date_string}</h4>
                                 </div>
                             </div>`;
                             //Remove live/upcoming tag according to the state of the event
                             document.getElementById("events").innerHTML += markup;
-                            
                             //Add the starting date of the event
-                            var dateStr = item.start_date_string;
-                            var dateObj = new Date(dateStr);
-                            var year = dateObj.getFullYear().toString().substr(-2);
-                            var month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(dateObj);
-                            var day = dateObj.getDate();
-                            var hour = dateObj.getHours();
-                            var minute = dateObj.getMinutes();
-                            var formattedDate = `${day} ${month} ${hour}:${minute}`;
+                            const timestamp = item.start_date_mill_sec;
+
+                            const date = new Date(timestamp * 1000); // Multiply by 1000 to convert from seconds to milliseconds
+                            const formattedDate = date.toLocaleDateString('en-US');
+                            const formattedTime = date.toLocaleTimeString('en-US', {
+                              hour: '2-digit',
+                              minute: '2-digit',
+                            });
+                            var currnetDate = formattedDate + " " + formattedTime;
                             if (item.is_live){
                             	var livenow = ``;
                             	if (myLanguage == 'en') livenow = `Live now`;
@@ -54,7 +54,7 @@ function fetchLive(){
                             	document.getElementsByClassName("upcomingtag")[index].style.display = "none";
                             }
                             else{
-                            	document.getElementsByClassName("eventdate")[index].innerHTML = formattedDate;
+                            	document.getElementsByClassName("eventdate")[index].innerHTML = currnetDate;
                             	document.getElementsByClassName("livetag")[index].style.display = "none";
                             }
                             index++;
