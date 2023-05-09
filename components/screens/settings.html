@@ -6,14 +6,20 @@
     </div>
     
     <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 1%;">
-        <button name="englishButton" class="subButton focusable" value="en" onclick="myZeft(this.value)">
+        <!-- <button name="englishButton" class="subButton focusable" value="en" onclick="myZeft(this.value)">
             <p id="languageButtons" style="font-weight: 300w !important;">English</p>
-        </button>
+        </button> -->
+        <button class="focusable newbutton watchlivebutton" value="en" onclick="myZeft(this.value)">
+        	English
+      	</button>
     </div>
     <div style="display: flex;align-items:center;justify-content:center;margin-bottom: 1%;">
-        <button class="subButton focusable" value="ar" onclick="myZeft(this.value)">
+        <!--  <button class="subButton focusable" value="ar" onclick="myZeft(this.value)">
             <p id="languageButtons">العربية</p>
-        </button>
+        </button> -->
+        <button class="focusable newbutton watchlivebutton" value="ar" onclick="myZeft(this.value)">
+        	العربية
+      	</button>
     </div>
     
 
@@ -78,28 +84,15 @@
 
 
     <script>
-
         var langValue = "en";
-
         function myZeft(value) {
             langValue = value;
             sessionStorage.setItem("locale", langValue);
-                        var myLanguage = sessionStorage.getItem("locale");
+			var myLanguage = sessionStorage.getItem("locale");
             if(!myLanguage){
                 myLanguage = 'en';
             }
-            //alert(myLanguage);
             location.reload();
             return false;
-
         }
-
-        require(['client/settings', 'js/shared/language.js'], function (settings, language) {
-
-
-
-
-            // settings.languageChange();
-        });
-
     </script>

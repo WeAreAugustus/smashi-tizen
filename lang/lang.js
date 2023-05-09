@@ -38,6 +38,7 @@ const __LANG = {
         'searchresultsfor': 'Search Results for: ',
         'searchPlaceholder': 'VODs, Shows',
         'selectLang': 'Select Language',
+        'search': 'Search',
         // New addtions
         'morning': 'Mornings with Smashi',
         'up': 'UP NEXT',
@@ -127,6 +128,7 @@ const __LANG = {
         'scancode': 'امسح الكود',
         'login': 'تسجيل الدخول',
         'searchresultsfor': 'نتأج البحث ل  ',
+        'search': 'ابحث',
         'searchPlaceholder': 'ابحث عن فيديو، برنامج',
         'selectLang': 'اختر اللغة',
         'morning': 'Mornings with Smashi',

@@ -1,39 +1,25 @@
 <section>
-    <div id="searchBox" class="container">
+    <div id="searchBox" class="searchcont container" style="display: none;">
         <div class="input-group mb-3 searchbox">
             <i style="margin: 20px;" class="bi-search"></i>
             <input type="text" class="form-control focusable"
 			placeholder="Search for videos, episodes and shows"
             style="background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;">
-            <script>
-                require(['client/search'], function (search) {
-                    var objecto = document.getElementsByClassName(" form-control ")[0];
-                    objecto.oninput = function () {
-                        search.getSearchResults(1, 12)
-                    }
-                });
-            </script>
         </div>
+      	<button class="focusable newbutton watchlivebutton" onclick="performSearch()" style="margin-inline-start: 3rem; margin-block-start: 1.5rem;" lang-value="search">
+      	</button>
     </div>
 
-    <div id="searchBoxArabic" class="container">
+    <div id="searchBoxArabic" class="searchcont container">
         <div class="input-group mb-3 searchbox">
             <i style="margin: 20px;" class="bi-search"></i>
             <input type="text" class="form-control focusable"
 			placeholder="ابحث عن المقاطع, الحلقات و البرامج"
             style="background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;">
-            <script>
-                require(['client/search'], function (search) {
-                    var objecto = document.getElementsByClassName("form-control")[1];
-                    objecto.oninput = function () {
-                        search.getSearchResults(1, 12)
-                    }
-                });
-            </script>
         </div>
+        <button class="focusable newbutton watchlivebutton" onclick="performSearch()" style="margin-inline-start: 3rem; margin-block-start: 1.5rem;" lang-value="search">
+      	</button>
     </div>
-
-
 
 
     <div style="padding-top: 0%;display: inherit; padding-left:0;" id="latestMainSection" class="container-fluid">
@@ -54,9 +40,9 @@
     var myLanguage = sessionStorage.getItem("locale");
     if(myLanguage == 'ar'){
         document.getElementById("searchBox").style.display = "none";
-        document.getElementById("searchBoxArabic").style.display = "initial";
+        document.getElementById("searchBoxArabic").style.display = "flex";
     } else{
-        document.getElementById("searchBox").style.display = "initial";
+        document.getElementById("searchBox").style.display = "flex";
         document.getElementById("searchBoxArabic").style.display = "none";
     }
     var checkIndex = 0;
@@ -77,4 +63,9 @@
 	require(['client/search'], function (search) {
         search.searchVideoWatch();
     });
+    function performSearch(){
+    	require(['client/search'], function (search) {
+			search.getSearchResults(1, 12);
+		});
+    }
 </script>

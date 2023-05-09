@@ -46,7 +46,12 @@ p {
     border-radius: 10px;
 	margin-inline-start: 3rem;
     margin-block-start: 3rem;
-    width: 50%;
+    width: 60%;
+}
+.searchcont{
+	display: flex;
+    align-items: center;
+    margin-inline-start: 0rem;
 }
 .searchboxinput{
 	background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;
@@ -73,6 +78,19 @@ p {
     object-fit: contain;
     border-radius: 12px;
 }
+.logocard{
+    width: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+	background-color: #3C3D4A;
+	display: inline-block;
+}
+.logoimg{
+	width: 315px;
+    height: 180px;
+    object-fit: contain;
+    background-color: transparent;
+}
 .shortstitle{
 	font-size: 24px;
 	font-weight: 500;
@@ -88,11 +106,9 @@ p {
     transform: translate(-50%, -50%);
 }
 .card:focus {
-    border: 5px solid white;
+    border: 4px solid white;
     border-radius: 10px;
     outline-style: none;
-    -webkit-transition: all .2s;
-    transition: all .4s;
 }
 .card-horizontal {
     display: flex;
