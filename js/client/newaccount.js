@@ -119,12 +119,12 @@ fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
         })
     .then(
         data => {
-        	console.log(data.data);
+        	var index = 0;
             data.data.forEach(item => {
             	const markup = `
             	<div style="flex-direction: row; gap: 1rem;" class="card">
 	                <img style="width: 330px; min-width: auto;" class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip}, 1)">
-	                <!-- <img id="lockicon" class="lockiconsaved" src="img/icons/lock_inactive.svg" onload="checkLockSaved(${item.is_clip})"> -->
+	                <img id="lockiconsaved${index}" class="lockiconsaved" src="img/icons/lock_inactive.svg" onload="checkLockSaved('${item.is_clip}', '${index}')">
 	                </img>
 	                <div style="display: flex; flex-direction: column; justify-content: center;">
 		                <h4 style="padding-top: 1rem;">${item.title}</h4>
@@ -132,6 +132,7 @@ fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
 	                </div>
                 </div>`;
                 document.getElementById("savedvideos").innerHTML += markup;
+                index++;
             });
         }
     )

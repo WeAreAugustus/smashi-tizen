@@ -3,14 +3,12 @@ if (!myLanguage) {
     myLanguage = 'en';
 }
 function changeBanner(bannerURL, title, body){
+	if(body == "null"){
+		body = "";
+	}
 	document.getElementById('homeBannerImage').style.backgroundImage = "url('" + bannerURL + "')";
 	document.getElementById('homeBannerTitle').innerHTML = title;
-	if(body != "null"){
-		document.getElementById('homeBannerBody').innerHTML = body;
-	}
-	else{
-		document.getElementById('homeBannerBody').innerHTML = "";
-	}
+	document.getElementById('homeBannerBody').innerHTML = body;
 }
 function navigateToChannel(channelId) {
 	sessionStorage.setItem("ShowAndChannelId", channelId);
@@ -27,27 +25,25 @@ fetch('https://www.smashi.tv/api/shows/banner', {
             return res.json();
         })
     .then(
-        data => {
-        	console.log(data.data[0]);
+    		data => {
         	document.getElementById('homeBannerImage').style.backgroundImage = "url('" + data.data[0].master_image + "')";
-        	document.getElementById('homeBannerTitle').innerHTML = data.data[0].title;
-        	if(data.data[0].body != "null"){
-        		document.getElementById('homeBannerBody').innerHTML = data.data[0].body;
-        	}
-        	else{
-        		document.getElementById('homeBannerBody').innerHTML = "";
-        	}
-            data.data.forEach(logo => {
-            	var markup = ``;
-            	markup = `
+        	document.getElementById('homeBannerTitle').innerHTML = String(data.data[0].title);
+        	document.getElementById('homeBannerBody').innerHTML = String(data.data[0].body);
+        	for (let i = 0; i < data.data.length; i++){
+        		var title = String(data.data[i].title);
+        		var body = String(data.data[i].body);
+        		title = title.replace(/[\r\n/'"]/g, ' ');
+        		body = body.replace(/[\r\n/'"]/g, ' ');
+        		var markup = `
         		<div class="card" style="display: inline-block; padding-inline-end: 1rem;">
-                    <div class="logocard focusable" tabindex="1" onclick="navigateToChannel(${logo.id})" onfocus="changeBanner('${logo.master_image}', '${logo.title}', '${logo.body}')">
-                        <img class="logoimg img-fluid" src="${logo.logo}">
+                    <div class="logocard focusable" tabindex="1" onclick="navigateToChannel(${data.data[i].id})" onfocus="changeBanner('${data.data[i].master_image}', '${title}', '${body}')">
+                        <img class="logoimg img-fluid" src="${data.data[i].logo}">
                     </div>
                 </div>`;
                 if (document.getElementById('logos')) {
                     document.getElementById("logos").innerHTML += markup;
                 }
-            });
+                
+        	}
         }
     );

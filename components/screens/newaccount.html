@@ -164,21 +164,13 @@
     }
 </style>
 <script>
-var checkIndex = 0;
-function checkLockSaved(checker) {
-    console.log("in checker");
-    console.log(checkIndex);
+function checkLockSaved(checker, index) {
+    console.log("In checker: " + index);
     var hasSubscription = sessionStorage.getItem("hasSubscription");
-    if (checker == 1 || hasSubscription == true) {
-        console.log("in checker cond");
-        document.getElementsByClassName('lockicon')[checkIndex].style.display = "none";
-		}
-		if(checkIndex == document.getElementsByClassName('lockicon').length - 1){
-			checkIndex = 0;
-		}
-		else{
-			checkIndex++;
-		}
+    if (checker == 1 || hasSubscription == "true" ) {
+        console.log("In checker cond");
+        document.getElementById('lockiconsaved' + index).remove();
+	}
 }
 </script>
 <script src="js/client/newaccount.js"></script>
