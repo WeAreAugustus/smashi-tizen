@@ -1,4 +1,10 @@
-document.getElementById("loginemailinput").focus();
+mytoken = sessionStorage.getItem("token");
+if(mytoken){
+	changeScreenGlobal("newaccount");
+} 
+require(["router"], function (router) {
+	router.showSideBar();
+});
 function toSignup(){
 	changeScreenGlobal("register");
 };
@@ -15,11 +21,6 @@ else{
 require(['client/auth'], function(auth){
     auth.qrcode();
 });
-
-mytoken = sessionStorage.getItem("token");
-if(mytoken){
-	changeScreenGlobal("newaccount");
-} 
 
 function newLogin(){
 	var loginEmail = document.getElementById("loginemailinput").value;

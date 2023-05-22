@@ -1,4 +1,3 @@
-document.getElementById("registeremailinput").focus();
 function toLogin(){
 	changeScreenGlobal("newlogin");
 };

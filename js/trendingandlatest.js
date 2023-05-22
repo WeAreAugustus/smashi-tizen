@@ -6,6 +6,8 @@ var myLanguage = sessionStorage.getItem("locale");
     function fetchLatest(){
     	fetch('https://smashi.tv/api/video?page=' + latest_index, {
     		headers: {
+    			'Access-Control-Allow-Origin': '*',
+                'Accept': 'application/json',
     			'Accept': 'application/json',
     			'X-localization': myLanguage
     			}
@@ -52,6 +54,8 @@ var myLanguage = sessionStorage.getItem("locale");
     function fetchTrending(){
     	fetch('https://smashi.tv/api/video/trending?page=' + trending_index, {
     		headers: {
+    			'Access-Control-Allow-Origin': '*',
+                'Accept': 'application/json',
     			'Accept': 'application/json',
     			'X-localization': myLanguage
     			}

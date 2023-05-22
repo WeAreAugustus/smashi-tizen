@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/Template01" version="1.2.3" viewmodes="maximized">
-    <tizen:application id="TgmBvWNIP7.SmashiTvApp" package="TgmBvWNIP7" required_version="2.3"/>
-    <content src="index.html"/>
-    <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
-    <icon src="icon.png"/>
-    <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>
-    <name>Smashi</name>
-    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
-    <tizen:privilege name="http://developer.samsung.com/privilege/network.public"/>
-    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
-    <tizen:privilege name="http://tizen.org/privilege/notification"/>
-    <tizen:profile name="tv-samsung"/>
-    <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/Template01" version="1.2.1" viewmodes="maximized">
+  <tizen:application id="TgmBvWNIP7.SmashiTvApp" package="TgmBvWNIP7" required_version="2.3"/>
+  <name>Smashi</name>
+  <tizen:privilege name="http://tizen.org/privilege/internet"/>
+  <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+  <access origin="*" subdomains="true"/>
+  <content src="index.html"/>
+  <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
+  <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="true"/>
+  <tizen:profile name="tv"/>
+  <icon src="icon.png"/>
+  <tizen:setting screen-orientation="landscape" context-menu="enable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
 </widget>

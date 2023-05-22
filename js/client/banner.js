@@ -1,6 +1,6 @@
 var myLanguage = sessionStorage.getItem("locale");
 if (!myLanguage) {
-    myLanguage = 'en';
+    var myLanguage = 'en';
 }
 function changeBanner(bannerURL, title, body){
 	if(body == "null"){
@@ -14,15 +14,24 @@ function navigateToChannel(channelId) {
 	sessionStorage.setItem("ShowAndChannelId", channelId);
 	changeScreenGlobal(showdetails);
 }
-fetch('https://www.smashi.tv/api/shows/banner', {
-        headers: {
+fetch("https://smashi.tv/api/shows/banner", {
+		method: 'GET',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
             'Accept': 'application/json',
+            'Content-Type': 'application/json',
             'X-localization': myLanguage
         }
     })
     .then(
         res => {
-            return res.json();
+        	if (!res.ok) {
+                throw new Error('Network response was not OK');
+            }
+        	else{
+        		console.log(res);
+        	}
+            return res.json()
         })
     .then(
     		data => {
@@ -43,7 +52,6 @@ fetch('https://www.smashi.tv/api/shows/banner', {
                 if (document.getElementById('logos')) {
                     document.getElementById("logos").innerHTML += markup;
                 }
-                
         	}
         }
-    );
+    )

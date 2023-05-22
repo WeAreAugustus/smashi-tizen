@@ -2,7 +2,7 @@
   "connectionInfo": {
     "deviceIp": "192.168.1.46",
     "hostIp": "192.168.1.14",
-    "socketPort": 4378,
+    "socketPort": 5426,
     "width": "1920",
     "isDebugMode": true
   },

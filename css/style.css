@@ -6,7 +6,7 @@
 .scrollbar-none::-webkit-scrollbar {
     display: none;
 }
-.overthumbnail{
+.overthumbnail {
     font-size: 20px;
     font-weight: 700;
     padding: 6px;
@@ -37,34 +37,38 @@ body {
 }
 p {
     color: white;
-    
 }
-.searchbox{
-	border-color: #464646;
+
+.searchbox {
+    border-color: #464646;
     border-style: solid;
     background-color: #464646;
     border-radius: 10px;
-	margin-inline-start: 3rem;
+    margin-inline-start: 3rem;
     margin-block-start: 3rem;
     width: 60%;
 }
-.searchcont{
-	display: flex;
+.searchcont {
+    display: flex;
     align-items: center;
     margin-inline-start: 0rem;
 }
-.searchboxinput{
-	background-color: #464646;color: white;font-size: 32px;border-color: #464646;margin: 10px;
+.searchboxinput {
+    background-color: #464646;
+    color: white;
+    font-size: 32px;
+    border-color: #464646;
+    margin: 10px;
 }
-.lockicon{
-	position: absolute;
+.lockicon {
+    position: absolute;
     top: 5%;
     left: 3%;
 }
-.lockiconsaved{
-	position: absolute;
-	margin-inline-start: 1rem;
-	margin-block-start: 4rem;
+.lockiconsaved {
+    position: absolute;
+    margin-inline-start: 1rem;
+    margin-block-start: 4rem;
 }
 .vertical-card {
     width: 332px;
@@ -78,34 +82,39 @@ p {
     object-fit: contain;
     border-radius: 12px;
 }
-.logocard{
+.logocard {
     width: max-content;
     padding: 0.5rem 1rem;
     border-radius: 12px;
-	background-color: #3C3D4A;
-	display: inline-block;
+    background-color: #3C3D4A;
+    display: inline-block;
 }
-.logoimg{
-	width: 315px;
+.logoimg {
+    width: 315px;
     height: 180px;
     object-fit: contain;
     background-color: transparent;
 }
-.shortstitle{
-	font-size: 24px;
-	font-weight: 500;
-	position: absolute;
-	bottom: -8px;
-	padding-left: 5px;
+.shortstitle {
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    bottom: -8px;
+    padding-left: 5px;
     padding-right: 5px;
 }
-.shortsplayicon{
+.shortsplayicon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .card:focus {
+    border: 4px solid white;
+    border-radius: 10px;
+    outline-style: none;
+}
+.logocard:focus {
     border: 4px solid white;
     border-radius: 10px;
     outline-style: none;
@@ -485,88 +494,133 @@ h4 {
     height: 2px;
     background: linear-gradient(270deg, #F97C3E 0%, #447EFB 100%);
 }
-
 /* Login/Signup page styling */
 
-.parent{
-		display: flex; 
-		background-color: #000000; 
-		color: #ffffff; 
-		padding: 3rem;
-		gap: 30rem; 
-	}
-	#parenttwo{
-	    gap: 5rem;
-    	padding: 0;
-	}
-	.subparent{
-		display: flex; 
-		flex-direction: column; 
-		gap: 1.5rem; 
-	}
-	.qrcodearea{
-		display: flex;
-	    flex-direction: column;
-	    align-items: center;
-	    justify-content: space-evenly;
-	}
-	.registerbanner{
-	    height: 100vh;
-	    width: 100vw;
-	    background-color: #191920;
-	    text-align: center;
-   		padding: 3rem;
-	}
-	#qrcode{
-	    background-color: white;
-    	padding: 1rem;
-	}
-	.parent .text{
-		margin-top: 1rem;
-		margin-bottom: 1rem; 
-		font-size: 2.25rem;
-		line-height: 2.5rem; 
-		font-weight: 600; 
-	}
-	.parent .input{
-		color: white;
-		padding: 2rem; 
-		font-size: 2.25rem;
-		line-height: 2.5rem; 
-		border-radius: 0.5rem; 
-		background: #2B2B2B;
-		width: 700px;
-		height: 100px;
-		outline-style: none;
-	}
-	.parent .desc{
-		
-	}
-	.parent .button{
-		color: white;
-		padding: 2rem; 
-		font-size: 2.25rem;
-		line-height: 2.5rem; 
-		font-weight: 600; 
-		border-radius: 0.5rem; 
-		background: #383838;
-		width: 700px;
-		height: 100px;
-		outline-style: none;
-		transition: background-color 0.5s, color 0.5s;
-	}
-	.parent .button:hover,
-	.parent .button:focus{
-		background-color: #ffffff; 
-		color: #FB8044;	
-	}
-	.parent .input:hover,
-	.parent .input:focus{
-		outline-color: white;
-	    outline-width: 2px;
-	    outline-style: solid;
-	}
-	.deviceimg{
-		width: 720px;
-		height: 430px;
-	}
+.parent {
+    display: flex;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 3rem;
+}
+#parenttwo {
+    padding: 0;
+}
+.subparent {
+    display: flex;
+    flex-direction: column;
+}
+.qrcodearea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.registerbanner {
+    height: 100vh;
+    width: 100vw;
+    background-color: #191920;
+    text-align: center;
+    padding: 3rem;
+}
+#qrcode {
+    background-color: white;
+    padding: 1rem;
+}
+.parent .text {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+.parent .input {
+    color: white;
+    padding: 2rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    border-radius: 0.5rem;
+    background: #2B2B2B;
+    width: 700px;
+    height: 100px;
+    outline-style: none;
+}
+.parent .desc {} .parent .button {
+    color: white;
+    padding: 2rem;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background: #383838;
+    width: 700px;
+    height: 100px;
+    outline-style: none;
+    transition: background-color 0.5s, color 0.5s;
+}
+.parent .button:hover,
+.parent .button:focus {
+    background-color: #ffffff;
+    color: #FB8044;
+}
+.parent .input:hover,
+.parent .input:focus {
+    outline-color: white;
+    outline-width: 2px;
+    outline-style: solid;
+}
+.deviceimg {
+    width: 720px;
+    height: 430px;
+}
+
+/* Sidebar styling */
+.newsidebar {
+    width: 100px;
+    background-color: #383838;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+.sidebaricon {
+    display: block;
+    width: 95px;
+    margin: auto;
+    margin-bottom: 3rem;
+    padding: 30px;
+    text-decoration: none;
+    outline: none;
+    transition: background-color 0.5s;
+}
+.sidebaricon:focus,
+.sidebaricon:hover {
+    background-color: #4C4C4C;
+    border-inline-end: solid #FB8044 5px;
+    filter: brightness(150%);
+}
+.newsidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+/* Handling Gaps */
+.gap-4{
+	margin-inline-end: 1rem;
+}
+.gap-6-row{
+	margin-inline-end: 1.5rem;
+}
+.gap-6-col{
+	margin-block-end: 1.5rem;
+}
+.gap-8-row{
+	margin-inline-end: 2rem;
+}
+.gap-8-col{
+	margin-block-end: 2rem;
+}
+.gap-12{
+	margin-inline-end: 3rem;
+}
+.gap-12-col{
+	margin-block-end: 3rem;
+}

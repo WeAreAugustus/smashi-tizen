@@ -1,17 +1,15 @@
 <section id="masr" style="margin-top: 0%;">
-
     <!-- Banners Row -->
     <div id="topSection">
-        <div id="homeBannerSection">
+    	<div id="homeBannerSection">
             <div id="homeBannerImage" style="background-repeat: no-repeat; background-size: cover; height: 37rem;">
                 <div id="titleandbody" style="padding: 11rem 4rem;">
                     <h1 id="homeBannerTitle" style="color:white; font-size: 48px; font-weight: 700;"></h1>
-   					<p id="homeBannerBody" style="color:white; font-size: 32px; width:50%;"></p>
+                    <p id="homeBannerBody" style="color:white; font-size: 32px; width:50%;"></p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Logos Row -->
     <div style="padding-left:0;" id="LogosMainSection" class="container-fluid">
         <div class="container-fluid">
             <div style="display: inherit;" class="containerme">
@@ -105,6 +103,7 @@
 <script src="js/channelsandshows.js"></script>
 
 <script>
+	document.activeElement = document.getElementById("starterEl");
     require(["router"], function (router) {
 		router.showSideBar();
 	});

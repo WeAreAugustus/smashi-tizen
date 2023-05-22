@@ -1,28 +1,15 @@
 <section>
-	<video
+  <video
     id="my-video"
-    class="video-js"
+    class="video-js" 
     controls
     preload="auto"
     data-setup="{}"
   >
-  </video>
+  </video>  
 </section>
 
-<script>
-	var vid = document.getElementById("my-video");
-	var url = sessionStorage.getItem('video_url');
-	//var url = 'https://cph-p2p-msl.akamaized.net/hls/live/2000341/test/master.m3u8';
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(url);
-                hls.attachMedia(vid);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                	vid.play();
-                });
-            }
-  
-</script>
+<script src="js/client/player.js"></script>
 
 <style>
     #my-video {
@@ -32,5 +19,10 @@
       object-fit: contain;
       top: 0;
       left: 0;
+    }
+    .playicon:focus{
+	background-color: grey;
+	border-radius: 9999px;
+	transition: background-color .3s;
     }
 </style>
