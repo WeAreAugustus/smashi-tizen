@@ -9,15 +9,18 @@ if (Hls.isSupported()) {
     var hls = new Hls();
     hls.loadSource(url);
     hls.attachMedia(vid);
+    hls.on(Hls.Events.MANIFEST_PARSED, function () {
+    	vid.play();
+    });
 }
 
 function playpause() {
     if (vid.paused) {
         vid.play();
-        console.log('!pause');
+        console.log('playing');
     } else if(!vid.paused && vid.currentTime > 0 && !vid.ended){
         vid.pause();
-        console.log('else');
+        console.log('paused');
     }
 }
 

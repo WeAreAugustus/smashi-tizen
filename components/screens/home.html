@@ -1,5 +1,6 @@
 <section id="masr" style="margin-top: 0%;">
     <!-- Banners Row -->
+    <div class="focusable"></div>
     <div id="topSection">
     	<div id="homeBannerSection">
             <div id="homeBannerImage" style="background-repeat: no-repeat; background-size: cover; height: 37rem;">
@@ -13,7 +14,9 @@
     <div style="padding-left:0;" id="LogosMainSection" class="container-fluid">
         <div class="container-fluid">
             <div style="display: inherit;" class="containerme">
-                <div id="logos" class="carouselme"></div>
+                <div id="logos" class="carouselme">
+                	<div class="focusable"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -96,6 +99,7 @@
 
 </section>
 
+<script src="js/client/home.js"></script>
 <script src="js/client/banner.js"></script>
 <script src="js/client/liveevents.js"></script>
 <script src="js/client/shorts.js"></script>
@@ -103,19 +107,6 @@
 <script src="js/channelsandshows.js"></script>
 
 <script>
-	document.activeElement = document.getElementById("starterEl");
-    require(["router"], function (router) {
-		router.showSideBar();
-	});
-	function startVideo(video_url, checker, isLive){
-		require(["router"], function (router) {
-			router.startVideoGlobal(video_url, checker, isLive);
-		});
-	}
-	function changeScreenGlobal(screenName){
-		require(["router"], function (router) {
-			router.changeScreen(screenName);
-		});
-	}
+
 </script>
 

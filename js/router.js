@@ -1,7 +1,6 @@
 define(['js/shared/language.js'], function(language) {
     removeTabIfSubbed();
     var backButtonCounter = 0;
-    var tvKey = window.tvKey;
     var pages = ['home'];
 
     //    fetch("https://api.jsonbin.io/v3/b/6465ccfeb89b1e22999fd85b")
@@ -125,52 +124,12 @@ define(['js/shared/language.js'], function(language) {
         showSideBar: showSideBar,
         hideSideBar: hideSideBar,
         startVideoGlobal: startVideoGlobal,
+        back: back,
         navigator: function() {
-
             var myLanguage = sessionStorage.getItem("locale");
             if (!myLanguage) {
                 myLanguage = 'en';
             }
-
-            document.addEventListener('keydown', function(e) {
-                var vid = document.getElementById("my-video");
-                switch (e.keyCode) {
-                    case tvKey.RED:
-                        SpatialNavigation.move('up');
-                        console.log("RED");
-                        break;
-                    case tvKey.GREEN:
-                        SpatialNavigation.move('down');
-                        console.log("GREEN");
-                        break;
-                    case tvKey.YELLOW:
-                        SpatialNavigation.move('left');
-                        console.log("YELLOW");
-                        break;
-                    case tvKey.BLUE:
-                        SpatialNavigation.move('right');
-                        console.log("BLUE");
-                        break;
-                    case tvKey.CH_DOWN:
-                    	SpatialNavigation.focus('#testsubject');
-                    	console.log("CH DOWN");
-                    	break;
-                    case tvKey.ENTER:
-                        var focusedElement = document.activeElement;
-                        var clickEvent = new MouseEvent("click", {
-                            bubbles: true,
-                            cancelable: true
-                        });
-                        focusedElement.dispatchEvent(clickEvent);
-                        break;
-                    case tvKey.RETURN:
-                        back();
-                        if (pages.length == 1) {
-                            exitApplication();
-                        }
-                }
-
-            });
         }
     }
 })

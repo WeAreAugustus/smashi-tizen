@@ -46,7 +46,7 @@ fetch("https://smashi.tv/api/shows/banner", {
         		var markup = `
         		<div class="card" style="display: inline-block; padding-inline-end: 1rem;">
                     <div class="logocard focusable" tabindex="1" onclick="navigateToChannel(${data.data[i].id})" onfocus="changeBanner('${data.data[i].master_image}', '${title}', '${body}')">
-                        <img class="logoimg img-fluid" src="${data.data[i].logo}">
+                        <img class="logoimg img-fluid" src="${data.data[i].logo}" loading="lazy">
                     </div>
                 </div>`;
                 if (document.getElementById('logos')) {

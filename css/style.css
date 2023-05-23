@@ -579,7 +579,7 @@ h4 {
     background-color: #383838;
     position: fixed;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 .sidebaricon {
     display: block;
