@@ -2,20 +2,34 @@ define(['js/shared/language.js'], function(language) {
     removeTabIfSubbed();
     var backButtonCounter = 0;
     var pages = ['home'];
-
-    //    fetch("https://api.jsonbin.io/v3/b/6465ccfeb89b1e22999fd85b")
-    //    .then(response => {
-    //        console.log(response);
-    //    })
-    //    .catch(error => {
-    //    	console.log(error);
-    //    });
-    //    
-    var tizenKeys = tizen.tvinputdevice.getSupportedKeys();
-
+    
+    var sidebaricons = document.getElementsByClassName("sidebaricon");
+    for(let i = 0; i < sidebaricons.length; i++){
+    	let svgs = sidebaricons[i].children;
+    	if(sidebaricons[i].getAttribute("name") == 'home'){
+    		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
+    		svgs[0].style.opacity = "0";
+    		svgs[1].style.opacity = "1";
+    		sidebaricons[i].focus();
+    	}
+    }
     var changeScreen = function(screenName) {
         removeTabIfSubbed();
         backButtonCounter = 0;
+        for(let i = 0; i < sidebaricons.length; i++){
+        	let svgs = sidebaricons[i].children;
+        	if(sidebaricons[i].getAttribute("name") == screenName){
+        		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
+        		svgs[0].style.opacity = "0";
+        		svgs[1].style.opacity = "1";
+        		sidebaricons[i].focus();
+        	}
+        	else{
+        		sidebaricons[i].style.borderInlineEndWidth = "0px";
+        		svgs[0].style.opacity = "1";
+        		svgs[1].style.opacity = "0";
+        	}
+        }
         let sideBarEl = document.getElementsByName(screenName);
         $("<div>").load("components/screens/" + screenName + ".html", function() {
             $("#screen").empty();
@@ -67,15 +81,23 @@ define(['js/shared/language.js'], function(language) {
         }
     }
 
-
     function exitApplication() {
         backButtonCounter++;
         if (backButtonCounter == 3) {
-            $('#alert').html('<div id="alertMessage" style="text-align: center;" class="alert alert-danger" role="alert">Press Back again to Exit</div>');
-            removeMessage();
-        }
-        if (backButtonCounter == 4) {
-            tizen.application.getCurrentApplication().exit();
+        	var retVal = null;
+        	if(myLanguage == 'ar'){
+        		retVal = confirm("هل تريد الخروج؟");
+        	}
+        	else{
+        		retVal = confirm("Are you sure you want to exit?");
+        	}
+            if(retVal == true) {
+            	tizen.application.getCurrentApplication().exit();
+            	return true;
+            }
+            else {
+            	return false;
+            }
         }
     }
 
@@ -100,19 +122,13 @@ define(['js/shared/language.js'], function(language) {
             console.log("Only the home page is here");
             return;
         }
-
         if (pages.length > 0) {
             pages.pop();
             let currentPage = pages[pages.length - 1];
-            $("<div>").load("components/screens/" + currentPage + ".html", function() {
-                $("#screen").empty();
-                $("#screen").append($(this).html());
-
-            });
+            changeScreen(currentPage)
             setTimeout(function() {
                 language.init()
             }, 20);
-            console.log("Pages in back: " + pages);
         } else {
             console.log("No pages to go back to");
         }
@@ -125,6 +141,7 @@ define(['js/shared/language.js'], function(language) {
         hideSideBar: hideSideBar,
         startVideoGlobal: startVideoGlobal,
         back: back,
+        exitApplication: exitApplication,
         navigator: function() {
             var myLanguage = sessionStorage.getItem("locale");
             if (!myLanguage) {

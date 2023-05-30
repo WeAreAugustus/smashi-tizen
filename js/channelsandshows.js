@@ -25,7 +25,7 @@ fetch('https://smashi.tv/api/video/shows/channel', {
         data => {
             data.data.forEach(channel => {
             	const markup = `<div style="width:332px;" class="item">
-	                <div tabindex="1" class="focusable card" tabindex="1" onclick="navigateToChannel(${channel.id})">
+	                <div tabindex="1" class="focusable card" onclick="navigateToChannel(${channel.id})">
 	                    <img class="img-fluid vertical-card" loading="lazy" src="${channel.background_image}">
 	                </div>
                 </div>`;

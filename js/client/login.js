@@ -1,7 +1,3 @@
-mytoken = sessionStorage.getItem("token");
-if(mytoken){
-	changeScreenGlobal("newaccount");
-} 
 require(["router"], function (router) {
 	router.showSideBar();
 });

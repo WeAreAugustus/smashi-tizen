@@ -1,28 +1,11 @@
 <section>
-  <video
-    id="my-video"
-    class="video-js" 
-    controls
-    preload="auto"
-    data-setup="{}"
-  >
-  </video>  
+    <div class="video-container">
+        <video id="my-video" controls preload="auto" data-setup="{}">
+        </video>
+        <svg class="play-icon" width="30" height="38" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.333252 3.89147V34.1081C0.333252 36.4123 2.87075 37.8123 4.82492 36.5581L28.5666 21.4498C30.3749 20.3123 30.3749 17.6873 28.5666 16.5206L4.82492 1.44147C2.87075 0.187299 0.333252 1.5873 0.333252 3.89147Z" fill="white" />
+        </svg>
+    </div>
 </section>
 
 <script src="js/client/player.js"></script>
-
-<style>
-    #my-video {
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      object-fit: contain;
-      top: 0;
-      left: 0;
-    }
-    .playicon:focus{
-	background-color: grey;
-	border-radius: 9999px;
-	transition: background-color .3s;
-    }
-</style>

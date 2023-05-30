@@ -46,4 +46,5 @@ fetch('https://smashi.tv/api/watch', {
             		  document.getElementById("lockiconwatch" + i).remove();
             	  }
             }
+            allWatchVideos[allWatchVideos.length - 1].onfocus = scrollToRight;
         });

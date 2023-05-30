@@ -1,7 +1,6 @@
 require(["router"], function (router) {
 	router.hideSideBar();
 });
-
 function checkLock(){
 	var hasSubscription = sessionStorage.getItem("hasSubscription");
 	if(hasSubscription == "true"){
@@ -52,18 +51,20 @@ function checkLock(){
                         <div style="padding: 11rem 4rem;">
                             <h1 style="color:white; font-size: 48px; font-weight: 700;"> ${details.title} </h1>
                             <p id="bannerBody" style="color:white; font-size: 32px; width:50%;"> ${details.body} </p>
-    						<button class="focusable newbutton watchlivebutton" id="watchnowbutt" lang-value="watch" onclick="startVideo(firstVideo, firstVideoIsClip, 1)"></button>
+    						<button class="focusable newbutton watchlivebutton" id="watchnowbutt" lang-value="watch" onclick="startVideo(firstVideo, firstVideoIsClip, 1)" onfocus="scrollToTop()"></button>
                         </div>
                     </div>` 
                     ;
                     
-                    if (document.getElementById('showDetailsBanner').innerHTML.trim() == ''){
-                    	document.getElementById('showDetailsBanner').innerHTML += markup;
-                    	if(myLanguage == 'en'){
-                        	document.getElementById('watchnowbutt').innerHTML += 'Watch now';
-                        }
-                        else{
-                        	document.getElementById('watchnowbutt').innerHTML += 'شاهد الأن';
+                    if(document.getElementById('showDetailsBanner')){
+                        if (document.getElementById('showDetailsBanner').innerHTML.trim() == ''){
+                        	document.getElementById('showDetailsBanner').innerHTML += markup;
+                        	if(myLanguage == 'en'){
+                            	document.getElementById('watchnowbutt').innerHTML += 'Watch now';
+                            }
+                            else{
+                            	document.getElementById('watchnowbutt').innerHTML += 'شاهد الأن';
+                            }
                         }
                     }
                     
@@ -84,7 +85,9 @@ function checkLock(){
                         </div>
                         `;
                         episodes_id++;
-                        document.getElementById("episodes").innerHTML += markup;
+                        if(document.getElementById("episodes")){
+                        	document.getElementById("episodes").innerHTML += markup;
+                        }
                         
                         var lastElement = document.getElementById("episode" + data.data.pagination.to);
                         if(lastElement && data.data.pagination.has_more_pages){
@@ -136,7 +139,9 @@ function checkLock(){
                             </div>
                         </div>`;
                         clips_id++;
-                        document.getElementById("clips").innerHTML += markup;
+                        if(document.getElementById("clips")){
+                        	document.getElementById("clips").innerHTML += markup;
+                        }
                         
                         var lastElement = document.getElementById("clips" + data.data.pagination.to);
                         	if(lastElement && data.data.pagination.has_more_pages){
@@ -183,7 +188,9 @@ function checkLock(){
         	                  </div>
         	              </div>`;
         	              showshorts_id++;
-        	              document.getElementById("shorts").innerHTML += markup;
+        	              if(document.getElementById("shorts")){
+        	            	  document.getElementById("shorts").innerHTML += markup;
+        	              }
         	              
         	              var lastElement = document.getElementById("showshort" + data.pagination.to);
         	              if(lastElement && data.pagination.has_more_pages){

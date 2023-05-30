@@ -8,7 +8,6 @@ var myLanguage = sessionStorage.getItem("locale");
     		headers: {
     			'Access-Control-Allow-Origin': '*',
                 'Accept': 'application/json',
-    			'Accept': 'application/json',
     			'X-localization': myLanguage
     			}
     		})
@@ -27,7 +26,9 @@ var myLanguage = sessionStorage.getItem("locale");
                                 </div>
                             </div>`;
                             latest_id++;
-                            document.getElementById("latest").innerHTML += markup;
+                            if(document.getElementById("latest")){
+                            	document.getElementById("latest").innerHTML += markup;
+                             }
                             
 //                            var focused = document.getElementById("latest1");
 //                            focused.focus();

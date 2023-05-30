@@ -1,3 +1,6 @@
+require(["router"], function(router) {
+    router.showSideBar();
+});
 function mySignout() {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user_id");
@@ -140,4 +143,13 @@ fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
         console.log(error);
     });
 
-
+function checkLockSaved(checker, index) {
+    console.log("In checker: " + index);
+    var hasSubscription = sessionStorage.getItem("hasSubscription");
+    if (checker == 1 || hasSubscription == "true" ) {
+        console.log("In checker cond");
+        if(document.getElementById('lockiconsaved' + index)){
+	        document.getElementById('lockiconsaved' + index).remove();
+        }
+	}
+}

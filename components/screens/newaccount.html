@@ -170,13 +170,16 @@
     }
 </style>
 <script>
+/*
 function checkLockSaved(checker, index) {
     console.log("In checker: " + index);
     var hasSubscription = sessionStorage.getItem("hasSubscription");
     if (checker == 1 || hasSubscription == "true" ) {
         console.log("In checker cond");
-        document.getElementById('lockiconsaved' + index).remove();
+        if(document.getElementById('lockiconsaved' + index)){
+	        document.getElementById('lockiconsaved' + index).remove();
+        }
 	}
-}
+}*/
 </script>
 <script src="js/client/newaccount.js"></script>
