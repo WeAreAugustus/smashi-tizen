@@ -14,7 +14,6 @@ var swiper = new Swiper('.swiper', {
 var swiperElement = document.querySelector("#banner");
 var swiperNext = document.querySelector(".swiper-button-next");
 var swiperPrev = document.querySelector(".swiper-button-prev");
-var slides = document.getElementsByClassName("swiper-slide");
 
 var currentLocale = sessionStorage.getItem("locale");
 if (currentLocale == 'ar') {
@@ -23,57 +22,44 @@ if (currentLocale == 'ar') {
     swiperPrev.classList.remove("rotate180");
 }
 
-function pauseNavigation() {
-    SpatialNavigation.pause();
-    console.log("Navigation Paused");
-}
-
-function resumeNavigation() {
-    SpatialNavigation.resume();
-    console.log("Navigation playing");
-}
-
-function slideNext() {
-    swiper.activeIndex++;
-    swiper.slideTo(swiper.activeIndex);
-}
-
-function slidePrev() {
-    swiper.activeIndex--;
+function slide(value) {
+    swiper.activeIndex += value;
     swiper.slideTo(swiper.activeIndex);
 }
 
 function bannerSwipe(e) {
-	console.log(slides[swiper.activeIndex]);
-    if (currentLocale == 'ar') {
-        switch (e.keyCode) {
-            case tvKey.LEFT:
-                slideNext();
-                break;
-            case tvKey.RIGHT:
+    switch (e.keyCode) {
+        case tvKey.LEFT:
+            if (currentLocale == 'ar') {
+                slide(1);
+            } else {
+                slide(-1)
                 if (swiper.activeIndex == 0) {
-                    resumeNavigation();
-                }
-                slidePrev();
-                break;
-        }
-    } else {
-        switch (e.keyCode) {
-            case tvKey.LEFT:
-                if (swiper.activeIndex == 0) {
-                    resumeNavigation();
-                }
-                slidePrev();
-                break;
-            case tvKey.RIGHT:
-                slideNext();
-                break;
-        }
+					SpatialNavigation.resume();
+				}
+            }
+            break;
+        case tvKey.RIGHT:
+            if (currentLocale == 'ar') {
+            	if (swiper.activeIndex == 0) {
+            		SpatialNavigation.resume();
+            	}
+                slide(-1);
+            } else {
+                slide(1)
+            }
+            break;
+        case tvKey.ENTER:
+            let clickEvent = new MouseEvent("click", {
+                bubbles: true,
+                cancelable: true
+            });
+            swiper.slides[swiper.activeIndex].dispatchEvent(clickEvent);
     }
 }
-swiperElement.addEventListener('focus', pauseNavigation);
+
+swiperElement.addEventListener('focus', SpatialNavigation.pause);
 swiperElement.addEventListener('focus', scrollToTop);
-swiperElement.addEventListener('focus', console.log("Banner Focused"));
 swiperElement.addEventListener('keydown', bannerSwipe);
 
 require(["router"], function(router) {
@@ -125,16 +111,18 @@ function scrollToLeft() {
     });
     console.log("left");
 }
+
 function scrollToRight() {
-	window.scrollTo({
-		right: 0,
-		behavior: 'smooth'
-	});
-	console.log("right");
+    window.scrollTo({
+        right: 0,
+        behavior: 'smooth'
+    });
+    console.log("right");
 }
+
 function navigateToChannel(channelId) {
-	sessionStorage.setItem("ShowAndChannelId", channelId);
-	changeScreenGlobal(showdetails);
+    sessionStorage.setItem("ShowAndChannelId", channelId);
+    changeScreenGlobal(showdetails);
 }
 
 function handleRemoteButtons(e) {

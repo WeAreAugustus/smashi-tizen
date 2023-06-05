@@ -28,7 +28,6 @@ const __LANG = {
         'subscribeNow': 'Subscribe Now - 7 Days Free Trial',
         'tvschedule': 'TV Schedule',
         'livenow': 'Live Now',
-        'watchlivenow': 'Watch Live Now',
         'saved': 'Saved',
         'enteremail': 'Enter your email to log in',
         'scancode': 'Or scan this QR code from your app',
@@ -42,7 +41,7 @@ const __LANG = {
         // New addtions
         'morning': 'Mornings with Smashi',
         'up': 'UP NEXT',
-        'watch': 'Watch Live',
+        'watch': 'Watch',
         'starttrial': 'Start your 30 day free trial',
         'channels': 'Smashi Channels',
         'more': 'More Shows',
@@ -91,6 +90,11 @@ const __LANG = {
         'accountemail': 'Email Address',
         'accountplan': 'My Subscription Plan',
         'accountdate': 'Next Billing Date',
+        
+        //Sidebar
+        'home': 'Home',
+        'getpremium': 'Get premium',
+        'loginsignup': 'Login/Signup',
     },
 
     // Arabic translations
@@ -120,7 +124,6 @@ const __LANG = {
         'subscribeNow': 'اشترك الآن - ٧ ايام نسخة تجريبية مجانية',
         'tvschedule': 'جدول التلفزيون',
         'livenow': 'مباشر الان',
-        'watchlivenow': 'شاهد البث المباشر الآن',
         'saved': 'المحفوظات',
         'enteremail': 'تسجيل الدخول بالبريد الالكتروني',
         'email': 'البريد الالكتروني',

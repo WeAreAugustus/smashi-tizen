@@ -6,6 +6,12 @@
 .scrollbar-none::-webkit-scrollbar {
     display: none;
 }
+.two-line-truncate{
+	  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .overthumbnail {
     font-size: 20px;
     font-weight: 700;
@@ -288,83 +294,6 @@ ul li a:focus {
     padding: 20%;
     outline-style: none;
 }
-/* Home Icon */
-
-.nav-icons:focus .bi-house-door,
-.nav-icons .bi-house-door-fill {
-    display: none;
-}
-.nav-icons:focus .bi-house-door-fill {
-    display: inline;
-}
-/* ********************* */
-
-/* Calendar Icon */
-
-.nav-icons:focus .bi-calendar,
-.nav-icons .bi-calendar-fill {
-    display: none;
-}
-.nav-icons:focus .bi-calendar-fill {
-    display: inline;
-}
-/* ********************* */
-
-/* Person Icon */
-
-.nav-icons:focus .bi-person,
-.nav-icons .bi-person-fill {
-    display: none;
-}
-.nav-icons:focus .bi-person-fill {
-    display: inline;
-}
-/* ********************* */
-
-/* Bookmark Icon */
-
-.nav-icons:focus .bi-bookmark,
-.nav-icons .bi-bookmark-fill {
-    display: none;
-}
-.nav-icons:focus .bi-bookmark-fill {
-    display: inline;
-}
-/* ********************* */
-
-/* Video Icon */
-
-.nav-icons:focus .bi-camera-video,
-.nav-icons .bi-camera-video-fill {
-    display: none;
-}
-.nav-icons:focus .bi-camera-video-fill {
-    display: inline;
-}
-/* ********************* */
-
-/* Settings Icon */
-
-.nav-icons:focus .bi-gear,
-.nav-icons .bi-gear-fill {
-    display: none;
-}
-.nav-icons:focus .bi-gear-fill {
-    display: inline;
-}
-/* ********************* */
-
-.nav-icons {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0) !important;
-}
-.nav-item {
-    background-color: #383838;
-    margin: -1px;
-}
-.nav-link {
-    border-bottom: 0px solid black !important;
-}
 #home,
 #schedule,
 #profile,
@@ -420,6 +349,18 @@ h4 {
     width: 100%;
     display: block;
     overflow: hidden;
+}
+.video-duration{
+	top: 13.25rem;
+    right: 1rem;
+    position: absolute;
+    background: #333333;
+    padding: 0.5rem;
+    transition: background .3s, color .3s;
+}
+.videocard:focus + .video-duration{
+	background: white;
+	color: #FB8044;
 }
 /* Settings */
 
@@ -581,19 +522,31 @@ h4 {
 /* Sidebar styling */
 
 .newsidebar {
-    width: 100px;
+    width: 6.25rem;
     background-color: black;
     position: fixed;
     height: 100%;
     overflow: hidden;
     z-index: 2;
+    transition: width .3s; 
+}
+.newsidebar:focus-within{
+	width: 20.25rem;
+}
+.sidebartext{
+	font-weight: 600;
+	font-size: 24px;
+	margin-inline-start: 6rem;
+	opacity: 0;
+	transition: opacity 2s; 
+}
+.newsidebar:focus-within .sidebartext{
+	opacity: 1;
 }
 .sidebaricon {
-    display: block;
-    position: relative;
-    width: 100px;
+    display: flex;
+    align-items: center;
     height: 100px;
-    margin: auto;
     margin-bottom: 3rem;
     padding: 25px;
     padding-block-start: 20px;
@@ -620,7 +573,17 @@ h4 {
     background-color: #555;
     color: white;
 }
-
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 /* Video player */
 
 #my-video {
@@ -631,15 +594,29 @@ h4 {
     top: 0;
     left: 0;
 }
-.video-container{
-}
-.video-container .play-icon{
+.video-container svg{
 	width: 75px;
 	height: 75px;
 	position: absolute;
+}
+.video-container .play-icon{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%); 
+	opacity: 0;
+	transition: opacity .3s;
+}
+.video-container svg:nth-child(2){
+	top: 50%;
+	left: 25%;
+	transform: translate(-25%, -50%); 
+	opacity: 0;
+	transition: opacity .3s;
+}
+.video-container svg:nth-child(4){
+	top: 50%;
+	left: 75%;
+	transform: translate(-75%, -50%); 
 	opacity: 0;
 	transition: opacity .3s;
 }
@@ -685,11 +662,11 @@ h4 {
 	opacity: 0 !important;
 }
 .swiper-pagination{
-	background-color: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.3);
     padding-block-start: 12px;
     padding-block-end: 12px;
     border-radius: 20px;
-    transition: background-color .3s;
+    transition: background .3s;
 }
 .swiper-pagination-bullet{
 	padding: 6px;
@@ -697,7 +674,15 @@ h4 {
 }
 .swiper-pagination-bullet-active{
     background: white !important;
+    transition: background .3s;
 }
+/*
+.swiper-wrapper:focus ~ .swiper-pagination{
+	background: white !important;
+}
+.swiper-wrapper:focus ~ .swiper-pagination:nth-child(1){
+	background: #FB8044 !important;
+}*/
 #homeBannerImage{
 	width: 100%;
 	height: 40rem;

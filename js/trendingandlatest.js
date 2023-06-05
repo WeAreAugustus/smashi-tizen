@@ -21,7 +21,8 @@ var myLanguage = sessionStorage.getItem("locale");
                     		<div class="item card">
                                 <div class="card">
         	                        <img id="latest${latest_id}" class="focusable videocard img-fluid card" loading="lazy" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
-        	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
+        	                        <h4 class="video-duration">${item.video_duration}</h4>
+        	                        <h4 class="two-line-truncate" style="margin-top: 0.5rem;">${item.title}</h4>
         	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                                 </div>
                             </div>`;
@@ -30,16 +31,13 @@ var myLanguage = sessionStorage.getItem("locale");
                             	document.getElementById("latest").innerHTML += markup;
                              }
                             
-//                            var focused = document.getElementById("latest1");
-//                            focused.focus();
-//                            console.log(document.getElementById("latest" + data.pagination.to));
+                            //Pagination
                             var lastElement = document.getElementById("latest" + data.pagination.to);
                             if(lastElement && data.pagination.has_more_pages){
                             	lastElement.addEventListener("focus", (event) => {
 	                              	  latest_index = data.pagination.current_page + 1;
 	                              	  fetchLatest();
-	                              	  var focused = document.getElementById("latest6");
-	                                  focused.focus();
+	                              	  lastElement.focus();
 	                              	  console.log("Fetching latest...");
                               });
                             }
@@ -72,7 +70,8 @@ var myLanguage = sessionStorage.getItem("locale");
                     		<div class="item">
                                 <div class="card">
         	                        <img id="trending${trending_id}" class="focusable videocard img-fluid card" loading="lazy" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', 1, 1)">
-        	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
+        	                        <h4 class="video-duration">${item.video_duration}</h4>
+        	                        <h4 class="two-line-truncate" style="margin-top: 0.5rem;">${item.title}</h4>
         	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
                                 </div>
                             </div>`;

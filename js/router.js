@@ -10,26 +10,12 @@ define(['js/shared/language.js'], function(language) {
     		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
     		svgs[0].style.opacity = "0";
     		svgs[1].style.opacity = "1";
-    		sidebaricons[i].focus();
     	}
     }
     var changeScreen = function(screenName) {
         removeTabIfSubbed();
         backButtonCounter = 0;
-        for(let i = 0; i < sidebaricons.length; i++){
-        	let svgs = sidebaricons[i].children;
-        	if(sidebaricons[i].getAttribute("name") == screenName){
-        		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
-        		svgs[0].style.opacity = "0";
-        		svgs[1].style.opacity = "1";
-        		sidebaricons[i].focus();
-        	}
-        	else{
-        		sidebaricons[i].style.borderInlineEndWidth = "0px";
-        		svgs[0].style.opacity = "1";
-        		svgs[1].style.opacity = "0";
-        	}
-        }
+        sidebarFocus(screenName);
         let sideBarEl = document.getElementsByName(screenName);
         $("<div>").load("components/screens/" + screenName + ".html", function() {
             $("#screen").empty();
@@ -43,13 +29,28 @@ define(['js/shared/language.js'], function(language) {
         }
     }
 
+    function sidebarFocus(screenName){
+    	for(let i = 0; i < sidebaricons.length; i++){
+        	let svgs = sidebaricons[i].children;
+        	if(sidebaricons[i].getAttribute("name") == screenName){
+        		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
+        		svgs[0].style.opacity = "0";
+        		svgs[1].style.opacity = "1";
+        	}
+        	else{
+        		sidebaricons[i].style.borderInlineEndWidth = "0px";
+        		svgs[0].style.opacity = "1";
+        		svgs[1].style.opacity = "0";
+        	}
+        }
+    }
     function removeTabIfSubbed() {
         let premTab = document.getElementsByName("premium");
         var hasSubscription = sessionStorage.getItem("hasSubscription");
         if (hasSubscription == "true") {
             premTab[0].style.display = "none";
         } else {
-            premTab[0].style.display = "block";
+            premTab[0].style.display = "flex";
         }
     }
 

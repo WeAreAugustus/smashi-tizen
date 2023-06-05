@@ -40,9 +40,9 @@ define(['client/shared', 'js/cdn/paginationmin.js'], function(shared) {
                     <div class="item">
 	                    <div class="card">
 	                        <img class="focusable videocard img-fluid card" src="${item.poster_url}" tabindex="1" onclick="startVideo('${item.video_link}', ${item.is_clip}, 1)">
-	                        	<img id="lockiconsearch" class="lockicon" src="img/icons/lock_inactive.svg" onload="checkLockSearch(${item.is_clip})"> 
-	                        </img>
-	                        <h4 style="padding-top: 1rem;">${item.title}</h4>
+	                        <h4 class="video-duration">${item.video_duration}</h4>
+	                        <img id="lockiconsearch" class="lockicon" src="img/icons/lock_inactive.svg" onload="checkLockSearch(${item.is_clip})"> 
+	                        <h4 class="two-line-truncate" style="margin-top: 0.5rem;">${item.title}</h4>
 	                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${item.created_at}</p>                        
 	                    </div>
                     </div>

@@ -24,7 +24,7 @@ function fetchShorts(){
 				                    <svg class="shortsplayicon" width="30" height="38" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 				                    	<path d="M0.333252 3.89147V34.1081C0.333252 36.4123 2.87075 37.8123 4.82492 36.5581L28.5666 21.4498C30.3749 20.3123 30.3749 17.6873 28.5666 16.5206L4.82492 1.44147C2.87075 0.187299 0.333252 1.5873 0.333252 3.89147Z" fill="white"/>
 				                    </svg>
-			                   	<h1 class="shortstitle" style="opacity: 75%;"> ${short.title} </h1>
+			                   	<h1 class="shortstitle two-line-truncate" style="opacity: 75%;"> ${short.title} </h1>
 		                    </img>
 	                  </div>
 	              </div>`;
