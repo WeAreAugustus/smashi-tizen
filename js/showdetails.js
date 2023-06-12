@@ -125,9 +125,6 @@ function checkLock(){
                     	firstVideo = clipsdetails[0].video_link;
                     	firstVideoIsClip = clipsdetails[0].is_clip;
                     }
-                    else{
-                    	console.log("No clips");
-                    }
                     var markup = ``;
                     clipsdetails.forEach(item => {
                     	markup = `
@@ -176,6 +173,13 @@ function checkLock(){
             .then(
                 data => {
                 	var shorts = data.data;
+                    if (!firstVideo && shorts.length > 0){
+                    	firstVideo = shorts[0].video_link;
+                    	firstVideoIsClip = 1;
+                    }
+                    else{
+                    	document.getElementById("watchnowbutt").setAttribute("disabled", true);
+                    }
                     shorts.forEach(short => {
                     	const markup = `
                         <div style="width:332px;" class="item">
@@ -210,4 +214,5 @@ function checkLock(){
             );
         }
         fetchShowShorts();
+        
             

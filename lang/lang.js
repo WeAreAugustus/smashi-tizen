@@ -95,6 +95,8 @@ const __LANG = {
         'home': 'Home',
         'getpremium': 'Get premium',
         'loginsignup': 'Login/Signup',
+        'changeLang': 'Change Language',
+        'account': 'Account',
     },
 
     // Arabic translations
@@ -131,11 +133,9 @@ const __LANG = {
         'scancode': 'امسح الكود',
         'login': 'تسجيل الدخول',
         'searchresultsfor': 'نتأج البحث ل  ',
-        'search': 'ابحث',
+        'search': 'البحث',
         'searchPlaceholder': 'ابحث عن فيديو، برنامج',
         'selectLang': 'اختر اللغة',
-        'morning': 'Mornings with Smashi',
-        'up': 'UP NEXT',
         'watch': 'شاهد الأن',
         'starttrial': 'ابدأ تجربتك المجانية لمدة 30 يومًا',
         'channels': 'قنوات سماشي',
@@ -184,6 +184,13 @@ const __LANG = {
         'accountemail': 'البريد الالكتروني',
         'accountplan': 'خطة الاشتراك',
         'accountdate': 'موعد الدفع القادم',
+        
+        //Sidebar
+        'home': 'الرئيسية',
+        'getpremium': 'اشترك الآن',
+        'loginsignup': 'تسجيل الدخول',
+        'changeLang': 'تغيير اللغة',
+        'account': 'الحساب',
     },
     //other languages
 };

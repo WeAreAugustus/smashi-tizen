@@ -68,8 +68,11 @@ require(["router"], function(router) {
 
 if (sessionStorage.getItem("token")) {
     document.getElementById('loginicon').setAttribute("name", "newaccount");
-} else {
+    document.getElementsByClassName('sidebartext')[1].setAttribute("lang-value", "account");
+    } 
+else {
     document.getElementById('loginicon').setAttribute("name", "newlogin");
+    document.getElementsByClassName('sidebartext')[1].setAttribute("lang-value", "loginsignup");
 }
 
 function startVideo(video_url, checker, isLive) {

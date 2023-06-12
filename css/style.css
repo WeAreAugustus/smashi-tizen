@@ -594,6 +594,14 @@ h4 {
     top: 0;
     left: 0;
 }
+.videoplayer{
+	width: 100vw;
+    height: 100vh;
+    position: absolute;
+    object-fit: contain;
+    top: 0;
+    left: 0;
+}
 .video-container svg{
 	width: 75px;
 	height: 75px;

@@ -31,7 +31,7 @@ fetch('https://smashi.tv/api/watch', {
 		                        <img id="watchthumb${video.is_clip}" class="focusable videocard img-fluid card watchvideo" src="${video.poster_url}" tabindex="1" onclick="startVideo('${video.video_link}', ${video.is_clip}, 1)">
 		                        <h4 class="video-duration">${video.video_duration}</h4>
 		                        <img id="lockiconwatch${i}" class="lockicon" src="img/icons/lock_inactive.svg">
-		                        <h4 class="two-line-truncate" style="margin-top: 0.5rem;">${item.title}</h4>
+		                        <h4 class="two-line-truncate" style="margin-top: 0.5rem;">${video.title}</h4>
 		                        <p style="font-size: 20px; margin-top:1rem; opacity: 50%;">${video.created_at}</p>                        
 	                        </div>
 	                    </div>
