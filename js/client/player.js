@@ -20,14 +20,6 @@ player.src({
 });
 player.play();
 
-//if (Hls.isSupported()) {
-//    var hls = new Hls();
-//    hls.loadSource(url);
-//    hls.attachMedia(vid);
-//    hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-//    	vid.play();
-//    });
-//} 
 
 function playpause() {
     if (vid.paused) {
@@ -103,14 +95,19 @@ vid.addEventListener('keydown', function(e) {
     var value = 10;
     switch (e.keyCode) {
         case tvKey.LEFT:
+        case VK_LEFT:
+        case VK_REWIND:
             seekBackwards(value);
             console.log("Video Left");
             break;
         case tvKey.RIGHT:
+        case VK_RIGHT:
+        case VK_FAST_FWD:
             seekForwards(value);
             console.log("Video Right");
             break;
         case tvKey.ENTER:
+        case VK_ENTER:
             playpause();
             console.log("Video Enter");
             break;
@@ -119,14 +116,20 @@ vid.addEventListener('keydown', function(e) {
             console.log("Video PlayPause");
             break;
         case tvKey.MediaPlay:
+        case VK_PLAY:
             vid.play();
             console.log('Video playing');
             break;
         case tvKey.MediaPause:
+        case VK_PAUSE:
+        case VK_STOP:
             vid.pause();
             console.log('Video paused');
             break;
         case tvKey.RETURN:
+        case VK_BACK:
+        case VK_BACK_SPACE: 
+        	e.preventDefault();
             player.dispose();
             console.log("player removed")
             break;

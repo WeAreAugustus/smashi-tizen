@@ -133,9 +133,12 @@ function handleRemoteButtons(e) {
     switch (e.keyCode) {
         case tvKey.UP:
         case tvKey.DOWN:
+        case VK_UP:
+        case VK_DOWN:
             SpatialNavigation.resume();
             break;
         case tvKey.ENTER:
+        case VK_ENTER:
             var focusedElement = document.activeElement;
             var clickEvent = new MouseEvent("click", {
                 bubbles: true,
@@ -144,12 +147,14 @@ function handleRemoteButtons(e) {
             focusedElement.dispatchEvent(clickEvent);
             break;
         case tvKey.RETURN:
+        case VK_BACK:
+        case VK_BACK_SPACE: 
+        	e.preventDefault();
             goBack();
             exitApp();
             break;
     }
 }
-
 function ignoreKeyPress(e) {
     switch (e.keyCode) {
         // prevent keyPress events keys from being interpreted by platform browser
@@ -166,5 +171,21 @@ function ignoreKeyPress(e) {
             break;
     }
 }
+//function virtualKeys(e) {
+//	switch (e.keyCode) {
+//	// prevent keyPress events keys from being interpreted by platform browser
+//	case tvKey.LEFT:
+//	case tvKey.RIGHT:
+//	case tvKey.DOWN:
+//	case tvKey.UP:
+//	case tvKey.ENTER:
+//	case tvKey.RETURN:
+//	case tvKey.MediaPlay:
+//	case tvKey.MediaPause:
+//	case tvKey.MediaPlayPause:
+//		e.preventDefault();
+//		break;
+//	}
+//}
 document.onkeydown = handleRemoteButtons;
 document.addEventListener("keypress", ignoreKeyPress, true);
