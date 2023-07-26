@@ -94,7 +94,7 @@ define(['js/shared/language.js'], function(language) {
         	}
             if(retVal == true) {
             	backButtonCounter = 1;
-//            	tizen.application.getCurrentApplication().exit();
+            	tizen.application.getCurrentApplication().exit();
             	if (typeof SmartTvA_API != "undefined") {
                     SmartTvA_API.exit();
             	} 
