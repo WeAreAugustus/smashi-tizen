@@ -112,6 +112,7 @@ vid.addEventListener('keydown', function(e) {
             console.log("Video Enter");
             break;
         case tvKey.MediaPlayPause:
+        case VK_PLAY_PAUSE:
             playpause();
             console.log("Video PlayPause");
             break;

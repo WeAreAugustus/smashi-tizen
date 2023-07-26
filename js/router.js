@@ -93,10 +93,19 @@ define(['js/shared/language.js'], function(language) {
         		retVal = confirm("Are you sure you want to exit?");
         	}
             if(retVal == true) {
-            	tizen.application.getCurrentApplication().exit();
+            	backButtonCounter = 1;
+//            	tizen.application.getCurrentApplication().exit();
+            	if (typeof SmartTvA_API != "undefined") {
+                    SmartTvA_API.exit();
+            	} 
+            	else {
+                    window.history.go(-999);
+                    window.close();
+            	}
             	return true;
             }
             else {
+            	backButtonCounter = 1;
             	return false;
             }
         }
