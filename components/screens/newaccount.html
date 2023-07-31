@@ -173,7 +173,7 @@
 /*
 function checkLockSaved(checker, index) {
     console.log("In checker: " + index);
-    var hasSubscription = sessionStorage.getItem("hasSubscription");
+    var hasSubscription = localStorage.getItem("hasSubscription");
     if (checker == 1 || hasSubscription == "true" ) {
         console.log("In checker cond");
         if(document.getElementById('lockiconsaved' + index)){

@@ -46,7 +46,7 @@ define(['js/shared/language.js'], function(language) {
     }
     function removeTabIfSubbed() {
         let premTab = document.getElementsByName("premium");
-        var hasSubscription = sessionStorage.getItem("hasSubscription");
+        var hasSubscription = localStorage.getItem("hasSubscription");
         if (hasSubscription == "true") {
             premTab[0].style.display = "none";
         } else {
@@ -63,14 +63,14 @@ define(['js/shared/language.js'], function(language) {
             alert("The event is not live yet");
             console.log("second cond");
         } else if (checker == 0) {
-            var hasSubscription = sessionStorage.getItem("hasSubscription");
+            var hasSubscription = localStorage.getItem("hasSubscription");
             console.log("third cond");
             console.log("subbed: " + hasSubscription);
             if (hasSubscription == "true") {
                 changeScreen('player');
                 console.log("third cond subbed");
             } else {
-                let isLogged = sessionStorage.getItem("token");
+                let isLogged = localStorage.getItem("token");
                 if (isLogged) {
                     changeScreen('premium');
                 } else {
@@ -94,13 +94,15 @@ define(['js/shared/language.js'], function(language) {
         	}
             if(retVal == true) {
             	backButtonCounter = 1;
-            	tizen.application.getCurrentApplication().exit();
-            	if (typeof SmartTvA_API != "undefined") {
+            	if (typeof tizen !== 'undefined') {
+            		tizen.application.getCurrentApplication().exit();
+            	}
+            	else if (typeof SmartTvA_API != "undefined") {
                     SmartTvA_API.exit();
             	} 
             	else {
                     window.history.go(-999);
-                    window.close();
+                    setTimeout(window.close, 500);
             	}
             	return true;
             }

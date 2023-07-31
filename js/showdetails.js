@@ -2,7 +2,7 @@ require(["router"], function (router) {
 	router.hideSideBar();
 });
 function checkLock(){
-	var hasSubscription = sessionStorage.getItem("hasSubscription");
+	var hasSubscription = localStorage.getItem("hasSubscription");
 	if(hasSubscription == "true"){
 		document.getElementById('lockicon').remove();
 	}

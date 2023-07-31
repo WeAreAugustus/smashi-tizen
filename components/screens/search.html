@@ -56,7 +56,7 @@
     var checkIndex = 0;
     function checkLockSearch(checker) {
 	    console.log("in checker");
-	    var hasSubscription = sessionStorage.getItem("hasSubscription");
+	    var hasSubscription = localStorage.getItem("hasSubscription");
 	    if (checker == 1 || hasSubscription == "true") {
 	        console.log("in checker cond");
 	        document.getElementsByClassName('lockicon')[checkIndex].style.display = "none";

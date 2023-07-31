@@ -2,7 +2,7 @@ require(["router"], function (router) {
 	router.showSideBar();
 });
 
-var hasSubscription = sessionStorage.getItem("hasSubscription");
+var hasSubscription = localStorage.getItem("hasSubscription");
 fetch('https://smashi.tv/api/watch', {
 	    headers: {
 	        'Accept': 'application/json',

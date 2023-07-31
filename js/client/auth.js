@@ -186,17 +186,17 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 						// console.log(dataz.data.token);
 						// console.log(dataz.data.id);
 
-						sessionStorage.setItem("token", dataz.data.token);
-						sessionStorage.setItem("user_id", dataz.data.id);
+						localStorage.setItem("token", dataz.data.token);
+						localStorage.setItem("user_id", dataz.data.id);
 						// sessionStorage.setItem("profile", dataz.data.profile);
 						//User Details
-						sessionStorage.setItem("name", dataz.data.name);
-						sessionStorage.setItem("email", dataz.data.email);
-						sessionStorage.setItem("profile", dataz.data.profile);
-						sessionStorage.setItem("hasSubscription", dataz.data.has_subscription);
-						sessionStorage.setItem("subscriptionType", dataz.data.subscription_type.name);
-						sessionStorage.setItem("subscriptionPrice", dataz.data.subscription_type.price);
-						sessionStorage.setItem("subscriptionExpiryDate", dataz.data.subscription_ex_date);
+						localStorage.setItem("name", dataz.data.name);
+						localStorage.setItem("email", dataz.data.email);
+						localStorage.setItem("profile", dataz.data.profile);
+						localStorage.setItem("hasSubscription", dataz.data.has_subscription);
+						localStorage.setItem("subscriptionType", dataz.data.subscription_type.name);
+						localStorage.setItem("subscriptionPrice", dataz.data.subscription_type.price);
+						localStorage.setItem("subscriptionExpiryDate", dataz.data.subscription_ex_date);
 						// sessionStorage.setItem("subscription", dataz.data.has_subscription);
 						// mytoken = sessionStorage.getItem("token");
 						// //alert("Hello " + dataz.data.name);

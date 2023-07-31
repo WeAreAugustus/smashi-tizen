@@ -2,15 +2,15 @@ require(["router"], function(router) {
     router.showSideBar();
 });
 function mySignout() {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("user_id");
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("email");
-    sessionStorage.removeItem("profile");
-    sessionStorage.removeItem("hasSubscription");
-    sessionStorage.removeItem("subscriptionType");
-    sessionStorage.removeItem("subscriptionPrice");
-    sessionStorage.removeItem("subscriptionExpiryDate");
+	localStorage.removeItem("token");
+	localStorage.removeItem("user_id");
+	localStorage.removeItem("name");
+	localStorage.removeItem("email");
+	localStorage.removeItem("profile");
+	localStorage.removeItem("hasSubscription");
+	localStorage.removeItem("subscriptionType");
+	localStorage.removeItem("subscriptionPrice");
+	localStorage.removeItem("subscriptionExpiryDate");
     changeScreenGlobal("home");
 }
 function confirmSignout(){
@@ -51,7 +51,7 @@ if (myLanguage == 'ar'){
 }
 
 //Fetching User  Details
-var token = sessionStorage.getItem("token");
+var token = localStorage.getItem("token");
 fetch("https://smashi.tv/api/details", {
         method: "POST",
         headers: {
@@ -106,7 +106,7 @@ fetch("https://smashi.tv/api/current/subscription", {
     console.log(error);
 });
 
-var user_id = sessionStorage.getItem("user_id");
+var user_id = localStorage.getItem("user_id");
 //Fetching the user's saved videos
 fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
         method: "GET",
@@ -145,7 +145,7 @@ fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
 
 function checkLockSaved(checker, index) {
     console.log("In checker: " + index);
-    var hasSubscription = sessionStorage.getItem("hasSubscription");
+    var hasSubscription = localStorage.getItem("hasSubscription");
     if (checker == 1 || hasSubscription == "true" ) {
         console.log("In checker cond");
         if(document.getElementById('lockiconsaved' + index)){

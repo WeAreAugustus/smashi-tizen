@@ -66,7 +66,7 @@ require(["router"], function(router) {
     router.showSideBar();
 });
 
-if (sessionStorage.getItem("token")) {
+if (localStorage.getItem("token")) {
     document.getElementById('loginicon').setAttribute("name", "newaccount");
     document.getElementsByClassName('sidebartext')[1].setAttribute("lang-value", "account");
     } 

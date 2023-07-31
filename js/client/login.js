@@ -45,18 +45,18 @@ function newLogin(){
 	        data => {
 	        	if (!data.isError){
 	        		//Credentials
-	        		sessionStorage.setItem("token", data.data.token);
-					sessionStorage.setItem("user_id", data.data.id);
+	        		localStorage.setItem("token", data.data.token);
+	        		localStorage.setItem("user_id", data.data.id);
 
 					// User Details
-					sessionStorage.setItem("name", data.data.name);
-					sessionStorage.setItem("email", data.data.email);
-					sessionStorage.setItem("profile", data.data.profile);
-					sessionStorage.removeItem("hasSubscription");
-					sessionStorage.setItem("hasSubscription", data.data.has_subscription);
-					sessionStorage.setItem("subscriptionType", data.data.subscription_type.name);
-					sessionStorage.setItem("subscriptionPrice", data.data.subscription_type.price);
-					sessionStorage.setItem("subscriptionExpiryDate", data.data.subscription_ex_date);
+	        		localStorage.setItem("name", data.data.name);
+	        		localStorage.setItem("email", data.data.email);
+	        		localStorage.setItem("profile", data.data.profile);
+	        		localStorage.removeItem("hasSubscription");
+	        		localStorage.setItem("hasSubscription", data.data.has_subscription);
+	        		localStorage.setItem("subscriptionType", data.data.subscription_type.name);
+	        		localStorage.setItem("subscriptionPrice", data.data.subscription_type.price);
+					localStorage.setItem("subscriptionExpiryDate", data.data.subscription_ex_date);
 					
 		            changeScreenGlobal("home");
 	        	}
