@@ -6,7 +6,7 @@ function performSearch(){
 	var searchKeyword = document.getElementsByClassName("form-control")[0].value;
 	var dataHtml = ``;
 	dataHtml += `<h1 lang-value="searchresultsfor">Your search was: "${searchKeyword}"</h1>`;
-	fetch('https://smashi.tv/api/video/search?q=' + searchKeyword, {
+	fetch('https://www.smashi.tv/api/video/search?q=' + searchKeyword, {
 		headers: {
 			'Accept': 'application/json',
 			'X-localization': myLanguage

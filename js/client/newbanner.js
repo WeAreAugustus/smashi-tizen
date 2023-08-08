@@ -2,7 +2,7 @@ var myLanguage = sessionStorage.getItem("locale");
 if (!myLanguage) {
     var myLanguage = 'en';
 }
-fetch('https://smashi.tv/api/shows/banner', {
+fetch('https://www.smashi.tv/api/shows/banner', {
 	    headers: {
 	        'Accept': 'application/json',
 	        'X-localization': myLanguage

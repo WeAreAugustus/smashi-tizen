@@ -2,10 +2,10 @@ var myLanguage = sessionStorage.getItem("locale");
 if(!myLanguage){
 	myLanguage = 'en';
 }
-//https://smashi.tv/api/webinar/scheduled/event
+//https://www.smashi.tv/api/webinar/scheduled/event
 //https://api.jsonbin.io/v3/b/64074044ebd26539d08aa16f
 function fetchLive(){
-    	fetch('https://smashi.tv/api/webinar/scheduled/event', {
+    	fetch('https://www.smashi.tv/api/webinar/scheduled/event', {
     		headers: {
     			'Accept': 'application/json',
     			'X-localization': myLanguage

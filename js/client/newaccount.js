@@ -52,7 +52,7 @@ if (myLanguage == 'ar'){
 
 //Fetching User  Details
 var token = localStorage.getItem("token");
-fetch("https://smashi.tv/api/details", {
+fetch("https://www.smashi.tv/api/details", {
         method: "POST",
         headers: {
             Authorization: `Bearer ${token}`,
@@ -76,7 +76,7 @@ fetch("https://smashi.tv/api/details", {
         console.log(error);
     });
 //Fetching subscription details
-fetch("https://smashi.tv/api/current/subscription", {
+fetch("https://www.smashi.tv/api/current/subscription", {
     method: "GET",
     headers: {
         Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ fetch("https://smashi.tv/api/current/subscription", {
 
 var user_id = localStorage.getItem("user_id");
 //Fetching the user's saved videos
-fetch("https://smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
+fetch("https://www.smashi.tv/api/v2/saved/video/list?user_id=" + user_id, {
         method: "GET",
         headers: {
         	'Content-Type': 'application/json',

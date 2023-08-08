@@ -17,7 +17,7 @@ define(['client/shared', 'js/cdn/paginationmin.js'], function(shared) {
             dataHtml += `<h1 lang-value="searchresultsfor">Your search was: "${searchKeyword}"</h1>`;
             let container = $('#pagination');
             container.pagination({
-                dataSource: 'https://smashi.tv/api/video/search?q=' + searchKeyword,
+                dataSource: 'https://www.smashi.tv/api/video/search?q=' + searchKeyword,
                 locator: 'data',
                 totalNumber: 12,
                 ajax: {

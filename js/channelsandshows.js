@@ -11,7 +11,7 @@ var myLanguage = sessionStorage.getItem("locale");
 if (!myLanguage) {
     myLanguage = 'en';
 }
-fetch('https://smashi.tv/api/video/shows/channel', {
+fetch('https://www.smashi.tv/api/video/shows/channel', {
 	    headers: {
 	        'Accept': 'application/json',
 	        'X-localization': myLanguage
@@ -35,7 +35,7 @@ fetch('https://smashi.tv/api/video/shows/channel', {
             });
         }
     );
-fetch('https://smashi.tv/api/video/shows', {
+fetch('https://www.smashi.tv/api/video/shows', {
 		headers: {
         'Accept': 'application/json',
         'X-localization': myLanguage

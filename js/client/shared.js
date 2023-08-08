@@ -1,6 +1,6 @@
 define(function(){
     var url = {
-        'base' : 'https://smashi.tv/api/',
+        'base' : 'https://www.smashi.tv/api/',
         'login': 'api/v2/login',
         'register' : 'api_register',
         'emailChecker': 'check/email',

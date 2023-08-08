@@ -4,7 +4,7 @@ if(!myLanguage){
 }
 var shorts_index = 1, shorts_id = 1;
 function fetchShorts(){
-	fetch('https://smashi.tv/api/video/shorts?page=' + shorts_index, {
+	fetch('https://www.smashi.tv/api/video/shorts?page=' + shorts_index, {
 		headers: {
         'Accept': 'application/json',
         'X-localization': myLanguage

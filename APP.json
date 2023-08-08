@@ -90,7 +90,7 @@
 			],
 			"app_icon": [
 				{
-					"icon_url": "https://smashi.tv/assets/img/tizen/app_icon_1.png",
+					"icon_url": "https://www.smashi.tv/assets/img/tizen/app_icon_1.png",
 					"icon_ratio": "1:1",
 					"icon_size": {
 						"width": "480",
@@ -106,7 +106,7 @@
 					]
 				},
 				{
-					"icon_url": "https://smashi.tv/assets/img/tizen/app_icon_2.png",
+					"icon_url": "https://www.smashi.tv/assets/img/tizen/app_icon_2.png",
 					"icon_ratio": "16:9",
 					"icon_size": {
 						"width": "480",
@@ -122,10 +122,10 @@
 					]
 				}
 			],
-			"app_banner": "https://smashi.tv/assets/img/tizen/appname1%201848%20x%20296.png",
+			"app_banner": "https://www.smashi.tv/assets/img/tizen/appname1%201848%20x%20296.png",
 			"screenshots": [
 				{
-					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot1.png",
+					"screenshot_url": "https://www.smashi.tv/assets/img/tizen/screenshot1.png",
 					"screenshot_ratio": "16:9",
 					"screenshot_size": {
 						"width": "1920",
@@ -133,7 +133,7 @@
 					}
 				},
 				{
-					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot2.png",
+					"screenshot_url": "https://www.smashi.tv/assets/img/tizen/screenshot2.png",
 					"screenshot_ratio": "16:9",
 					"screenshot_size": {
 						"width": "1920",
@@ -141,7 +141,7 @@
 					}
 				},
 				{
-					"screenshot_url": "https://smashi.tv/assets/img/tizen/screenshot3.png",
+					"screenshot_url": "https://www.smashi.tv/assets/img/tizen/screenshot3.png",
 					"screenshot_ratio": "16:9",
 					"screenshot_size": {
 						"width": "1920",
@@ -167,7 +167,7 @@
 				}
 			],
 			"rating": 18,
-			"app_url": "https://smashi.tv/smashi-tizen/"
+			"app_url": "https://www.smashi.tv/smashi-tizen/"
 		}
 	]
 }

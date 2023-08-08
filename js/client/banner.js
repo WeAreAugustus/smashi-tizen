@@ -11,7 +11,7 @@ function changeBanner(bannerURL, title, body){
 	document.getElementById('homeBannerTitle').innerHTML = title;
 	document.getElementById('homeBannerBody').innerHTML = body;
 }
-fetch("https://smashi.tv/api/shows/banner", {
+fetch("https://www.smashi.tv/api/shows/banner", {
 		method: 'GET',
 		headers: {
 			'Access-Control-Allow-Origin': '*',

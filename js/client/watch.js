@@ -3,7 +3,7 @@ require(["router"], function (router) {
 });
 
 var hasSubscription = localStorage.getItem("hasSubscription");
-fetch('https://smashi.tv/api/watch', {
+fetch('https://www.smashi.tv/api/watch', {
 	    headers: {
 	        'Accept': 'application/json',
 	        'X-localization': myLanguage
