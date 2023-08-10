@@ -2,15 +2,15 @@ define(['js/shared/language.js'], function(language) {
     removeTabIfSubbed();
     var backButtonCounter = 0;
     var pages = ['home'];
-    
+
     var sidebaricons = document.getElementsByClassName("sidebaricon");
-    for(let i = 0; i < sidebaricons.length; i++){
-    	let svgs = sidebaricons[i].children;
-    	if(sidebaricons[i].getAttribute("name") == 'home'){
-    		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
-    		svgs[0].style.opacity = "0";
-    		svgs[1].style.opacity = "1";
-    	}
+    for (let i = 0; i < sidebaricons.length; i++) {
+        let svgs = sidebaricons[i].children;
+        if (sidebaricons[i].getAttribute("name") == 'home') {
+            sidebaricons[i].style.borderInlineEndWidth = "7.5px";
+            svgs[0].style.opacity = "0";
+            svgs[1].style.opacity = "1";
+        }
     }
     var changeScreen = function(screenName) {
         removeTabIfSubbed();
@@ -29,21 +29,21 @@ define(['js/shared/language.js'], function(language) {
         }
     }
 
-    function sidebarFocus(screenName){
-    	for(let i = 0; i < sidebaricons.length; i++){
-        	let svgs = sidebaricons[i].children;
-        	if(sidebaricons[i].getAttribute("name") == screenName){
-        		sidebaricons[i].style.borderInlineEndWidth = "7.5px";
-        		svgs[0].style.opacity = "0";
-        		svgs[1].style.opacity = "1";
-        	}
-        	else{
-        		sidebaricons[i].style.borderInlineEndWidth = "0px";
-        		svgs[0].style.opacity = "1";
-        		svgs[1].style.opacity = "0";
-        	}
+    function sidebarFocus(screenName) {
+        for (let i = 0; i < sidebaricons.length; i++) {
+            let svgs = sidebaricons[i].children;
+            if (sidebaricons[i].getAttribute("name") == screenName) {
+                sidebaricons[i].style.borderInlineEndWidth = "7.5px";
+                svgs[0].style.opacity = "0";
+                svgs[1].style.opacity = "1";
+            } else {
+                sidebaricons[i].style.borderInlineEndWidth = "0px";
+                svgs[0].style.opacity = "1";
+                svgs[1].style.opacity = "0";
+            }
         }
     }
+
     function removeTabIfSubbed() {
         let premTab = document.getElementsByName("premium");
         var hasSubscription = localStorage.getItem("hasSubscription");
@@ -83,33 +83,16 @@ define(['js/shared/language.js'], function(language) {
     }
 
     function exitApplication() {
-        backButtonCounter++;
-        if (backButtonCounter == 3) {
-        	var retVal = null;
-        	if(myLanguage == 'ar'){
-        		retVal = confirm("هل تريد الخروج؟");
-        	}
-        	else{
-        		retVal = confirm("Are you sure you want to exit?");
-        	}
-            if(retVal == true) {
-            	backButtonCounter = 1;
-            	if (typeof tizen !== 'undefined') {
-            		tizen.application.getCurrentApplication().exit();
-            	}
-            	else if (typeof SmartTvA_API != "undefined") {
-                    SmartTvA_API.exit();
-            	} 
-            	else {
-                    window.history.go(-999);
-                    setTimeout(window.close, 500);
-            	}
-            	return true;
+        if(pages[pages.length - 1] == 'home'){
+        	if (typeof tizen !== 'undefined') {
+                tizen.application.getCurrentApplication().exit();
+            } else if (typeof SmartTvA_API != "undefined") {
+                SmartTvA_API.exit();
+            } else {
+                window.history.go(-999);
+                setTimeout(window.close, 500);
             }
-            else {
-            	backButtonCounter = 1;
-            	return false;
-            }
+            return true;
         }
     }
 

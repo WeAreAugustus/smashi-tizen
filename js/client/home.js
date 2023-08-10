@@ -151,8 +151,8 @@ function handleRemoteButtons(e) {
         case VK_BACK_SPACE: 
         	e.preventDefault();
         	e.stopPropagation()
+        	exitApp();
             goBack();
-            exitApp();
             break;
     }
 }
