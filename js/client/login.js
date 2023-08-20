@@ -29,7 +29,7 @@ function newLogin(){
 	data.append('password', loginPassword);
 	data.append('device_id', 'lldk');
 
-	fetch("https://www.smashi.tv/api/api/v2/login", {
+	fetch("https://api.smashi.tv/api/api/v2/login", {
 		  method: "POST",
 		  body: data,
 		  headers: {

@@ -22,7 +22,7 @@ function checkLock(){
                 myLanguage = 'en';
             }
         function  fetchEpisodes(){
-        	var episodesURL = 'https://www.smashi.tv/api/video/shows/' + showId + '/details?page=' + episodes_index;
+        	var episodesURL = 'https://api.smashi.tv/api/video/shows/' + showId + '/details?page=' + episodes_index;
         	fetch(episodesURL, {
                 headers: {
                     'Accept': 'application/json',
@@ -107,7 +107,7 @@ function checkLock(){
         }
         fetchEpisodes();
         function fetchClips(){
-        	var clipsURL = 'https://www.smashi.tv/api/video/shows/' + showId + '/clips/videos?page=' + clips_index;
+        	var clipsURL = 'https://api.smashi.tv/api/video/shows/' + showId + '/clips/videos?page=' + clips_index;
             fetch(clipsURL, {
                 headers: {
                     'Accept': 'application/json',
@@ -159,7 +159,7 @@ function checkLock(){
         }
         fetchClips();
         function fetchShowShorts(){
-        	var shortsUrl = 'https://www.smashi.tv/api/video/shorts?show_id=' + showId + '&page=' + showshorts_index;
+        	var shortsUrl = 'https://api.smashi.tv/api/video/shorts?show_id=' + showId + '&page=' + showshorts_index;
             fetch(shortsUrl, {
         		headers: {
                 'Accept': 'application/json',

@@ -25,7 +25,7 @@ function newRegister(){
 	data.append('password', regsiterPassword);
 	data.append('name', registerName);
 
-	fetch("https://www.smashi.tv/api/api_register", {
+	fetch("https://api.smashi.tv/api/api_register", {
 		  method: "POST",
 		  body: data,
 		  headers: {

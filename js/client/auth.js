@@ -166,7 +166,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 		qrcode: function () {
 
 			const api_url =
-				"https://www.smashi.tv/api/getUniqueTvCode";
+				"https://api.smashi.tv/api/getUniqueTvCode";
 
 			$.get(api_url, function (data) {
 				var channel = pusher.subscribe(data.data.unique_code);
@@ -175,7 +175,7 @@ define(['client/shared','js/cdn/paginationmin.js'], function (shared) {
 				channel.bind("otp", (datas) => {
 					// console.log(data.data.unique_code);
 					// console.log(datas.otp);
-					$.post("https://www.smashi.tv/api/loginWithOTP",
+					$.post("https://api.smashi.tv/api/loginWithOTP",
 					{
 						unique_code: data.data.unique_code,
 						otp: datas.otp
