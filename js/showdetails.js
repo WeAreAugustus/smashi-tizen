@@ -4,7 +4,9 @@ require(["router"], function (router) {
 function checkLock(){
 	var hasSubscription = localStorage.getItem("hasSubscription");
 	if(hasSubscription == "true"){
-		document.getElementById('lockicon').remove();
+		if(document.getElementById('lockicon')){			
+			document.getElementById('lockicon').remove();
+		}
 	}
 }
 		var showId = sessionStorage.getItem('ShowAndChannelId');
@@ -70,7 +72,9 @@ function checkLock(){
                     
                     
                     if (!details.body){
-    		            document.getElementById('bannerBody').remove();
+                    	if(document.getElementById('bannerBody')){                    		
+                    		document.getElementById('bannerBody').remove();
+                    	}
     				}
                     videodetails.forEach(item => {
                     	markup = `
@@ -100,7 +104,9 @@ function checkLock(){
                         }
                 });
                 if (videodetails.length == 0) {
-                    document.getElementById('episodesrow').remove();
+                	if(document.getElementById('episodesrow')){                		
+                		document.getElementById('episodesrow').remove();
+                	}
 					}
                 }
             );
@@ -152,7 +158,9 @@ function checkLock(){
                         }
                 });
                 if (clipsdetails.length == 0) {
-                    	document.getElementById('clipsrow').remove();
+                		if(document.getElementById('clipsrow')){                			
+                			document.getElementById('clipsrow').remove();
+                		}
                     }
                 }
             );
@@ -178,7 +186,9 @@ function checkLock(){
                     	firstVideoIsClip = 1;
                     }
                     else{
-                    	document.getElementById("watchnowbutt").setAttribute("disabled", true);
+                    	if(document.getElementById("watchnowbutt")){                    		
+                    		document.getElementById("watchnowbutt").setAttribute("disabled", true);
+                    	}
                     }
                     shorts.forEach(short => {
                     	const markup = `
