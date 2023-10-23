@@ -1,3 +1,16 @@
+function handleBack(e) {
+    switch (e.keyCode) {
+    	case tvKey.RETURN:
+        case VK_BACK:
+        case VK_BACK_SPACE: 
+        	console.log('test')
+        	e.preventDefault();
+        	e.stopPropagation();
+        	break;
+    }
+}
+document.addEventListener('keydown', handleBack);
+
 define(['client/shared', 'js/cdn/paginationmin.js'], function(shared) {
     return {
         getSearchResults: function() {

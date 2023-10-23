@@ -23,7 +23,7 @@ define(['js/shared/language.js'], function(language) {
         });
         setTimeout(function() {
             language.init()
-        }, 100);
+        }, 1000);
         if (pages[pages.length - 1] != screenName) {
             pages.push(screenName);
         }

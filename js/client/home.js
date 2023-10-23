@@ -104,7 +104,6 @@ function scrollToTop() {
         top: 0,
         behavior: 'smooth'
     });
-    console.log("top");
 }
 
 function scrollToLeft() {
@@ -112,7 +111,6 @@ function scrollToLeft() {
         left: 0,
         behavior: 'smooth'
     });
-    console.log("left");
 }
 
 function scrollToRight() {
@@ -120,7 +118,6 @@ function scrollToRight() {
         right: 0,
         behavior: 'smooth'
     });
-    console.log("right");
 }
 
 function navigateToChannel(channelId) {
@@ -129,7 +126,6 @@ function navigateToChannel(channelId) {
 }
 
 function handleRemoteButtons(e) {
-    console.log("Keycode: " + e.keyCode);
     switch (e.keyCode) {
         case tvKey.UP:
         case tvKey.DOWN:
@@ -148,7 +144,14 @@ function handleRemoteButtons(e) {
             break;
         case tvKey.RETURN:
         case VK_BACK:
-        case VK_BACK_SPACE: 
+        case VK_BACK_SPACE:
+        	if(document.getElementById("searchInput")){
+        		if(document.getElementById("searchInput").value){
+        			console.log('value')
+        			break;
+        		}
+        	}
+        	console.log('no value')
         	e.preventDefault();
         	e.stopPropagation()
         	exitApp();
@@ -172,21 +175,5 @@ function ignoreKeyPress(e) {
             break;
     }
 }
-//function virtualKeys(e) {
-//	switch (e.keyCode) {
-//	// prevent keyPress events keys from being interpreted by platform browser
-//	case tvKey.LEFT:
-//	case tvKey.RIGHT:
-//	case tvKey.DOWN:
-//	case tvKey.UP:
-//	case tvKey.ENTER:
-//	case tvKey.RETURN:
-//	case tvKey.MediaPlay:
-//	case tvKey.MediaPause:
-//	case tvKey.MediaPlayPause:
-//		e.preventDefault();
-//		break;
-//	}
-//}
 document.onkeydown = handleRemoteButtons;
 document.addEventListener("keypress", ignoreKeyPress, true);
